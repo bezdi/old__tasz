@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.85, user-scalable=1">
+  <link rel="stylesheet" href="css/style.css">
+  <title>tasz__donateForm</title>
+</head>
+<body class="donate">
+  <header>
+    <nav>
+      <ul>
+        <li class="help"><a href="#">Segitség</a></li>
+        <li><a href="#">Témáink</a></li>
+        <li><a href="#">Sikerek</a></li>
+        <li class="logo"><a href="#">Társaság a Szabadságjogokért</a></li>
+        <li><a href="#">Csatlakozz</a></li>
+        <li><a href="#">Rólunk</a></li>
+        <li class="support"><a href="#">Támogass</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <div class="donate__header">
+      <h1>Légy a Szabadság Részvényese!</h1>
+      <div class="lead">
+        <p><strong>Ha olyan országban akarsz élni, ahol</strong></p>
+        <ul>
+          <li>a hatalom tiszteletben tartja az állampolgárok jogait</li>
+          <li>nem vehetik el a gyerekeket a szüleiktől a szegénységük miatt</li>
+          <li>a közpénzek elköltését nem titkolja a hatalom</li>
+          <li>nem halnak meg betegek kórházi fertőzésekben</li>
+          <li>szabad a sajtó</li>
+        </ul>
+      </div>
+    </div>
+    <div class="donate__main">
+      <div class="tabs">
+          <a href="#">Elektronikus utalás</a>
+          <a class="active" href="#">Banki átutalás</a>
+          <a href="#">Adó 1%</a>
+          <a href="#">Hagyatéki eljárás</a>
+          <a href="#">Csekk</a>
+      </div>
+      <!-- tabs -->
+      <div class="donate__main-form">
+        <fieldset>
+          <legend>Válaszd ki az elektronikus utalás típusát!</legend>
+          <div class="toggle">
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios1" name="toggle1" value="1" class="form-radios" checked>
+              <label class="option" for="edit-radios1">Egyszeri átutalás</label>
+            </div>
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios2" name="toggle1" value="1" class="form-radios">
+              <label class="option" for="edit-radios2">Rendszeres átutalás</label>
+            </div>
+          </div>
+          <div class="toggle">
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios3" name="toggle2" value="1" class="form-radios" checked>
+              <label class="option" for="edit-radios3">Megadom az adataimat</label>
+            </div>
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios4" name="toggle2" value="1" class="form-radios">
+              <label class="option" for="edit-radios4">Anonim maradok</label>
+            </div>
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios7" name="toggle2" value="1" class="form-radios">
+              <label class="option" for="edit-radios7">Harmadik lehetoseg</label>
+            </div>
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios8" name="toggle2" value="1" class="form-radios">
+              <label class="option" for="edit-radios8">Negyedik opció ami olyan hosszú, hogy több sorba törik</label>
+            </div>
+            <div class="form-type-toggle">
+              <input type="radio" id="edit-radios9" name="toggle2" value="1" class="form-radios">
+              <label class="option" for="edit-radios9">Öt</label>
+            </div>
+          </div>
+          <!-- toggle -->
+        </fieldset>
+
+        <fieldset>
+          <legend>Válassz a fizetési lehetőségek közül!</legend>
+          <ul class="paymentchoice">
+            <li><a class="simplepay" href="#"><img src="images/payment/cibpay.png" alt=""></a></li>
+            <li><a class="paypal" href="#"><img src="images\payment\paypal.png" alt=""></a></li>
+            <li><a class="cibbank" href="#"><img src="images\payment\simplepay.png" alt=""></a></li>
+          </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>Töltsd ki az adataidat!</legend>
+          <div class="wrapper320">
+            <div class="form-item-textfield">
+              <label for="edit-textfield">Vezetéknév</label>
+              <input id="edit-textfield" type="text" name="textfield" value="" >
+              <div class="description">Etiam quis elit vel est suscipit tristique.</div>
+            </div>
+            <div class="form-item-textfield">
+              <label for="edit-textfield2">Utónév</label>
+              <input id="edit-textfield2" type="text" name="textfield" value="" >
+            </div>
+            <div class="form-item-textfield">
+              <label for="edit-textfield3">Number</label>
+              <input id="edit-textfield3" type="number" name="textfield" value="" >
+            </div>
+            <div class="form-item-textfield">
+              <label for="edit-textfield4">Email</label>
+              <input id="edit-textfield4" type="email" name="textfield" value="" >
+            </div>
+            <p>Pénznem választás</p>
+            <div class="toggle">
+              <div class="form-type-toggle">
+                <input type="radio" id="edit-radios5" name="toggle3" value="huf" class="form-radios" checked>
+                <label class="option" for="edit-radios5">HUF</label>
+              </div>
+              <div class="form-type-toggle">
+                <input type="radio" id="edit-radios6" name="toggle3" value="eur" class="form-radios">
+                <label class="option" for="edit-radios6">EUR</label>
+              </div>
+            </div>
+            <div class="form-item-checkboxes">
+              <!-- <label for="edit-checkboxes">Checkboxes </label> -->
+              <div id="edit-checkboxes">
+                <div class="form-type-checkbox">
+                  <input type="checkbox" id="edit-checkboxes1" name="checkbox" value="1" class="form-checkbox">
+                  <label class="option" for="edit-checkboxes1">Elfogadom a szerződési feltételeket</label>
+                </div>
+                <div class="form-type-checkbox">
+                  <input type="checkbox" id="edit-checkboxes2" name="checkbox" value="1" class="form-checkbox">
+                  <label class="option" for="edit-checkboxes2">Feliratkozom a TASZ hírlevélre</label>
+                </div>
+                <!-- <div class="description">Etiam quis elit vel est suscipit tristique.</div> -->
+              </div>
+            </div>
+            <!-- checkboxes -->
+            <input type="submit" name="" value="Részvényes leszek!">
+          </div>
+          <!-- wrapper320 -->
+        </fieldset>
+      </div>
+      <!-- donate__main-form -->
+    </div>
+    <!-- donate__main -->
+    <div class="donate__postscript">
+      <div class="attention">
+        <p>Az oldalról el fogunk navigálni a kiválasztott Bank rendszerében,ahol el tudod intézni az elektronikus utalást.</p>
+        <p>Köszönjük, hogy Te is szabadság részvényese leszel!</p>
+      </div>
+      <div class="text">
+        <h4>Az a célunk, hogy 2017 végéig 1000 szabadság részvényesünk legyen.</h4>
+        <p>Kiszámoltuk: egy év alatt így a működésünk 18%-át teremtenénk elő a szabadság részvényesek által biztosított befizetésekből.</p>
+        <p>A részvényesek által biztosított tőkét a TASZ Jogsegélyszolgálata által képviselt ügyekre, a szabadság megvédésére költjük. A jogsegélyszolgálatunk teszi ki a munkánk jelentős részét: jogi tanácsadást nyújtunk, perekben nyújtunk képviseletet, tájékoztatjuk az állampolgárokat a jogaikról.</p>
+        <p>A szabadság részvényesei azok, akik havi rendszeres hozzájárulásukkal a szervezet működésének alapjait teremtik meg. Ti részvényesek azt az alaptőkét adjátok össze, amely a szervezet független működéséhez szükséges.</p>
+        <p>Részvényeink ára:</p>
+        <ul>
+          <li>3000 Forint - Havi egy beadvány elküldése az Emberi Jogok Európai Bíróságára</li>
+          <li>5000 Forint - Telefonos és e-mailes jogsegélyszolgálatunk egy heti működése</li>
+          <li>10000 Forint - Egy ügy teljes jogi képviselete</li>
+        </ul>
+      </div>
+
+      </div>
+    <!-- donate__postscript -->
+  </div>
+  <!-- wrapper -->
+
+  <footer>
+    <nav class="footerNav2">
+      <h3>A szervezetről</h3>
+      <ul>
+        <li><a href="#">A <span class="tasz">Tasz</span> fő tevékenységei</a></li>
+        <li><a href="#">Szervezeti felépítés</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> elnöksége</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> tanácsadói</a></li>
+        <li><a href="#">Felügyelő bizottság</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> története</a></li>
+        <li><a href="#">Munkatársak</a></li>
+      </ul>
+    </nav>
+    <nav class="footerNav3">
+      <h3>Hasznos információk</h3>
+      <ul>
+        <li><a href="#">Beszámolók, kimutatások, szabályzatok</a></li>
+        <li><a href="#">Alapszabály</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> gazdálkodása</a></li>
+        <li><a href="#">Éves jelentések, Annual Reports</a></li>
+        <li><a href="#">Kiemelt támogatóink és pártolóink</a></li>
+        <li><a href="#">Nemzetközi kapcsolatok</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> és a pártok</a></li>
+      </ul>
+    </nav>
+    <nav class="footerNav1">
+      <ul>
+        <li class="logo"><a href="#">Társaság a Szabadságjogokért</a></li>
+        <li class="support"><a href="#">Támogass</a></li>
+        <li class="lang"><a href="#" lang="en">In English</a></li>
+      </ul>
+    </nav>
+    <div class="impressum">
+      © 2017 TASZ ⎮ Minden jog fenntartva. Adatvédelem és Felhasználási feltételek ⎮  Készítette: Farm Studio Kft.
+    </div>
+  </footer>
+</body>
+</html>

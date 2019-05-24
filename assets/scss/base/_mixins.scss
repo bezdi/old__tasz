@@ -1,0 +1,346 @@
+//listreset
+@mixin listreset {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  -webkit-padding-start: 0;
+  line-height: 0;// ?
+  list-style-type: none;
+  li {
+    list-style: none;
+  }
+}
+// marginAuto
+@mixin marginAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+//errorMessage
+@mixin errorMessage($message: 'error',$color: darkred) {
+  @if $devMode == 1 {
+    position: relative;
+    &::after {
+      content: '#{$message}';
+      display: block;
+      background-color: $color;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      z-index: 10;
+      font-size: 13px;
+      padding: 2px;
+      font-family: 'Verdana', sans-serif;
+    }
+  }
+}
+//clearfix
+@mixin clearfix {
+  @if $clearfix == 'on' {
+    & {
+      *zoom: 1;
+    }
+    &::after, &::before {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+
+  }
+}
+//pseudo --OBSOLATE
+@mixin pseudo {
+  content: ' ';
+  display: block;
+}
+@mixin pseudotest {
+  @include pseudo;
+  width: 16px;
+  height: 16px;
+  background-color: red;
+}
+//transition
+@mixin transition($duration: 1,$property: all) {
+  -webkit-transition-duration: #{$duration}s;
+  transition-duration: #{$duration}s;
+  -webkit-transition-property: #{$property};
+  transition-property: #{$property};
+}
+//image effects, hover effects
+ // --OBSOLATE
+@mixin hover--zoom {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  #{$states} {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    outline: 0;
+  }
+}
+//rotate
+@mixin rotate($rot) {
+  -ms-transform: rotate(#{$rot}deg); /* IE 9 */
+    -webkit-transform: rotate(#{$rot}deg); /* Chrome, Safari, Opera */
+    transform: rotate(#{$rot}deg);
+}
+//overlay linke
+@mixin overlay-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+// ?--OBSOLATE?
+//buttonset
+@mixin buttonset {
+  @include listreset;
+  text-align: center;
+  margin-bottom: $gutter;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: $gutter*2;
+  margin-bottom: $gutter*2;
+  li {
+    display: block;
+    text-align: center;
+    margin-left: $gutter;
+    margin-right: $gutter;
+  }
+  a {
+    padding-top: calc(#{$gutter} - 2px);
+    padding-right: $gutter;
+    padding-bottom: calc(#{$gutter}  + 2px);
+    padding-left: $gutter;
+    border: 1px solid $c-black;
+    text-transform: uppercase;
+    display: block;
+    text-decoration: none;
+  }
+}
+//dev, debug
+@mixin DEV($outline: 0, $backgroundcolor: 0) {
+  @if $devMode == 1 and $devColors == 1 {
+    @if $outline !=0 {
+      outline: 2px solid rgba($outline,.25);
+    }
+    @if $backgroundcolor !=0 {
+      background-color: rgba($backgroundcolor,.15);
+    }
+  }
+}
+@mixin DEVforced($outline: 0, $backgroundcolor: 0) {
+  @if $outline !=0 {
+    outline: 2px solid rgba($outline,.25);
+  }
+  @if $backgroundcolor !=0 {
+    background-color: rgba($backgroundcolor,.15);
+  }
+}
+@mixin showSpacingBefore($showSize: 96,$offset: 0,$color:#8000ff) {
+  @if $devMode == 1 and $devSpacing == 1 {
+    position: relative;
+    &::before {
+      @include pseudo;
+      content: '#{$showSize}';
+      padding: 2px;
+      box-sizing: border-box;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      vertical-align: middle;
+      overflow: hidden;
+      position: absolute;
+      line-height: #{$showSize * .1 - .4}rem;
+      width: #{$showSize * .1 * 3}rem;
+      height: #{$showSize * .1}rem;
+      max-width: 280px;
+      background-color: rgba($color,.35);
+      z-index: 100;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      top:  #{-$showSize * .1 - $offset * .1}rem;
+    }
+  }
+}
+@mixin showSpacingAfter($showSize: 96,$offset: 0,$color:#8000ff) {
+  @if $devMode == 1 and $devSpacing == 1 {
+    position: relative;
+    &::after {
+      @include pseudo;
+      content: '#{$showSize}';
+      padding: 2px;
+      box-sizing: border-box;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      vertical-align: middle;
+      line-height: #{$showSize * .1 - .4}rem;
+      overflow: hidden;
+      position: absolute;
+      width: #{$showSize * .1 * 3}rem;
+      max-width: 280px;
+      height: #{$showSize * .1}rem;
+      background-color: rgba($color,.35);
+      z-index: 100;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      bottom:  #{-$showSize * .1 - $offset * .1}rem;
+    }
+  }
+}
+@mixin baselineOverlay($baseFS: $baseFontSize) {
+  @if $devMode == 1 and $devOverlay == 1{
+    position: relative;
+    &::after {
+      content: ' ';
+      display: block;
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url(../images/GuideLines12px.gif);
+      background-position: 0 #{1 / $baseFS}em;
+      background-size: #{12 / $baseFS}em #{12 / $baseFS}em;
+      z-index: 1;
+      opacity: .2;
+    }
+  }
+}
+// --OBSOLATE
+@mixin lineLimit ($line-height: 1.6rem,$lines-to-show: 3) {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  height: $line-height*$lines-to-show; /* Fallback for  non-webkit  */
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+//sprite
+@mixin sprite($x:0, $y:0, $w:64, $h:$w, $baseFS: $baseFontSize) {
+  background-image: url(#{$spritePath});
+  background-size:  #{$spriteWidth / $baseFS}em   #{$spriteHeight / $baseFS}em;
+  width: #{$w / $baseFS}em;
+  height: #{$h / $baseFS}em;
+  background-position: #{-$x / $baseFS}em #{-$y / $baseFS}em;
+  // font-size: #{$fontsize*.1}rem;
+}
+//sprite indent
+@mixin sprite--indent($x:0, $y:0, $w:64, $h:$w, $baseFS: $baseFontSize) {
+  @include sprite($x, $y, $w, $h, $baseFS);
+  display: inline-block;
+  text-indent: 133%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+//fontsize --OBSOLATE
+@mixin fontSize($fs:13, $lh:'inherit',$offset: 0) {//font-size, line-height
+  @if $lh == 'inherit' or $lh == 0 {
+    font-size: #{$fs * .1}rem;
+    @include DEV(DarkMagenta,0);
+  }
+  @else {
+    line-height: #{$lh / $fs};
+    font-size: #{$fs * .1}rem;
+    @include DEV(lime,0);
+  }
+  @if $offset != 0 {
+    position: relative;
+    top: #{$offset * 0.1}rem;
+    @include DEV(black,black);
+  }
+}
+
+//font Size em
+@mixin fontSizeEM($desiredFS: 16,$desiredLH: 'inherit',$baseFS: $baseFontSize) {
+  @if $desiredLH == 0 or $desiredLH == 'inherit' {
+    line-height: inherit;
+  }
+  @else {
+    line-height: #{$desiredLH / $desiredFS};
+  }
+  font-size: #{$desiredFS / $baseFS}em;
+}
+//font size pixel, line height em
+@mixin fontSizePX($desiredFS: 16,$desiredLH: 'inherit',$baseFS: $baseFontSize) {
+  @if $desiredLH == 0 or $desiredLH == 'inherit' {
+    line-height: inherit;
+  }
+  @else {
+    line-height: #{$desiredLH / $desiredFS};
+  }
+  font-size: #{$desiredFS}px;
+}
+@mixin typoBaseline ($desiredFS: 16,$desiredLH: 2,$spaceAfter: 1,$offset: 0,$baseFS: $baseFontSize) {
+  line-height: #{$desiredLH * $baseline / $desiredFS}em;
+  font-size: #{$desiredFS / $baseFS}em;
+  padding-top: #{$offset}px;
+  margin-bottom: #{$spaceAfter * $baseline - $offset}px;
+}
+@mixin typoBaselineLL ($desiredFS: 16,$desiredLH: 2,$spaceAfter: 1,$offset: 0,$LL: 9,$baseFS: $baseFontSize) {
+  line-height: #{$desiredLH * $baseline / $desiredFS}em;
+  font-size: #{$desiredFS / $baseFS}em;
+  padding-top: #{$offset}px;
+  margin-bottom: #{$spaceAfter * $baseline - $offset}px;
+  display: block; /* Fallback for non-webkit */
+  // display: -webkit-box;
+  height: #{$desiredLH * $baseline / $desiredFS * $LL - $offset / $desiredFS}em;
+  // -webkit-line-clamp: $LL;
+  // -webkit-box-orient: vertical;
+  overflow: hidden;
+  // text-overflow: ellipsis;
+}
+//line limit with Em calculation, $LL: Line Limit
+@mixin fontSizeLL($desiredFS: 16,$desiredLH: 24,$LL: 3,$baseFS: $baseFontSize) {
+  @include fontSizeEM($desiredFS,$desiredLH,$baseFS);
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  height: #{$desiredLH / $desiredFS * $LL}em; /* Fallback for non-webkit */
+  -webkit-line-clamp: $LL;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin letterSpacing($letterSpacing: 20) {
+  letter-spacing: #{$letterSpacing / 1000}em;
+};
+//em calculation
+@mixin calcEM($parameter,$value,$baseFS: $baseFontSize) {
+  @if $value == 0 {
+    #{$parameter}: 0;
+  }
+  @else {
+    #{$parameter}: #{$value / $baseFS}em;
+  }
+}
+//baseline calculation
+@mixin calcBL($parameter,$value,$baseFS: $baseFontSize) {
+  @if $value == 0 {
+    #{$parameter}: 0;
+  }
+  @else {
+    #{$parameter}: #{$value * $baseline / $baseFS}em;
+  }
+}
+//fontSizeEM --OBSOLATE
+@mixin marginTitleEM($marginBottom: 30,$baseFS: $baseFontSize) {
+  margin-top: #{$marginBottom * 1.5 / $baseFS}em;
+  margin-bottom: #{$marginBottom / $baseFS}em;
+}

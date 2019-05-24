@@ -1,0 +1,147 @@
+//spacing
+.form-item-select, .form-item-checkbox, .form-item-checkboxes, .form-item-radios, .form-item-textfield, .form-item-textarea {
+  // @include dynSpacing(1);
+  @include calcBL(margin-bottom,3);
+}
+
+//checkbox, checkboxes, radios
+.form-type-checkbox, .form-type-radios {
+  position: relative;
+  &::before {
+    content: ' ';
+    background-color: $color-grey;
+    // border: 1px solid $color-black;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    @include calcEM(width,24);
+    @include calcEM(height,24);
+    @include calcEM(top,6);
+    pointer-events: none;
+  }
+  input[type="checkbox"]:checked + label::after, input[type="radio"]:checked + label::after {
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+  }
+  input[type="checkbox"]:checked + label::after {
+    @include sprite(469,30,24,24,16);
+    @include calcEM(left,1);
+    @include calcEM(top,5);
+  }
+  input[type="radio"]:checked + label::after {
+    background: $color-black;
+    border-radius: 100%;
+    @include calcEM(width,8);
+    @include calcEM(height,8);
+    @include calcEM(left,7);
+    @include calcEM(top,13);
+  }
+  label {
+    padding-left: 32px;
+    display: inline-block;
+    color: $color-black;
+    cursor: pointer;
+  }
+  input[type="checkbox"], input[type="radio"] {
+    @include calcEM(width,5);
+    @include calcEM(height,5);
+    @include calcEM(left,4);
+    @include calcEM(top,15);
+    position: absolute;
+    display: inline-block;
+  }
+}
+.form-type-radios::before {
+  border-radius: 100%;
+}
+.form-type-checkbox, .form-type-radios {
+  @include calcEM(margin-bottom,8);
+}
+
+// text input
+.form-item-textfield input[type="text"],
+.form-item-textfield input[type="number"],
+.form-item-textfield input[type="email"],
+.form-item-textarea textarea  {
+// .form-item-textfield input[type="text"]   {
+  width: 100%;
+  font-size: inherit;
+  background-color: #fff;
+  border: 0;
+  border-radius: $borderradius;
+  background-color: $color-grey;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: #{$fontFamily};
+  @include calcEM(padding,12);
+  @include calcEM(padding-top,9);
+  @include calcEM(padding-bottom,9);
+  @include typo-input;
+}
+.form-item-textarea textarea  {
+  resize: vertical;
+  min-height: 256px;
+}
+
+// select
+.form-item-select {
+  position: relative;
+  .selectWrapper {
+    position: relative;
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      @include calcEM(right,16);
+      @include calcEM(top,22);
+      @include calcEM(border-width,8);
+      border-style: solid;
+      border-top-color: $color-black;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      pointer-events: none;
+    }
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      background-color: #fff;
+      @include calcEM(width,38);
+      @include calcEM(height,38);
+      @include calcEM(right,6);
+      @include calcEM(top,6);
+      pointer-events: none;
+    }
+    select {
+      width: 100%;
+      font-size: inherit;
+      background-color: #fff;
+      border: 1px solid $color-black;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      font-family: #{$fontFamily};
+      @include calcEM(padding,12);
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.form-type-checkbox, .form-item-radios, .form-item-textfield, .form-item-textarea, .form-item-select {
+  & > label {
+    @include typo-label;
+  }
+}
+.form-item-checkboxes {
+  & > label {
+    @include typo-legend;
+    @include typoBaseline(12,5,2,0);
+  }
+}
+.description {
+  @include typo-description;
+  @include calcBL(margin-top,.5);
+}

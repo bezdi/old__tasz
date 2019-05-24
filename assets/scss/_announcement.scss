@@ -1,0 +1,171 @@
+.announcement {
+  @include calcBL(padding-top,3);
+  @include minBP(3) {
+    @include calcBL(padding-top,5);
+  }
+  @include minBP(4) {
+    @include calcBL(padding-top,7);
+  }
+  @include frame;
+  margin: 0 auto;
+  .image {
+    @include layout(0,16);
+    @include layout(4,6);
+    @include phantomColBefore(4,1);
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .text {
+    @include layout(0,16);
+    @include layout(4,7);
+    @include phantomColBefore(4,2);
+  }
+  .nav {
+    @include layout(0,16);
+    @include layout(4,14);
+    @include phantomColBefore(4,2);
+    @include listreset;
+    line-height: 1em;
+  }
+  @include minBP(4) {
+    .image {
+      order: 2;
+    }
+    .text {
+      order: 1;
+    }
+    .nav {
+      order: 3;
+    }
+  }
+  @include calcBL(margin-bottom,4);
+}
+
+.announcement {
+  h2 {
+    @include typo-01articleHeading;
+    &::after {
+      background-color: $color-yellow01;
+    }
+  }
+  .time-location {
+    @include typo-05subhead;
+    @include typoBaseline(12,2,2,0);
+    @include minBP(6) {
+      @include typoBaseline(12,2,1,0);
+    }
+  }
+  .lead {
+    @include typo-paragraph;
+  }
+  .nav {
+    li {
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    li:first-child {
+      margin-right: 16px;
+    }
+    .jelentkez {
+      a {
+        @include button(5);
+      }
+    }
+    .naptarhoz {
+      a {
+        @include button(3);
+      }
+    }
+  }
+}
+.english .announcement {
+  .about {
+    a {
+      @include button(0);
+    }
+  }
+  .donate {
+    a {
+      @include button(2);
+    }
+  }
+}
+.focuslist {
+  @include iWrap;
+  display: block;
+  line-height: 1;
+  list-style: none;
+  padding-left: 0;
+  column-count: 1;
+  column-gap: 20px;
+  border-bottom: 2px solid $color-grey;
+  @include calcBL(margin-bottom,4);
+  @include minBP(3) {
+    column-count: 2;
+  }
+  @include minBP(5) {
+    column-count: 3;
+  }
+  li {
+    display: block;
+    line-height: 1;
+    @include calcBL(margin-bottom,2);
+    &.active a {
+      background-color: $color-yellow00;
+      &:hover {
+        background-color: lighten($color-yellow00, 5%);
+      }
+    }
+
+  }
+  a {
+    &:hover {
+      background-color: lighten($color-yellow00, 10%);
+    }
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+    @include typo-focuslist;
+    padding: 6px 10px 4px;
+    border-radius: $borderradius;
+    text-decoration: none;
+    &::after {
+      content: "\00bb";
+    }
+  }
+}
+.differentBecauseReasons {
+  background-color: $color-yellow00;
+}
+.csatlakozz {
+  .announcement {
+    position: relative;
+    h3 {
+      @include typo-section-heading;
+      @include typoBaseline(26,3,6,0,16);
+    }
+    @include minBP(5) {
+      &::after {
+        content: ' ';
+        background-color: $color-yellow00;
+        display: block;
+        position: absolute;
+        height: 300px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+      }
+    }
+  }
+  .card {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(2,2,8,2, 12);
+    @include iWrap(3,0,8,0);
+    @include iWrap(4,1,6,1);
+    @include iWrap(5,0,1,0,2);
+    outline: red;
+  }
+}

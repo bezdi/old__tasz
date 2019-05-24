@@ -1,0 +1,146 @@
+body > header {
+  padding: 0;
+  @include DEV(yellow,yellow);
+  @include marginAuto;
+  position: relative;
+  @include frame(wide,0);
+  @include minBP(5) {
+    @include frame(wide);
+  }
+  @include maxBP(5) {
+    background-color: $color-yellow00;
+  }
+  nav {
+    @include layout(0,16,0);
+    @include maxBP(5) {
+      overflow: auto;
+    }
+    ul {
+      @include listreset;
+      text-align: center;
+      min-width: 100%;
+      white-space: nowrap;
+      @include minBP(5) {
+        white-space: normal;
+        @include frame(narrow,0);
+        padding-top: 0;
+        @include align-items(center);
+        @include calcBL(padding-top,2);
+        @include calcBL(padding-bottom,2);
+      }
+      @include maxBP(5) {
+        @include calcBL(padding-top,5);
+        @include calcBL(padding-bottom,1);
+       &::before {
+         content: ' ';
+         display: block;
+         @include calcBL(height,4);
+         background-color: #fff;
+         position: absolute;
+         left: 0;
+         right: 0;
+         top: 0;
+       }
+      }
+      li {
+        text-align: center;
+        // line-height: 1.5em;//DEV
+        display: inline-block;
+        margin-left: 20px;
+        margin-right: 20px;
+        a {
+          @include typo-menu;
+          position: relative;
+          &:hover::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: $c-black;
+          }
+        }
+        @include minBP(5) {
+          margin-right: 0;
+          margin-left: 0;
+          display: block;
+          // @include calcBL(height,7);
+        }
+        @include layout(5,1,res,7);
+      }
+      .help, .logo, .support {
+        & a:hover::after {
+          content: none;
+        }
+        position: absolute;
+        @include calcEM(top,12);
+        margin-right: 0;
+        margin-left: 0;
+        @include minBP(5) {
+          position: static;
+        }
+        @include layout(5,1,res,7);
+      }
+      .help {
+        left: 20px;
+        a {
+          @include button(4);
+          bottom: 0;
+          width: 100%;
+        }
+        @include maxBP(5) {
+          a {
+            padding-top: 0;
+            padding-bottom: 0;
+            @include calcEM(padding-left,2);
+            @include calcEM(padding-right,2);
+            @include calcEM(width,80);
+          }
+        }
+      }
+      .logo {
+        @include calcEM(top,5);
+        @include maxBP(5) {
+          font-size: .65em;
+        }
+        left: 0;
+        right: 0;
+        @include marginAuto;
+        a {
+          @include sprite--indent(0,0,56,51);
+          position: relative;
+          left: -2px;
+        }
+      }
+      .support {
+        right: 20px;
+        a {
+          @include button(2);
+          bottom: 0;
+          width: 100%;
+        }
+        @include maxBP(5) {
+          a {
+            padding-top: 0;
+            padding-bottom: 0;
+            @include calcEM(padding-left,2);
+            @include calcEM(padding-right,2);
+            @include calcEM(width,80);
+          }
+        }
+      }
+      .language {
+        @include minBP(5) {
+          width: inherit;
+          margin: 4.5rem auto 0;
+          color: lighten($color-black,40%);
+          &:hover {
+            color: $c-black;
+          }
+        }
+      }
+    }
+  }
+}

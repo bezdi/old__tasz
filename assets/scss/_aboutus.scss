@@ -1,0 +1,165 @@
+.about-us {
+  @include oWrap(wide);
+  background-color: $color-yellow00;
+  position: relative;
+  .helpbutton {
+    background-color: #fff;
+    display: block;
+    position: relative;
+    left: 6px;
+    @include calcBL(margin-bottom,3);
+    margin-left: auto;
+    margin-right: auto;
+    @include minBP(6) {
+      position: absolute;
+      right: 32px;
+      left: inherit;
+      top: 33vh;
+      margin: 0;
+    }
+  }
+  .wrapper-2 {
+    @include mWrap(0,0,1,0,1);
+    @include mWrap(6,2,12,2);
+  }
+  .header {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(6,0,7,5,12);
+    @include calcBL(margin-top,4);
+    @include calcBL(margin-bottom,2);
+    h1 {
+      @include typo-01articleHeading;
+    }
+    @include typo-article;
+  }
+  .highlight {
+    position: relative;
+    &::before {
+      content: ' ';
+      display: block;
+      @include mWrap(0,1,10,1,12);
+      height: 50%;
+      top: 64px;
+      position: absolute;
+      background-color: #fff;
+      // z-index: 0;
+    }
+    .teamphoto {
+      z-index: 1;
+      position: relative;
+      @include iWrap(0,0,1,0,1);
+      @include iWrap(6,3,8,1,12);
+      @include calcBL(margin-bottom,3);
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .text {
+    @include typo-article;
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(6,4,7,1,12);
+    @include calcBL(margin-bottom,3);
+  }
+  figure {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(6,2,9,1,12);
+    @include calcBL(margin-bottom,3);
+    img {
+      width: 100%;
+      height: auto;
+      @include calcBL(margin-bottom,2);
+    }
+    figcaption {
+      @include typo-05subhead;
+      position: relative;
+      &::before {
+        content: ' ';
+        display: block;
+        height: 2px;
+        width: 64px;
+        background-color: $color-black;
+        position: absolute;
+        top: -6px;
+        left: 0;
+      }
+
+    }
+  }
+}
+
+
+.data-list {
+  @include DEV(red,red);
+  @include mWrap(0,0,16,0);
+  list-style-type: none;
+  margin-top: 0;
+  @include calcBL(margin-bottom,3);
+  padding-left: 0;
+  line-height: 1;
+  li {
+    @include iWrap(0,0,16,0);
+    @include iWrap(4,0,8,0);
+    @include iWrap(5,0,4,0);
+    @include iWrap(6,0,3,0,12);
+    display: block;
+    line-height: 1;
+    position: relative;
+    box-sizing: border-box;
+    @include calcBL(padding-left,1,16);
+    .number {
+      @include typo-hirlevel--number(16);
+    }
+    @include typo-helloworld;
+    &::before {
+      content: ' ';
+      position: absolute;
+      width: 2px;
+      top: 0;
+      bottom: 0;
+      background-color: $color-yellow01;
+      left: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+.arcok {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  -webkit-padding-start: 0;
+  line-height: 1;// ?
+  list-style-type: none;
+  @include mWrap(1,0,1,0,1);
+  @include mWrap(6,3,8,1,12);
+  @include calcBL(margin-bottom,3);
+  li {
+    list-style: none;
+    @include iWrap(1,0,1,0,1);
+    @include iWrap(2,0,1,0,2);
+    @include iWrap(3,0,1,0,3);
+    @include iWrap(7,0,1,0,4);
+    & > div {
+      box-sizing: border-box;
+      @include calcBL(padding,.5);
+      background-color: #fff;
+      @include calcBL(height,16);
+      @include calcBL(margin-bottom,2);
+    }
+    h3 {
+      @include typo-arcok-nev;
+      a {
+        text-decoration: none;
+      }
+    }
+    p {
+      @include typo-paragraph;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

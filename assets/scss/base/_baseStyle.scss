@@ -1,0 +1,71 @@
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  // background-color: gray;
+  height: 100%; //sticky footer
+  line-height: 1.5em;
+}
+body {
+  //sticky footer
+  min-height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  font-family: #{$fontFamily};
+  @include minBP($stickyFooterBP1) {
+    padding-bottom: $footerHeight1;
+  }
+  @include minBP($stickyFooterBP2) {
+    padding-bottom: $footerHeight2;
+  }
+  @include minBP($stickyFooterBP3) {
+    padding-bottom: $footerHeight3;
+  }
+  font-size: $defaultFontSize;
+  margin: 0;
+  padding: 0;
+  background-size: 74px;
+  background-position: center;
+
+
+  //*::-moz-selection {
+  //  background: $c-select;
+  //  color: $c-select-color;
+  //}
+  //*::selection {
+  //  background: $c-select;
+  //  color: $c-select-color;
+  //}
+  *:focus {
+    outline-color: $c-focusOutline;
+    background: $c-select;
+  }
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+header.theHeader {
+  @include debugBp;
+}
+body > footer {
+  position: absolute;
+  @include frame('wide','dyn');
+  @include minBP($stickyFooterBP1) {
+    height: $footerHeight1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  @include minBP($stickyFooterBP2) {
+    height: $footerHeight2;
+  }
+  @include minBP($stickyFooterBP3) {
+    height: $footerHeight3;
+  }
+}

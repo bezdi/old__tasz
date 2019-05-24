@@ -1,0 +1,394 @@
+.proceedings {
+  background-color: $color-yellow00;
+  @include oWrap(wide);
+  header {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(6,2,9,5);
+    @include calcBL(margin-bottom,3);
+    h1 {
+      @include typo-01articleHeading;
+    }
+    p {
+      @include typo-paragraph;
+    }
+    .labels {
+      @include listreset;
+      letter-spacing: 16px;
+      li {
+        display: inline-block;
+        @include calcBL(margin-bottom,1);
+        a {
+          @include letterSpacing(30);
+          @include button(1);
+          position: relative;
+          bottom: 1px;
+        }
+      }
+    }
+  }
+  .additional {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(4,0,3,0);
+    @include iWrap(6,2,3,0);
+    position: relative;
+    &::before {
+      content: ' ';
+      height: 2px;
+      width: 150px;
+      background-color: $color-black;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    time {
+      @include typo-05subhead;
+    }
+  }
+  .content {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(4,0,13,0);
+    @include iWrap(6,0,7,4);
+  }
+}
+
+.inline-box {
+  display: block;
+  background-color: #fff;
+  border-radius: .3em;
+  @include calcBL(padding-right,1);
+  @include calcBL(padding-bottom,1);
+  @include calcBL(padding-left,1);
+  @include calcBL(margin-bottom,3);
+  box-sizing: border-box;
+  img:first-child {
+    width: calc(100% + 12px * 2);
+    left: - 12px;
+    position: relative;
+  }
+  h3 {
+    @include typo-card-heading;
+    margin-top:0;
+    a {
+      text-decoration: none;
+    }
+    position: relative;
+    &::after {
+      content: ' ';
+      background: $color-yellow01;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 42px;
+      height: 1px;
+    }
+    &:first-child {
+      @include calcBL(padding-top,1);
+    }
+  }
+  time {
+    @include typo-05subhead;
+  }
+  p {
+    @include typo-paragraph;
+  }
+  figure {
+    margin: 0;
+    @include minBP(6) {
+      width: 135.5%;
+      position: relative;
+      right: 17.7%;
+    }
+  }
+  .yt-video-container {
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    @include clearfix;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  figcaption {
+    @include typo-05subhead;
+    position: relative;
+    @include calcBL(margin-top,2);
+    &::before {
+      content: ' ';
+      display: block;
+      height: 2px;
+      width: 64px;
+      background-color: $color-black;
+      position: absolute;
+      top: -4px;
+      left: 0;
+    }
+    @include minBP(6) {
+      padding-left: 96px;
+      &::before {
+        left: 96px;
+      }
+    }
+  }
+  blockquote {
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+    @include typo-blockquote;
+    // background-color: #fff;
+    @include calcBL(padding-top,.95);
+    @include calcBL(padding-bottom,1.05);
+    @include calcBL(padding-right,1);
+    @include calcBL(padding-left,1);
+    @include DEV(yellow,yellow);
+    height: auto;
+    position: relative;
+    & em {
+      background-color: $color-yellow01;
+      font-style: normal;
+    }
+    &::after {
+      content: 'A';
+      font-size: 200px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      opacity: .4;
+      color: $color-yellow01;
+      position: absolute;
+      left: -70px;
+      top: 57px;
+      z-index: 0;
+      pointer-events: none;
+
+    }
+    @include minBP(3) {
+      // @include flowOffset(30%);
+      @include calcBL(padding-top,2.95);
+      @include calcBL(padding-bottom,3.05);
+      @include calcBL(padding-right,1);
+      @include calcBL(padding-left,1);
+      &::after {
+        left: -80px;
+        top: 105px;
+      }
+    }
+  }
+}
+.cuteCalendar {
+  background-color: $color-yellow00;
+  width: 75px;
+  height: 48px;
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: middle;
+  margin-bottom: 12px;
+  position: relative;
+  span {
+    display: block;
+    width: 75%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 9px;
+    padding-bottom: 4px;
+    line-height: 12px;
+    margin: 0 auto 4px;
+    &:first-child {
+      border-bottom: 1px solid $color-yellow01;
+    }
+    & + span {
+      padding-top: 0;
+      font-size: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+  &::before, &::after {
+    content: ' ';
+    position: absolute;
+    width: 4px;
+    height: 16px;
+    top: -8px;
+    left: 8px;
+    background-color: $color-yellow00;
+    border: 1px solid #fff;
+  }
+  &::after {
+    left: inherit;
+    right: 8px;
+  }
+}
+.pdficon {
+  @include sprite(304,192,40,40);
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 12px;
+  vertical-align: middle;
+  position: relative;
+  top: -6px;
+}
+.inline-box--hatarozat, .inline-box--datum {
+  @include flexbox;
+  @include flex-wrap(wrap);
+  // @include align-items(center);
+  // @include align-content(center);
+  // display: flex;
+  padding-top: 12px;
+  padding-bottom: 0;
+  h3 {
+    font-size: 16px;
+    text-transform: none;
+    display: inline-block;
+    padding: 0;
+    vertical-align: middle;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    &::after {
+      content: none;
+    }
+  }
+  .button {
+    @include button(3);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    margin-bottom: 12px;
+    margin-left: auto;
+  }
+}
+.inline-box--hatarozat {
+  .button {
+    @include button(0);
+    margin-bottom: 12px;
+  }
+}
+.slideshow {
+  position: relative;
+  @include maxBP(2) {
+    overflow: hidden;
+  }
+  @include calcBL(margin-bottom,3);
+  &__wrapper {
+    overflow: hidden;
+    // wrapper > frame > text
+    background-color: #fff;
+  }
+  &__slider {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    right: 0%; //ezt lehet 100asaval leptetni
+  }
+  &__frame {
+    min-width: 100%;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      -webkit-filter: brightness(1.5);
+       filter: brightness(1.5);
+       opacity: .6;
+    }
+  }
+  &__text {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 24px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 30ch;
+    @include typoBaseline(15,2,0,0);
+    @include minBP(2){
+      @include typoBaseline(20,3,0,0);
+    }
+    p {
+      background-color: $color-yellow01;
+      box-shadow: 10px 0 0 $color-yellow01, -10px 0 0 $color-yellow01;
+      display: inline;
+    }
+    @include maxBP(2) {
+      left: 48px;
+      right: 48px;
+    }
+  }
+  // }
+  &__nav {
+    & .next, & .prev {
+      width: 64px;
+      height: 64px;
+      border-radius: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: calc(50% - 32px);
+      @include boxshadowCard;
+      &:hover::after {
+        border-color: $color-black;
+      }
+      a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-indent: 200%;
+      }
+      &::after {
+        content: ' ';
+        position: absolute;
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-left: 4px solid $color-yellow01;
+        border-bottom: 4px solid $color-yellow01;
+        // border-radius: 0 0 0 4px;
+        top: 21px;
+        cursor: pointer;
+        pointer-events: none;
+        @include maxBP(2) {
+          width: 12px;
+          height: 12px;
+          top: 24px;
+        }
+      }
+    }
+    & .prev {
+      left: -32px;
+      &::after {
+        transform: rotate(45deg);
+        left: 26px;
+        @include maxBP(2) {
+          left: 40px;
+        }
+      }
+    }
+    & .next {
+      right: -32px;
+      &::after {
+        transform: rotate(225deg);
+        right: 26px;
+        @include maxBP(2) {
+          right: 40px;
+        }
+      }
+    }
+    & .counter {
+      position: absolute;
+      bottom: 24px;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-family: 'Poppins', sans-serif;
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,273 @@
+.cards {
+  @include calcBL(padding-top,4);
+  @include calcBL(margin-bottom,4);
+  @include oWrap(wide);
+  &__wrapper {
+    // @include layout(0,16,0);
+    // @include layout(6,12,0);
+    @include minBP(4) {
+      @include marginAuto;
+    }
+    align-items: center;
+    justify-content: center;
+    // @include frame(narrow,0);
+    @include mWrap(0,0,16,0);
+    @include mWrap(6,2,12,2);
+    // @include mWrap(7,2,12,2);
+  }
+  // @include frame(narrow);
+  @include marginAuto;
+  h2 {
+    @include layout(0,16);
+    @include typo-section-heading;
+  }
+  h1 {
+    @include layout(0,16);
+    @include typo-01articleHeading;
+  }
+}
+.cards.cards--temaink {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: $color-yellow00;
+  max-width: inherit;
+  .cards__wrapper {
+    @include frame(wide,0);
+  }
+  .extraLinksWrapper {
+    padding: 1em 1em 0;
+    margin-top: 1em;
+    .extraLinks {
+      position: relative;
+      &::before {
+        content: ' ';
+        display: block;
+        height: 2px;
+        background-color: $color-grey;
+        position: absolute;
+        top: -1em;
+        left: 0;
+        right: 0;
+      }
+    }
+    .extraLinks li:not(:first-child)::before {
+      content: none;
+    }
+  }
+}
+
+
+.card {
+  background-color: #fff;
+  @include calcBL(padding-bottom,2);
+  @include calcBL(margin-bottom,4);
+  @include DEV(yellow,yellow);
+  position: relative;
+  @include iWrap(0,0,1,0,1);
+  @include iWrap(2,2,8,2, 12);
+  @include iWrap(3,0,8,0);
+  @include iWrap(4,1,6,1);
+  @include iWrap(5,0,1,0,3);
+  @include boxshadowCard;
+  &__text {
+    @include baselineOverlay;
+    @include calcBL(padding-bottom,1);
+    @include calcBL(padding-left,1);
+    @include calcBL(padding-right,1);
+    p {
+      @include typo-card-paragraph;
+    }
+    @include calcBL(height,28.5);
+    overflow: hidden;
+    text-overflow: clip;
+    box-sizing: border-box;
+    position: relative;
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 48px;
+      left: 0;
+      right: 0;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+17,1+100 */
+      background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 17%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 17%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 17%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    }
+  }
+  .labels {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    @include listreset;
+    @include calcBL(margin-bottom,1);
+    li {
+      & + li {
+        margin-left: 8px;
+      }
+      @include calcBL(min-height,1);
+      display: inline-block;
+      @include typo-card-label;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    box-sizing: border-box;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  h3 {
+    @include typo-card-heading;
+    &>a {
+      text-decoration: none;
+      &::before {
+        content: ' ';
+        background-color: transparent;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 0;
+      }
+    }
+  }
+  &__image {
+    position: relative;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__button {
+    text-align: center;
+    a {
+      @include button(5);
+    }
+    margin-top: 29px;
+  }
+}
+.pageNav {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  @include typoBaseline(14,2,1,8);
+  ul {
+    border-top: 2px solid $color-black;
+    @include calcBL(padding-top,2,14);
+    @include listreset;
+    line-height: 1em;
+    display: flex;
+    @include layout(0,16);
+    justify-content: space-between;
+    li {
+      @include marginAuto;
+      display: none;
+      // color: rgba($color-black,.5);
+      &:first-child, &:last-child {
+        font-size: 1.5em;
+      }
+      a {
+        // color: $color-black;
+        text-decoration: none;
+        @include minBP(4) {
+          padding-left: 8px;
+          padding-right: 8px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          border-radius: 2px;
+        }
+      }
+      &.active a {
+        @include minBP(4) {
+          background-color: $color-yellow01;
+        }
+      }
+      &:first-child {
+        margin-right: 0;
+        margin-left: 0;
+        display: block;
+        &::after {
+          content: 'El\0151z\0151'
+        }
+        & + li:not(.active) {
+          margin-left: 1em; //TODO
+        }
+      }
+      &:nth-child(7) {
+        margin-right: 1em; //TODO
+      }
+      &:last-child {
+        margin-right: 0;
+        margin-left: 0;
+        display: block;
+        &::before {
+          content: 'K\00f6v.'
+        }
+      }
+      &.active {
+        display: block;
+        @include marginAuto;
+        &::before {
+          content: 'Oldal '
+        }
+      }
+    }
+    @include minBP(4) {
+      li {
+        display: block;
+        &:first-child::after, &:last-child::before, &.active::before {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.cards__more {
+  @include mWrap;
+  a {
+    display: block;
+    @include iWrap(0,0,3,0,4);
+    text-align: right;
+    @include typo-cards__more;
+  }
+  &::after {
+    @include iWrap(0,0,1,0,4);
+    // @include offsetWrap(6,right,  1);
+    content: ' ';
+    background-color: $color-black;
+    height: 2px;
+    position: relative;
+    @include calcBL(top,1);
+  }
+}
+
+.card.card__blogPost {
+  .card__image {
+    position: relative;
+    &::after {
+      content: 'blog \00BB';
+      position: absolute;
+      left: 0;
+      bottom: 23px;;
+      // width: 50px;
+      height: 12px;
+      background-color: $color-yellow01;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      padding: 4px 4px 7px;
+      @include letterSpacing(50);
+    }
+  }
+}

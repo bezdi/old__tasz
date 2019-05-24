@@ -1,0 +1,187 @@
+.freeform-wrapper {
+  label {
+    // color: red;
+  }
+
+  .form-item-file {
+    label {
+      @include typo-label;
+      display: block;
+    }
+  }
+
+  .form-item-textarea {
+    label {
+      @include typo-label;
+    }
+    textarea {
+      width: 100%;
+      font-size: inherit;
+      background-color: #fff;
+      border: 0;
+      border-radius: $borderradius;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      font-family: #{$fontFamily};
+      @include calcEM(padding,12);
+      @include calcEM(padding-top,9);
+      @include calcEM(padding-bottom,9);
+      @include typo-input;
+    }
+  }
+  .form-item-checkbox {
+    label {
+      @include typo-label;
+      position: relative;
+      padding-left: 36px;
+      margin-right: 16px;
+      display: inline-block;
+      color: $color-black;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+    input {
+      @include calcEM(width,5,16);
+      @include calcEM(height,5,16);
+      @include calcEM(left,4,16);
+      @include calcEM(top,15,16);
+      position: absolute;
+      display: inline-block;
+      &::before {
+        content: ' ';
+        background-color: #fff;
+        // border: 1px solid $color-black;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        @include calcEM(width,24,16);
+        @include calcEM(height,24,16);
+        @include calcEM(top,-8,16);
+        pointer-events: none;
+      }
+    }
+    input:checked {
+      &::before {
+        @include sprite(468,30,24,24,16);
+      }
+    }
+  }
+  .form-item-checkbox_group, .form-item-radio_group {
+     label {
+       @include typo-label;
+       position: relative;
+       padding-left: 36px;
+       margin-right: 16px;
+       display: inline-block;
+       color: $color-black;
+       cursor: pointer;
+       margin-bottom: 16px;
+     }
+     .freeform-label {
+       @include typo-legend;
+       padding-left: 0;
+       display: block;
+     }
+   }
+   input[type="checkbox"], input[type="radio"] {
+     @include calcEM(width,5,16);
+     @include calcEM(height,5,16);
+     @include calcEM(left,4,16);
+     @include calcEM(top,15,16);
+     position: absolute;
+     display: inline-block;
+     &::before {
+       content: ' ';
+       background-color: #fff;
+       // border: 1px solid $color-black;
+       position: absolute;
+       z-index: 1;
+       left: 0;
+       @include calcEM(width,24,16);
+       @include calcEM(height,24,16);
+       @include calcEM(top,-8,16);
+       pointer-events: none;
+     }
+   }
+   input[type="radio"] {
+     &::before {
+       border-radius: 100%;
+     }
+   }
+   input[type="checkbox"]:checked {
+     &::before {
+       @include sprite(468,30,24,24,16);
+     }
+   }
+   input[type="radio"]:checked {
+     &::before {
+       @include sprite(368,64,24,24,16);//392
+     }
+   }
+   .form-item-text, .form-item-email {
+     label {
+       @include typo-label;
+     }
+     input {
+       margin-bottom: 16px;
+       width: 100%;
+       font-size: inherit;
+       background-color: #fff;
+       border: 0;
+       border-radius: $borderradius;
+       box-sizing: border-box;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       font-family: #{$fontFamily};
+       @include calcEM(padding,12);
+       @include calcEM(padding-top,9);
+       @include calcEM(padding-bottom,9);
+       @include typo-input;
+     }
+   }
+   .form-item-select {
+     position: relative;
+     &::after {
+       pointer-events: none;
+       content: ' ';
+       @include sprite(469,7,16,10);
+       position: absolute;
+       right: 24px;
+       top: 57px;
+     }
+     select {
+       cursor: pointer;
+       background-color: #fff;
+       border-radius: $borderradius $borderradius 0 0;
+       width: 100%;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       &::-ms-expand {
+         display: none;
+       }
+       border: 0;
+       border-bottom: 1px solid $color-yellow00;
+       box-sizing: border-box;
+       @include typo-input;
+       @include calcBL(padding-top,1);
+       @include calcBL(padding-bottom,1);
+       @include calcBL(padding-left,2);
+     }
+   }
+   .form-item-submit {
+     // text-align: center;
+     button, input {
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       border: 0;
+       @include button(2);
+       width: 100%;
+       max-width: 240px;
+       cursor: pointer;
+       &:hover {
+         background-color: darken($color-green,10%);
+       }
+     }
+   }
+}

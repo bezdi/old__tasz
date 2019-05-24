@@ -1,0 +1,120 @@
+.article .content blockquote.initial::after {
+  content: var(--initial-letter);
+}
+
+.article .content img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.minketkeresel__igen, .minketkeresel__nem {
+  z-index: 1 !important;
+}
+
+.minketkeresel__keresel {
+  z-index: auto !important;
+}
+
+/* van ahol div van paragrafusok helyett */
+.article .content div:not([class]), .article .content .lead div, .card__text div, .card__text p {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  line-height: 1.5em;
+  font-size: 1.6rem;
+  padding-top: 6px;
+  margin-bottom: 18px;
+}
+
+.article .content h2,  .article .content h3, .article .content h4 {
+  line-height: 1.3em;
+}
+
+.article .content p, .article .content ul, .article .content ol {
+  font-size: 1.6rem;
+}
+
+.lead, .article .content .lead p, .article .content .lead div, .article .content .lead div:not([class]) {
+  font-weight: 700;
+}
+
+.article .collapsible_section h2 {
+  width: 100%; /* kattintható legyen a +- */
+}
+
+.slideshow__slider {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+
+body .article .tamogassPromo {
+  float: none;
+  width: 100%;
+  margin: 3em 0;
+}
+
+.paymentchoice input {
+  display:none
+}
+
+.paymentchoice input:checked + label {
+  outline: 3px solid #f9c114;
+}
+
+.paymentchoice label:hover {
+  cursor: pointer;
+}
+
+.arcok li h3 {
+  font-size: 1.2em;
+  min-height: 2em;
+}
+
+.arcok li p {
+  font-size: 1.1em;
+}
+
+.required label:after {
+  content: ' *';
+}
+
+.collapsible_section .collapsible_inner {
+  display: none;
+}
+
+.collapsible_section h2 {
+  z-index: 20;
+  min-height: 1.8em;
+}
+
+.form-item-file {
+  padding-bottom: 3em;
+}
+
+.cards__wrapper {
+  align-items: flex-start;
+}
+
+.articleCard.card__pinned {
+  background-color: #fcecb8;
+}
+
+@media only screen and (min-width: 960px) {
+
+  body > header.scrolled {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: white;
+    z-index: 30;
+  }
+
+  body > header.scrolled nav ul {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+}

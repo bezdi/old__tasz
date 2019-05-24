@@ -1,0 +1,107 @@
+//debug mode
+$devMode: 0 !default;
+$devSpacing: 1 !default;
+$devColors: 1 !default;
+$devOverlay: 1 !default;
+$devBp: 1 !default;
+
+//clearfix hack on off
+$clearfix: 'on' !default; // 'off' / 'on'
+
+//typo
+$defaultFontSize: 1.7rem !default;
+$baseFontSize: $defaultFontSize / .1rem;//dont change;
+$fontFamily: " 'Lato', sans-serif " !default;
+
+// states
+$states: "&:hover, &:focus, &:active";
+
+// breakpoints
+$bp-step: 170 !default;
+$bp-1: 320 !default;
+$bp-2: $bp-1 + $bp-step !default;
+$bp-3: $bp-1 + $bp-step * 2 !default;
+$bp-4: $bp-1 + $bp-step * 3 !default;
+$bp-5: $bp-1 + $bp-step * 4 !default;
+$bp-6: $bp-1 + $bp-step * 5 !default;
+$bp-7: $bp-1 + $bp-step * 7 !default;
+$bp-8: $bp-1 + $bp-step * 9 !default;
+
+//layout
+$gutter: 1.6rem !default;//unit needed
+$frameSystem: 12 !default;//no unit - number of columns in grid
+$siteMaxWidth: 1366 !default;//no unit, 0 is full width
+$baseline: 12 !default;
+
+//responsive gutter
+$gutterSmall: 1rem;
+$resGutterBP: 5;
+
+//extraMargin
+$defaultFrameMargin: 'dyn' !default;//'yes' 'no' 'dyn'
+$extraMarginBp: 4 !default;// min-width breakpoint whan extra margin is applied
+$extraMargin: $gutter !default;//actually padding
+
+
+//colors
+$c-black: #03170a !default;
+$c-select: #B1E2D5 !default;
+$c-select-color: #fff !default;
+$c-focusOutline: #B1E2D5 !default;
+
+
+//sticky footer
+$stickyFooterBP1: 0 !default;
+$footerHeight1: inherit !default;
+$stickyFooterBP2: 0 !default;
+$footerHeight2: inherit !default;
+$stickyFooterBP3: 0 !default;
+$footerHeight3: inherit !default;
+
+//borderradius
+$borderradius: 2px !default;
+
+//spacing
+// $spacing1: 2.4rem!default;
+// $spacing1s: 1.6rem!default;//$gutter
+//
+// $spacing2: 3.2rem!default;
+// $spacing2s: $spacing1!default;
+//
+// $spacing3: 4.8rem!default;
+// $spacing3s: $spacing2!default;
+//
+// $spacing4: 6.4rem!default;
+// $spacing4s: $spacing3!default;
+//
+// $spacing5: 9.6rem!default;
+// $spacing5s: $spacing4!default;
+$spacing1: 24!default;
+$spacing1s: 16!default;//$gutter
+
+$spacing2: 32!default;
+$spacing2s: $spacing1!default;
+
+$spacing3: 48!default;
+$spacing3s: $spacing2!default;
+
+$spacing4: 64!default;
+$spacing4s: $spacing3!default;
+
+$spacing5: 96!default;
+$spacing5s: $spacing4!default;
+
+$spacingBp: 4!default;
+
+//sprite
+$spritePath: '../images/sprite-01.svg' !default;
+$spriteWidth: 512 !default;//pixel but no unit
+$spriteHeight: 512 !default;//pixel but no unit
+
+//button
+$button-fontweight: 600 !default;
+$button-borderradius: .2rem !default;
+$button-color: white !default;
+$button-backgroundcolor: green !default;
+$button-texttransform: inherit !default;
+$button-paddingScale: .25 !default;

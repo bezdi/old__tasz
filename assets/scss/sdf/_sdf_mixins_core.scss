@@ -1,0 +1,320 @@
+//dev, debug
+@mixin sdf-devColor(
+	$outline: 0,
+	$backgroundcolor: 0,
+	$opacity1: .1,
+	$opacity2: $opacity1
+) {
+	@if $sdfDevMode == 1 and $sdfDevColors == 1 {
+		@if $outline !=0 {
+			outline: 1px solid rgba($outline,$opacity1);
+		}
+		@if $backgroundcolor !=0 {
+			background-color: rgba($backgroundcolor,$opacity2);
+		}
+	}
+}
+
+
+//errorMessage
+@mixin sdf-errorMessage( $message: '!ERROR' ) {
+	position: relative;
+
+	&::after {
+		content: "#{$message}";
+		color: black;
+		background-color: rgba(#fff,.75);
+		border: 2px dashed darken(red, 15%);
+		max-width: 192px;
+		position: absolute;
+		font-family: Arial;
+		// font-style: italic;
+		font-weight: bold;
+		padding: 4px;
+		border-radius: 2px;
+		font-size: 13px;
+		letter-spacing: 0.5px;
+		top: 8px;
+		left: 4px;
+		z-index: 1000;
+	}
+}//errorMessage
+
+
+//min. Breakpoint
+@mixin sdf-minBp( $breakPoint ) {
+	@if $breakPoint > 99 {
+		$breakPointString: "(min-width: #{$breakPoint}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 1 {
+		$breakPointString: "(min-width: #{$bp-1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 2 {
+		$breakPointString: "(min-width: #{$bp-2}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 3 {
+		$breakPointString: "(min-width: #{$bp-3}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 4 {
+		$breakPointString: "(min-width: #{$bp-4}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 5 {
+		$breakPointString: "(min-width: #{$bp-5}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 6 {
+		$breakPointString: "(min-width: #{$bp-6}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 7 {
+		$breakPointString: "(min-width: #{$bp-7}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 8 {
+		$breakPointString: "(min-width: #{$bp-8}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 9 {
+		$breakPointString: "(min-width: #{$bp-9}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+}//min. Breakpoint
+
+
+//max. Breakpoint
+@mixin sdf-maxBp( $breakPoint ) {
+	@if $breakPoint > 99 {
+		$breakPointString: "(max-width: #{$breakPoint}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 1 {
+		$breakPointString: "(max-width: #{$bp-1 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 2 {
+		$breakPointString: "(max-width: #{$bp-2 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 3 {
+		$breakPointString: "(max-width: #{$bp-3 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 4 {
+		$breakPointString: "(max-width: #{$bp-4 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	} @else
+	if $breakPoint == 5 {
+		$breakPointString: "(max-width: #{$bp-5 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 6 {
+		$breakPointString: "(max-width: #{$bp-6 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 7 {
+		$breakPointString: "(max-width: #{$bp-7 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 8 {
+		$breakPointString: "(max-width: #{$bp-8 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+	@if $breakPoint == 9 {
+		$breakPointString: "(max-width: #{$bp-9 - 1}px)";
+		@media #{$breakPointString} {
+			@content;
+		}
+	}
+}//max. Breakpoint
+
+
+//minmaxBP
+//use with variables eg. @include sdf-minMaxBp($bp-3,$bp-5);
+@mixin sdf-minMaxBp( $breakPoint1, $breakPoint2 ) {
+	@media (min-width: #{$breakPoint1}px) and (max-width: #{$breakPoint2}px) {
+		@content;
+	}
+}//minmaxBP
+
+
+//debug-bp
+@mixin sdf-devBp {
+	@if $sdfDevMode == 1 and $sdfDevBp == 1 {
+		&::before {
+			content: ' ';
+			position: fixed;
+			z-index: 100;
+			content: 'xs';
+			text-transform: uppercase;
+			font-weight: 700;
+			top: 0;
+			left: 0;
+			background-color: #eee;
+			color: #666;
+			padding: 4px;
+			font-size: 13px;
+			@include sdf-minBp(1) {
+				content: '1 - #{$bp-1}px';
+			}
+			@include sdf-minBp(2) {
+				content: '2 - #{$bp-2}px';
+			}
+			@include sdf-minBp(3) {
+				content: '3 - #{$bp-3}px';
+			}
+			@include sdf-minBp(4) {
+				content: '4 - #{$bp-4}px';
+			}
+			@include sdf-minBp(5) {
+				content: '5 - #{$bp-5}px';
+			}
+			@include sdf-minBp(6) {
+				content: '6 - #{$bp-6}px';
+			}
+			@include sdf-minBp(7) {
+				content: '7 - #{$bp-7}px';
+			}
+			@include sdf-minBp(8) {
+				content: '8 - #{$bp-8}px';
+			}
+			@include sdf-minBp(9) {
+				content: '9 - #{$bp-9}px';
+			}
+		}
+	}
+}//debug-bp
+
+
+//em calculation
+@mixin sdf-calcEM($parameter,$value,$parentFontSize: $rootFontSizePx) {
+	@if $value == 0 {
+		#{$parameter}: 0;
+	} @else {
+		#{$parameter}: #{$value / $parentFontSize}em;
+	}
+}//em calculation
+
+
+//row
+// TODO: type variable names
+@mixin sdf-rowType(
+	$type: 0, //0 a or b
+	$width: $contentMaxWidth
+) {
+
+	@if $type == 'a' {
+		max-width: #{$width}px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@if $type == 'b' {
+		@include sdf-minBp($width) {
+			padding-left: calc(50% - #{$width / 2}px);
+			padding-right: calc(50% - #{$width / 2}px);
+		}
+	}
+}
+@mixin sdf-row(
+	$type: 0, //0 a or b
+	$width: $contentMaxWidth
+) {
+
+	@include sdf-devColor(white,white,.5,.3);
+	display: flex;
+
+	@if $type == 'a' or $type == 'b' {
+		@include sdf-rowType($type,$width);
+	}
+
+}//row
+
+
+//col
+//  sdf-col → sdf-colCalc → sdf-colCalcWidth
+@mixin sdf-colCalcWidth ( 
+	$colNumber: $defaultRowSegments,
+	$maxColNumber: $defaultRowSegments,
+	$cssProperty: 'width'
+) {
+	#{$cssProperty}:
+	#{$colNumber / $maxColNumber * 100%};
+}
+@mixin sdf-colCalc(
+	$preCol: 0,
+	$col: $defaultRowSegments,
+	$subCol: 0,
+	$colNumber: $defaultRowSegments
+) {
+	@include sdf-colCalcWidth($col,$colNumber,'width');
+	margin-left: 0;
+	margin-right: 0;
+	@if $preCol != 0 {
+		@include sdf-colCalcWidth($preCol,$colNumber,'margin-left');
+	}
+	@if $subCol != 0 {
+		@include sdf-colCalcWidth($subCol,$colNumber,'margin-right');
+	}
+}
+@mixin sdf-col (
+	$breakPoint: 0,
+	$preCol: 0,
+	$col: $defaultRowSegments,
+	$subCol: 0,
+	$colNumber: $defaultRowSegments
+) {
+	box-sizing: border-box;
+	@if $breakPoint == 0 {
+		@include sdf-colCalc($preCol,$col,$subCol,$colNumber);
+	} @else {
+		@include sdf-minBp($breakPoint) {
+			@include sdf-colCalc($preCol,$col,$subCol,$colNumber);
+		}
+	}
+}//col
+
+
+//

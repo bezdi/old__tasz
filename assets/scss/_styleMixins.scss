@@ -1,0 +1,126 @@
+// @mixin scaleChange {
+//   font-size: 1.6rem;
+//   // @include minBP(3) {
+//   //   font-size: 1.6rem;
+//   // }
+//   @include minBP(6) {
+//     font-size: 2.0rem;
+//   }
+// }
+
+// scale control
+
+@mixin scaleControl1 {
+  font-size: 0.8em;
+  @include minBP(2) {
+    font-size: 0.9em;
+  }
+  @include minBP(4) {
+    font-size: 1em;
+  }
+}
+
+//sprite presets
+@mixin sprite--logo {
+  @include sprite--indent(4,4,116,92);
+}
+@mixin sprite--logoExtended {
+  @include sprite--indent(192,6,144,164);
+}
+@mixin sprite--logoWhite {
+  @include sprite--indent(124,4,116,92);
+}
+@mixin sprite--ceulogo {
+  @include sprite--indent(248,32,116,64);
+}
+@mixin sprite--pageEdge {
+  @include sprite(4,100,16,124);
+}
+@mixin sprite--search {
+  @include sprite--indent(24,100,28,28);
+}
+@mixin sprite--circles--S {
+  @include sprite(56,100,17,21);
+}
+@mixin sprite--circles--M {
+  @include sprite(76,100,30,40);
+}
+@mixin sprite--facebook {
+  @include sprite--indent(108,100,36,36);
+}
+@mixin sprite--twitter {
+  @include sprite--indent(148,100,36,36);
+}
+@mixin sprite--play {
+  @include sprite(188,100,24,24);
+}
+@mixin sprite--pause {
+  @include sprite(216,100,24,24);
+}
+@mixin sprite--download {
+  @include sprite(244,100,24,24);
+}
+@mixin sprite--share {
+  @include sprite(272,100,24,24);
+}
+@mixin sprite--playlist {
+  @include sprite(300,100,24,24);
+}
+@mixin sprite--whitespace {
+  @include sprite(34,146,84,84);
+}
+@mixin sprite--check {
+  @include sprite(328,100,16,16);
+}
+@mixin sprite--check2 {
+  @include sprite(329,101,16,16);
+}
+@mixin sprite--contact1 {
+  @include sprite(344,120,48,48);
+}
+@mixin sprite--contact2 {
+  @include sprite(400,120,48,48);
+}
+@mixin sprite--contact3 {
+  @include sprite(456,120,48,48);
+}
+
+@mixin whitespaceBottom {
+  @include calcEM(padding-bottom,224);
+  position: relative;
+  &::after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    @include calcEM(bottom,48);
+    display: block;
+    @include marginAuto;
+    @include sprite--whitespace;
+    opacity: .25;
+  }
+}
+
+@mixin outerLink {
+  @include marginAuto;
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  color: $color-black;
+}
+
+@mixin edgegraphic {
+  &::after {//dekoracio
+    content: ' ';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    width: 150px;
+    // background-color: $color-grey;//DEV
+    // color: darken($color-grey, 30%);//DEV
+    z-index: 0;
+    @include sprite(312,352,176,120);
+  }
+}

@@ -1,0 +1,28 @@
+//based on temaink.scss
+.searchresult {
+  .header {
+    @include layout(0,16);
+    h1 {
+      @include typo-01articleHeading;
+    }
+  }
+  .filter ul a.disabled {
+    color: lighten($color-black,50%);
+  }
+  @include minBP(6) {
+    .filter {
+      background-color: transparent;
+      p {
+        @include typo-searchphrase;
+      }
+    }
+    .filter__wrapper {
+      padding: 0;
+    }
+  }
+  .relatedArticleList {
+    @include minBP(4) {
+      @include calcBL(padding-top,0);
+    }
+  }
+}

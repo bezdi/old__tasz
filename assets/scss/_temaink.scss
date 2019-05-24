@@ -1,0 +1,425 @@
+body {
+  // position: relative;
+}
+.wrapper {
+  display: flex;
+  @include frame(wide);
+  @include marginAuto;
+  background-color: $color-grey;
+  // flex-direction: column;
+  justify-content: space-between;
+  @include calcBL(padding-top,3);
+  @include calcBL(padding-bottom,4);
+}
+.filter {
+  @include layout(6,4);
+  @include layout(7,3);
+  background-color: $color-yellow00;
+  box-sizing: border-box;
+  &__wrapper {
+    @include calcBL(padding-left,1);
+    @include calcBL(padding-right,1);
+  }
+  h3 {
+    @include typo-filter-header3;
+  }
+  ul {
+    @include listreset;
+    @include calcBL(margin-bottom,3);
+    li {
+      @include typo-filter;
+    }
+    a {
+      display: inline-block;
+      // padding-left: 42px
+      @include calcBL(padding-left,3.5,16);
+      position: relative;
+      &.active {
+        font-weight: 700;
+        &::before {
+          @include sprite(340,62,24,24,16);
+        }
+      }
+      &.disabled {
+        // opacity: .45;
+        color: #b0a580;
+        pointer-events: none;
+        cursor: default;
+      }
+      &::before {
+        content: ' ';
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: $borderradius;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  @include maxBP(6) {
+    width: 100vw;
+    z-index: 10;
+    header {
+      width: 100vw;
+      box-sizing: border-box;
+      position: relative;
+      background-color: $color-yellow01;
+      @include calcBL(padding-left,1);
+      @include calcBL(padding-right,1);
+      @include calcBL(padding-top,1.5);
+      @include calcBL(padding-bottom,1.5);
+      &::before {
+        content: ' ';
+        @include sprite(344,36,24,24);
+        position: absolute;
+        @include calcBL(right,1);
+        @include calcBL(top,1.5);
+      }
+      h2 {
+        @include typo-filter-header2;
+      }
+      a {
+        text-decoration: none;
+        &:before {
+          content: ' ';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }//filter-header
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .filter__wrapper {
+      display: none;
+      margin-top: 70px;//helyet csinalunk a headernej
+    }
+    &.active {
+      header {
+        position: fixed;
+        top: inherit;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        &::before {
+          @include sprite(344,8,24,24);
+        }
+      }
+      .filter__wrapper {
+        max-height: 60vh;
+        overflow: scroll;
+        display: inherit;
+      }
+    }
+  }//filter max-width 6
+  @include minBP(6) {
+    header {
+      display: none;
+    }
+  }
+}
+.articleList {
+    @include calcBL(margin-bottom,2);
+    position: relative; //ehhez van igazitva a szamlalo
+    @include layout(0,16);
+    @include layout(4,10);
+    @include layout(6,8);
+    @include layout(7,7);
+    .counter {
+      @include calcBL(margin-bottom,1);
+      // @include layout(0,16);
+      @include layout(4,4);
+      height: 32px;
+      text-align: right;
+      width: 100%;
+      .number, .label {
+        display: inline-block;
+      }
+      .number {
+        font-family: 'Poppins', sans-serif;
+        @include typoBaseline(24,2,0,0);
+      }
+      .label {
+        font-family: 'Montserrat', sans-serif;
+        @include typoBaseline(12,1,0,0);
+        position: relative;
+        bottom: 2px;
+        @include letterSpacing(60);
+      }
+      .counter__filtered {
+        .number {
+          color: $color-yellow01;
+        }
+        &:after {
+          content: ' ';
+          display: inline-block;
+          width: 1px;
+          height: 18px;
+          background-color: $color-black;
+          transform: rotate(33deg);
+          @include calcBL(margin-left,1);
+          @include calcBL(margin-right,1);
+        }
+      }
+      @include minBP(4) {
+        .number {
+          @include typoBaseline(48,4,0,0);
+          display: block;
+        }
+        &:after {
+          content: ' ';
+          display: inline-block;
+          width: 1px;
+          background-color: $color-black;
+          @include calcBL(margin-left,1);
+          @include calcBL(margin-right,1);
+          position: absolute;
+          transform: rotate(58deg);
+          height: 226px;
+          top: -52px;
+          right: 0;
+          left: 0;
+          @include marginAuto;
+        }
+        position: absolute;
+        top: 0;
+        right: -280px;
+        height: 120px;
+        width: 240px;
+        .counter__filtered,.counter__all {
+          position: absolute;
+        }
+        .counter__filtered {
+          top: 0;
+          left: 0;
+          &:after {
+            content: none;
+          }
+        }
+        .counter__all {
+          bottom: 0;
+          right: 0;
+        }
+      }
+      @include minBP(7) {
+        right: -390px;
+      }
+      &__filtered, &__all {
+        display: inline-block;
+      }
+    }
+    @include maxBP(4) {
+    }
+    .tipp {
+      position: relative;
+      @include calcBL(margin-bottom,2);
+      @include calcBL(padding,1);
+      @include calcBL(padding-right,4);
+      @include calcBL(padding-top,8);
+      background-color: $color-yellow00;
+      p {
+        @include typo-tipp;
+      }
+      .close {
+        position: absolute;
+        @include calcBL(right,1);
+        @include calcBL(top,1);
+        background-color: #fff;
+        border-radius: $borderradius;
+        @include sprite--indent(344,8,24,24);
+      }
+      &::before {
+        position: absolute;
+        @include calcBL(top,2);
+        left: 0;
+        right: 0;
+        @include marginAuto;
+        content: ' ';
+        @include sprite(375,7,50,50);
+      }
+      @include minBP(3) {
+        @include calcBL(padding-top,1);
+        @include calcBL(padding-left,8);
+        &::before {
+          @include calcBL(left,2);
+          @include calcBL(top,2);
+          right: inherit;
+        }
+      }
+    }
+    .articleCard {
+      position: relative;
+      background-color: #fff;
+      border-radius: $borderradius;
+      min-height: 32px;
+      margin-bottom: 32px;
+      box-sizing: border-box;
+      @include boxshadowCard;
+      @include calcBL(padding,2);
+      h3 {
+        @include typo-articleCardHead;
+        a {
+          text-decoration: none;
+          &::before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+          }
+        }
+      }
+      time {
+        @include typo--articleCardTime;
+        position: relative;
+        &:before {
+          content: ' ';
+          display: block;
+          position: absolute;
+          top: -12px;
+          left: 0;
+          height: 2px;
+          background: $color-yellow01;
+          width: 48px;
+        }
+      }
+      &__text {
+        & > * {
+          @include typo--articleCard;
+        }
+        @include calcBL(margin-bottom,2);
+      }
+      .buttonmore {
+        z-index: 1;
+        @include calcBL(margin-bottom,2);
+
+        a {
+          @include button(5);
+          min-width: 25%;
+          text-align: center;
+          &:hover {
+          }
+        }
+      }
+    }
+  }//articleList
+.relatedArticleList {
+  @include minBP(4) {
+    @include calcBL(padding-top,12);//kihagyunk helyet a szamlalonak desktopon
+  }
+  @include layout(0,16);
+  @include layout(4,6);
+  @include layout(6,4);
+  .relatedArticle {
+    @include calcBL(padding,2);
+    @include calcBL(padding-top,1);
+    background-color: #fff;
+    min-height: 32px;
+    margin-bottom: 32px;
+    position: relative;
+    h3 {
+      @include typo--relatedHead;
+      a {
+        text-decoration: none;
+        &::before {
+          content: ' ';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+    &__text {
+      @include typo--related;
+      @include calcBL(margin-bottom,3);
+      position: relative;
+      &::before {
+        content: ' ';
+        left: 0;
+        top: -32px;
+        width: 60px;
+        height: 2px;
+        background-color: $color-yellow01;
+        position: absolute;
+      }
+      &::after {
+        content: ' ';
+        left: 0;
+        right: 0;
+        height: 2px;
+        bottom: -24px;
+        background-color: $color-grey;
+        position: absolute;
+      }
+    }
+    .extraLinks {
+      li {
+
+        @include calcBL(margin-bottom,1);
+      }
+      li:not(:first-child)::before {
+        content: none;
+      }
+    }
+  }
+}
+.extraLinks {
+  z-index: 1;
+  position: relative;
+  @include listreset;
+  li {
+    display: inline-block;
+    a  {
+      @include typo-extralinks;
+      text-decoration: none;
+    }
+  }
+  li:not(:first-child)::before {
+    content: '| ';
+    color: $color-yellow01;
+    position: relative;
+    bottom: 1px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.helpbutton {
+  display: none;
+  width: 86px;
+  height: 86px;
+  background-color: $color-yellow00;
+  box-sizing: border-box;
+  @include boxshadowCard;
+  @include typoBaseline(14,2,0,0);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 61px;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+    @include marginAuto;
+    @include sprite(431,7,36,36);
+  }
+  @include minBP(4) {
+    display: block;
+  }
+}

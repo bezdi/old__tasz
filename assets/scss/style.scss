@@ -1,0 +1,60 @@
+@import 'rgbPalette.scss';
+@import 'config';
+
+@import 'base-import';
+
+@import 'sdf';
+
+@import 'effects.scss';
+@import 'styleMixins';
+@import 'typo';
+
+@import 'cards';
+@import 'announcement';
+@import 'forms';
+@import 'header';
+@import 'footer';
+@import 'front';
+@import 'discover';
+@import 'article';
+@import 'peticio';
+@import 'funding';
+@import 'temaink';
+@import 'searchresult';
+@import 'donate';
+@import 'open';
+@import 'aboutus';
+@import 'proceedings';
+@import 'redirecting';
+@import 'freeform';
+@import 'dirtyFixes';
+
+
+html {
+  // color: $c-color3;
+  // a {
+  //   color: $c-link;
+  //   text-decoration: none;
+  // }
+}
+body {
+  color: $color-black;
+  @include debugBp;
+}
+
+.more {
+  text-align: center;
+  @include dynSpacing(1,before);
+  @include outerLink;
+  &:hover::after {
+    position: absolute;
+    content: "\2026";
+    @include calcEM(left,0);
+    @include calcEM(right,0);
+    @include calcEM(bottom,32);
+  }
+}
+
+.gridOverlay {
+  @include gridOverlay;
+}

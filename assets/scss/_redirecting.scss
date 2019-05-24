@@ -1,0 +1,82 @@
+.spinner {
+  width: 45px;
+  height: 30px;
+  border-radius: $borderradius;
+  background-color: $color-yellow01;
+  // background-color: #fff;
+  margin: 32px auto 96px;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+.redirecting {
+  @include oWrap(wide);
+  background-color: $color-yellow00;
+  margin: 0 auto;
+  p {
+    width: 100%;
+    @include typo-filter-header3;
+    @include calcBL(margin-top,3);
+    text-align: center;
+  }
+}
+
+.thx {
+  @include oWrap(wide);
+  background-color: $color-yellow00;
+  &__wrapper {
+    @include iWrap(0,0,16,0);
+    @include calcBL(padding-bottom,4);
+  }
+  h1 {
+    text-align: center;
+    width: 100%;
+    @include typo-minketkeresel-h2;
+    @include calcBL(margin-bottom,2);
+    @include calcBL(margin-top,2);
+  }
+  p {
+    width: 100%;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    margin-top: 0;
+    @include typoBaseline(16,2,2,6);
+    span {
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+  h2 {
+    @include typoBaseline(15,2,3);
+    @include minBP(3) {
+      @include typoBaseline(18,2,3);
+    }
+    @include letterSpacing(30);
+    font-family: 'Poppins', sans-serif;
+    @include calcBL(margin-top,3);
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+    span {
+      color:$color-yellow01;
+    }
+  }
+}

@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i|Montserrat:300,600|Poppins:600,700&subset=latin-ext');
+.Merriweather {
+  font-family: 'Merriweather', serif;
+}
+.Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+.Poppins {
+  font-family: 'Poppins', sans-serif;
+}
+@mixin merriweather {
+  font-family: 'Merriweather', serif;
+}
+@mixin montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+@mixin poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+//pl.
+@mixin ----typo-minta($scale:$baseFontSize) {
+  @include typoBaseline(16,2,0,0,$scale);
+}
+
+
+@mixin button($style: 0,$baseFS: $baseFontSize) {
+  @include typoBaseline(14,2,0,0,$baseFS);
+  @include calcBL(padding-left,1);
+  @include calcBL(padding-right,1);
+  @include calcBL(padding-top,.55);
+  @include calcBL(padding-bottom,.45);
+  position: relative;
+  bottom: 5px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+  border-radius: $borderradius;
+  background-color: $color-yellow01;
+  box-sizing: border-box;
+  @if $style == 1 {
+    font-family: 'Poppins', sans-serif;
+    @include calcEM(padding-top,5,16);
+    @include calcEM(padding-bottom,5,16);
+    background-color: transparent;
+    border: 1px solid $color-black;
+    text-transform: none;
+    font-size: #{16/$baseFontSize}em;
+    @include letterSpacing(5);
+    &:hover {
+      // border: 1px solid transparent;
+      text-decoration: underline;
+    }
+  }
+  @else if $style == 2 {
+    background-color: $color-green;
+    &:hover {
+      background-color: darken($color-green,10%);
+      text-decoration: none;
+    }
+  }
+  @else if $style == 3 {
+    background-color: white;
+    border: 1px solid $color-yellow01;
+    text-decoration: none;
+    &:hover {
+      border: 1px solid $color-black;
+    }
+  }
+  @else if $style == 4 {
+    background-color: $color-yellow00;
+    &:hover {
+      background-color: darken($color-yellow00,10%);
+      text-decoration: none;
+    }
+  }
+  @else if $style == 5 {
+    background-color: $color-yellow01;
+    &:hover {
+      background-color: lighten($color-yellow01,18%);
+      text-decoration: none;
+    }
+  }
+  @else if $style == 6 {
+    background-color: transparent;
+    border: 1px solid $color-black;
+    &:hover {
+      border: 1px solid $color-yellow01;
+      text-decoration: none;
+    }
+  }
+  @else if $style == 7 {
+    background-color: transparent;
+    border: 1px solid $color-yellow01;
+    text-decoration: none;
+    &:hover {
+      border: 1px solid $color-black;
+    }
+  }
+  @else if $style == 8 {
+    background-color: white;
+    text-transform: none;
+    &:hover {
+      background-color: $color-yellow00;
+      text-decoration: none;
+    }
+  }
+}
+@mixin typo-menu {
+  @include typoBaseline(14,2,0,0);
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@mixin typo-01heading { //aricle
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  @include typoBaseline(42,4,2,0);
+  margin-top: 0;
+}
+@mixin typo-01articleHeading { //aricle
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  @include typoBaseline(26,3,5,9);
+  @include minBP(3) {
+    @include typoBaseline(42,4,6,11);
+  }
+  margin-top: 0;
+  position: relative;
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    height: 5px;
+    width: 140px;
+    background-color: $color-black;
+  }
+}
+@mixin typo-02heading { //section head
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  @include typoBaseline(26,2,5,9);
+}
+@mixin typo-03heading { //section head
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo-articleH3 { //section head
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-top: 0;
+  @include typoBaseline(24,3,2,0);
+}
+@mixin typo-04heading { //article head
+  @include typoBaseline(24,3,4,0);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+  text-transform: uppercase;
+  @include letterSpacing;
+}
+@mixin typo-section-heading { //article head
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0;
+  @include typoBaseline(26,3,6,0);
+  @include letterSpacing(10);
+  text-transform: uppercase;
+  position: relative;
+  &::after {
+    content: ' ';
+    background: $color-black;
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 148px;
+    height: 2px;
+  }
+}
+@mixin typo-05subhead { //date, extra link, tags)
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(12,2,0,1);
+  font-weight: 300;
+  @include letterSpacing(100);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo-button { //article session
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo-emphasized { //date, extra link, tags)
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+}
+@mixin typo-paragraph {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(16,2,2,6);
+}
+@mixin typo-paragraphStrong {
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  margin-top: 0;
+}
+@mixin typo-hintText {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+}
+@mixin typo-blockquote {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+  @include typoBaseline(16,2,2,6);
+}
+@mixin typo-social { //date, extra link, tags)
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+  font-size: 9px;
+  line-height: 1.5em;
+  color: $color-black;
+  text-decoration: none;
+  @include letterSpacing(30);
+}
+//footer
+@mixin typo-footer-h3 {
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(12,2,3,9);
+  @include letterSpacing(100);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo-footer-list {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(14,2,1,8);
+}
+@mixin typo-footer-impressum {
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(12,2,1,0);
+  // color: $color-grey;
+  @include letterSpacing(50);
+}
+
+//card
+@mixin typo-card-heading($scale:$baseFontSize) { //article head
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0;
+  @include calcBL(margin-top,1,20);
+  @include typoBaseline(20,2,2,11,$scale);
+  @include letterSpacing(10);
+  text-transform: uppercase;
+}
+@mixin typo-card-label {
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(12,2,0,8);
+  @include letterSpacing(100);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-top: 0;
+  &::before {
+    content: ' ';
+    background: $color-yellow01;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 1px;
+  }
+}
+@mixin typo-card-paragraph {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(16,2,0,6);
+}
+
+//filter
+@mixin typo-filter-header2 {
+  @include typoBaseline(18,2,0);
+  @include letterSpacing(30);
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo-filter-header3 {
+  @include typoBaseline(20,2,3,11);
+  @include letterSpacing(30);
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0;
+}
+@mixin typo-filter {
+  @include typoBaseline(16,2,2,6);
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+//információk
+@mixin typo-tipp {
+  font-family: 'Merriweather', serif;
+  @include typoBaseline(14,2,0,0);
+  font-weight: 400;
+  margin-top: 0;
+}
+
+//articleCard
+@mixin typo-articleCardHead { //article head
+  @include typoBaseline(24,3,4,0);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+  text-transform: uppercase;
+  @include letterSpacing;
+}
+@mixin typo--articleCardTime { //date, extra link, tags)
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(12,2,0,0);
+  font-weight: 300;
+  @include letterSpacing(100);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo--articleCard {
+  @include typoBaseline(16,2,2,6);
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+//extra links
+@mixin typo-extralinks { //date, extra link, tags)
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(12,2,0,1);
+  font-weight: 300;
+  @include letterSpacing(100);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+//relatedArticle
+@mixin typo--relatedHead { //date, extra link, tags)
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(12,2,3,0);
+  font-weight: 300;
+  @include letterSpacing(100);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo--related { //date, extra link, tags)
+  @include typoBaseline(14,2,0,0);
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+//keresett kifejezes
+@mixin typo-searchphrase {
+  @include typoBaseline(16,2,2,6);
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+//typo article
+@mixin typo-article {
+  p, ul, ol {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    margin-top: 0;
+    @include typoBaseline(16,2,2,6);
+  }
+  ul {
+    padding-left: 20px;
+  }
+  strong {
+    font-weight: 600;
+  }
+  // typo-donate-postscript
+  h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    @include calcBL(margin-top,3);
+    @include typoBaseline(20,3,2,0);
+  }
+}
+
+//typo tabs
+@mixin typo-tabs {
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(14,2,0,0);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+@mixin typo-toggle {
+  font-family: 'Montserrat', sans-serif;
+  @include typoBaseline(14,2,0,0);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+//attention
+@mixin typo-attention {
+  @include typoBaseline(16,2,1);
+  @include letterSpacing(30);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+}
+//donate--postscript
+@mixin typo-donate-postscript { //section head
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+  @include typoBaseline(20,3,2,0);
+}
+
+
+//form
+@mixin typo-legend {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  @include typoBaseline(12,2,1,0);
+  @include letterSpacing(100);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+@mixin typo-label {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(16,3,0,0);
+}
+@mixin typo-input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+  // @include typoBaseline(16,2,0,0);
+  font-size: 16px;
+}
+@mixin typo-description {
+  font-family: 'Merriweather', serif;
+  @include typoBaseline(14,2,0,0);
+  font-weight: 400;
+  margin-top: 0;
+}
+
+
+//accoun number
+@mixin typo-accountnum {
+  @include typoBaseline(16,2,1);
+  @include letterSpacing(30);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+//helloworld
+@mixin typo-helloworld {
+  @include poppins;
+  @include typoBaseline(16,2,1);
+  font-weight: 700;
+}
+
+@mixin typo-cards__more {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 0;
+  @include typoBaseline(14,2,0,0);
+  // font-size: 16px;
+}
+
+//minketkeresel
+@mixin typo-minketkeresel-h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  @include typoBaseline(26,3,0,0);
+  text-transform: uppercase;
+}
+@mixin typo-minketkeresel-p {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(16,2,2,6);
+}
+@mixin typo-minketkeresel-pp {
+  @include typoBaseline(14,2,0,0);
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+}
+//hirlevel
+@mixin typo-hirlevel--number($scale:$baseFontSize) {
+  @include typoBaseline(76,7,0,0,$scale);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+//
+@mixin typo-assist-contact {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  margin-top: 0;
+  @include typoBaseline(14,2,2,0);
+}
+
+//focuslist
+@mixin typo-focuslist($baseFS: $baseFontSize) {
+  @include typoBaseline(14,2,0,0,$baseFS);
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+//arcok
+@mixin typo-arcok-nev { //section head
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin-top: 0;
+  @include typoBaseline(20,2,2,0);
+}

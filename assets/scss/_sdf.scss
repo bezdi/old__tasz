@@ -1,0 +1,64 @@
+//   ======================================
+//
+//   .oooooo..o oooooooooo.   oooooooooooo
+//   d8P'    `Y8 `888'   `Y8b  `888'     `8
+//   Y88bo.       888      888  888
+//    `"Y8888o.   888      888  888oooo8
+//        `"Y88b  888      888  888    "
+//   oo     .d8P  888     d88'  888
+//   8""88888P'  o888bood8P'   o888o
+//
+//   ======================================
+//           Super-duper Framework
+
+
+@import 'sdf/normalize-min-nocomment.scss';
+@import 'sdf/sdf_variables';
+@import 'sdf_config';
+@import 'sdf/sdf_mixins_core';
+
+
+/*
+html, body {
+	height: 100%;
+}
+html {
+	@include sdf-devBp;
+	font-size: #{$rootFontSizePx}px;
+	font-family: #{$fontFamily};
+	@if $improvedFontSmoothing {
+	    font-size: 100%;
+	    -webkit-text-size-adjust: 100%;
+	    font-variant-ligatures: none;
+	    -webkit-font-variant-ligatures: none;
+	    text-rendering: optimizeLegibility;
+	    -moz-osx-font-smoothing: grayscale;
+	    font-smoothing: antialiased;
+	    -webkit-font-smoothing: antialiased;
+	    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	}
+}
+*/
+html {
+	@include sdf-devBp;
+	@if $improvedFontSmoothing {
+	    // font-size: 100%;
+	    // -webkit-text-size-adjust: 100%;
+	    font-variant-ligatures: none;
+	    -webkit-font-variant-ligatures: none;
+	    text-rendering: optimizeLegibility;
+	    -moz-osx-font-smoothing: grayscale;
+	    font-smoothing: antialiased;
+	    -webkit-font-smoothing: antialiased;
+	    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	}
+}
+/*
+body {
+	display: flex;
+	flex-direction: column;
+}
+main {
+	flex-grow: 1;
+}
+*/

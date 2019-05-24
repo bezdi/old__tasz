@@ -1,0 +1,40 @@
+//debug mode
+$sdfDevMode: 0;
+	$sdfDevColors: 0;
+	$devOverlay: 1;
+	$sdfDevBp: 1;
+
+
+
+/////////////////////////////////////
+//layout
+/////////////////////////////////////
+
+$contentMaxWidth: 1386;
+$defaultRowSegments: 12 !default;
+
+// breakpoints
+$bp-step: 160 !default;
+$bp-1: 320 !default;
+$bp-2: $bp-1 + $bp-step !default;
+$bp-3: $bp-1 + $bp-step * 2 !default;
+$bp-4: $bp-1 + $bp-step * 3 !default;
+$bp-5: $bp-1 + $bp-step * 4 !default;
+$bp-6: $bp-1 + $bp-step * 5 !default;
+$bp-7: $bp-1 + $bp-step * 7 !default;
+$bp-8: $bp-1 + $bp-step * 9 !default;
+$bp-9: $bp-1 + $bp-step * 12 !default;
+
+
+
+/////////////////////////////////////
+//typo
+/////////////////////////////////////
+
+// TODO: put in config file only
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i&subset=latin-ext');
+
+$rootFontSizePx: 10;//px, no unit
+$improvedFontSmoothing: true;
+//https://gist.github.com/hsleonis/55712b0eafc9b25f1944 by hsleonis
+// $fontFamily: "'Tinos', serif" !default;

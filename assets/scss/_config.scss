@@ -1,0 +1,88 @@
+$devMode: 0;
+  $devSpacing: 0;
+  $devColors: 0;
+  $devOverlay: 0;
+  $devGrid: 0;
+  $devBp: 1;
+
+//clearfix hack on off
+$clearfix: 'off'; // 'off' / 'on'
+
+//typo
+$defaultFontSize: 1.2rem;
+$baseFontSize: $defaultFontSize / .1rem;//dont change;
+$fontFamily: " 'Lato', sans-serif " !default;
+
+// breakpoints
+$bp-step: 160;
+$bp-1: 320;
+$bp-2: $bp-1 + $bp-step;
+$bp-3: $bp-1 + $bp-step * 2;
+$bp-4: $bp-1 + $bp-step * 3;
+$bp-5: $bp-1 + $bp-step * 4;
+$bp-6: $bp-1 + $bp-step * 5;
+$bp-7: $bp-1 + $bp-step * 7;
+$bp-8: $bp-1 + $bp-step * 9;
+
+//layout
+$gutter: 1.0rem;//unit needed
+$frameSystem: 16;//no unit - number of columns in grid
+$siteMaxWidth: 1386;//no unit
+$baseline: 12;
+//extraMargin
+$defaultFrameMargin: 'dyn';//'yes' 'no' 'dyn'(dynamic)
+$extraMarginBp: 3;// min-width breakpoint whan extra margin is applied
+$extraMargin: $gutter;//actually padding
+
+//sticky footer
+$stickyFooterBP1: 6;
+$footerHeight1: 484px;
+$stickyFooterBP2: 7;
+$footerHeight2: 484px;
+$stickyFooterBP3: 0;
+$footerHeight3: inherit;
+//colors
+$c-black: #2a2b2a;
+$c-select: #fcecb8;
+$c-select-color: #2a2b2a;
+$c-focusOutline: #f9c114;
+// palette
+// $c-color1: $c-GulfStream;//gulf stream
+// $c-color2: $c-BurntSienna; //burnt-sienna
+// $c-link: darken($c-color2,15%);
+// $c-color3: $c-MineShaft;//MineShaft
+// $c-color4: $c-HitGray;//HitGray
+// $c-color5: #e8ebed;//HitGrey 25%
+// $c-color6: $c-StormGray;
+// $c-color7: darken($c-StormGray,10%);
+$color-grey: #eeeff0;
+$color-yellow00: #fcecb8;
+$color-yellow01: #f9c114;
+$color-black: #2a2b2a;
+$color-green: #a9ecda;
+
+
+//button
+$button-fontweight: 400;
+$button-borderradius: .3rem;
+$button-color: white;
+$button-backgroundcolor: $color-yellow01;
+$button-texttransform: uppercase;
+
+//sprite
+$spritePath: '../images/sprite.svg' !default;
+$spriteWidth: 512 !default;//pixel, unit not needed
+$spriteHeight: 512 !default;//pixel, unit not needed
+
+//spacing
+$spacing1: 24!default;
+$spacing2: 32!default;
+$spacing3: 48!default;
+$spacing4: 64!default;
+$spacing5: 96!default;
+$spacing1s: 16!default;//$gutter
+$spacing2s: $spacing1!default;
+$spacing3s: $spacing2!default;
+$spacing4s: $spacing3!default;
+$spacing5s: $spacing4!default;
+$spacingBp: 4!default;

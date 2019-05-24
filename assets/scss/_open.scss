@@ -1,0 +1,376 @@
+.open {
+}
+.intro {
+  @include oWrap(wide);
+  // @include errorMessage(error);
+  @include minBP(3) {
+    @include calcBL(margin-top,2);
+    @include calcBL(margin-bottom,4);
+  }
+}
+.csinalunk {
+  @include maxBP(5) {
+    order: 2;
+    @include calcBL(margin-top,2);
+  }
+  @include layout(0,16);
+  @include listreset;
+  @include mWrap(0,0,16,0);
+  @include mWrap(5,0,5,0);
+  @include mWrap(6,2,4,0);
+  li {
+    @include iWrap(0,0,1,0,1);
+    @include iWrap(3,1,6,1,8);
+    @include iWrap(4,0,1,0,3);
+    @include iWrap(5,0,1,0,1);
+    @include calcBL(padding-top,1);
+    @include calcBL(margin-bottom,2);
+  }
+  h2 {
+    margin-top: 0;
+    @include poppins;
+    @include typoBaseline(26,3,1);
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      @include calcBL(width,6  ,26);
+      @include calcBL(top,-1,26);
+      height: 2px;
+      background-color: $color-yellow01;
+    }
+  }
+  p {
+    margin-top: 0;
+    @include merriweather;
+    @include typoBaseline(16,2,1);
+  }
+  .button {
+    @include button(5);
+    &::after {
+      content:" \00bb";
+    }
+  }
+}
+.helloworld {
+  @include maxBP(5) {
+    order: 1;
+  }
+  @include DEV(yellow,yellow);
+  @include mWrap(0,  0,16,0);
+  @include mWrap(5,  0,11,0);
+  @include mWrap(6,  0,10,0);
+  background-color: $color-yellow00;
+  @include calcBL(padding-bottom,3);
+  &__text {
+    position: relative;
+    background-color: #fff;
+    @include minBP(3) {
+      @include calcBL(margin-top,2);
+    }
+    @include iWrap;
+    @include iWrap(3,  2,12,2);
+    @include iWrap(4,  3,10,3);
+    @include mWrap(5,  1,7,3,  11);
+    @include mWrap(6,  1,5,4,  10);
+    @include typo-helloworld;
+    position: relative;
+    @include calcBL(padding-top,4,16);
+    @include calcBL(padding-bottom,10,16);
+    @include calcBL(margin-bottom,-8,16);
+    p {
+      margin-top: 0;
+      @include iWrap(5,  0,9,0,  7);
+      position: relative;
+      @include offsetWrap(5,left,  1,  7);
+      @include offsetWrap(5,right,  1,  7);
+      @include offsetWrap(6,left,  1,  5);
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        @include calcBL(width,2,16);
+        @include calcBL(bottom,-1,16);
+        height: 2px;
+        background-color: $color-black;
+      }
+    }
+  }
+  &__pic {
+    position: relative;
+    @include mWrap;
+    @include iWrap(3,  2,12,2);
+    @include iWrap(4,  3,10,3);
+    @include iWrap(5,  2,9,0,  11);
+    @include iWrap(6,  2,8,0,  10);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.minketkeresel {
+  @include oWrap;
+  @include marginAuto;
+  @include calcBL(margin-bottom,6);
+  &__igen, &__nem {
+    @include iWrap(0,0,16,0);
+    @include iWrap(3,0,8,0);
+    // @include iWrap(3,0,8,0);
+    h2 {
+      @include typo-minketkeresel-h2;
+    }
+    h2 + p {
+      @include typo-minketkeresel-p;
+      position: relative;
+      &::after {
+        content: ' ';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: $color-black;
+        left: 0;
+        bottom: -10px;
+      }
+    }
+    p + p {
+      @include typo-minketkeresel-pp;
+    }
+  }
+  &__igen {
+    @include iWrap(6,2,5,1);
+  }
+  &__nem {
+    @include iWrap(6,0,5,3);
+  }
+  &__igen h2 {
+    background-color: $color-yellow00;
+    @include calcBL(padding-left,1,26);
+    @include calcBL(margin-left,-1,26);
+    @include calcBL(padding-right,1,26);
+    @include calcBL(margin-right,-1,26);
+  }
+  &__keresel {
+    margin-top: -100px;
+    padding-top: 140px;
+    z-index: -1;
+    @include calcBL(margin-bottom,4);
+    @include mWrap(0,0,16,0);
+    @include mWrap(5,1,14,1);
+    background-color: $color-yellow00;
+    fieldset {
+      @include iWrap(0,0,1,0,1);
+      @include iWrap(3,2,14,2);
+      @include iWrap(5,3,8,3,14);
+    }
+    legend {
+      @include typo-helloworld;
+    }
+    .search {
+      background-color: #fff;
+      @include boxshadowCard;
+      border-radius: $borderradius;
+      @include calcBL(margin-bottom,2);
+      @include flexbox;
+      @include calcBL(padding,.5);
+      input[type="text"] {
+        @include typo-paragraph;
+        margin-bottom: 0;
+        position: relative;
+        bottom: 2px;
+        border-radius: $borderradius;
+        @include calcBL(padding-right,1);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        // background-color: green;
+        width: 100%;
+        &:focus {
+          background-color: transparent;
+          outline: 0;
+        }
+      }
+      input[type="submit"] {
+        @include button(5);
+        @include calcBL(padding-top,.45);
+        @include calcBL(padding-bottom,.35);
+        bottom: 0;
+        border: 0;
+        max-width: 150px;
+        margin-left: auto;
+      }
+    }
+    .buttons {
+      a {
+        @include button(3);
+        border: 0;
+        cursor: pointer;
+        @include calcBL(margin-bottom,2);
+      }
+    }
+  }
+}
+
+.hirlevel {
+  h2 {
+     @include typo-minketkeresel-h2;
+     @include calcBL(margin-top,4,26);
+     @include calcBL(margin-bottom,2,26);
+     position: relative;
+     &::after {
+       content: ' ';
+       display: block;
+       height: 2px;
+       width: 100%;
+       max-width: 240px;
+       background-color: $color-black;
+       position: absolute;
+       bottom: -4px;
+       left: 0;
+     }
+  }
+  &::after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 340px;
+    background-color: $color-grey;
+    position: absolute;
+    z-index: -10;
+    bottom: 0;
+  }
+  @include DEV(yellow,yellow);
+  @include oWrap;
+  @include marginAuto;
+  position: relative;
+  // &::before {
+  //   content: ' ';
+  //   display: block;
+  //   background-color: cyan;
+  //   position: absolute;
+  //   top: 20px;
+  //   left: 0;
+  //   bottom: 0;
+  //   @include mWrap(0,0,16,0);
+  //   @include mWrap(0,2,12,2);
+  //   z-index: -100;
+  // }
+  &__list {
+    @include DEV(red,red);
+    @include mWrap(0,0,16,0);
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    line-height: 1;
+    li {
+      @include iWrap(0,0,16,0);
+      @include iWrap(4,0,8,0);
+      @include iWrap(5,0,4,0);
+      @include iWrap(6,0,3,0,12);
+      display: block;
+      line-height: 1;
+      position: relative;
+      box-sizing: border-box;
+      @include calcBL(padding-left,1,16);
+      .number {
+        @include typo-hirlevel--number(16);
+      }
+      @include typo-helloworld;
+      &::before {
+        content: ' ';
+        position: absolute;
+        width: 2px;
+        top: 0;
+        bottom: 0;
+        background-color: $color-yellow01;
+        left: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+  h2 {
+    @include iWrap(0,0,16,0);
+    @include iWrap(5,1,14,1);
+    @include DEV(salmon,salmon);
+
+  }
+  &__feliratkozas {
+    @include DEV(lime,lime);
+    @include mWrap(0,0,16,0);
+    @include mWrap(4,0,10,0);
+    @include mWrap(5,3,7,0);
+    align-items: flex-start;
+    .form-item-textfield {
+      @include iWrap(0,0,16,0);
+      @include iWrap(2,0,10,0);
+      @include iWrap(3,2,8,0);
+      @include iWrap(4,0,7,0,10);
+      @include iWrap(5,0,9,0,14);
+      @include iWrap(6,0,5,0,7);
+    }
+    input[type="submit"] {
+      @include iWrap(0,0,16,0);
+      @include iWrap(2,0,6,0);
+      @include iWrap(3,0,4,2);
+      @include iWrap(4,0,3,0,10);
+      @include iWrap(5,0,5,0,14);
+      @include iWrap(6,0,2,0,7);
+      @include button(5);
+      @include minBP(2) {
+        @include calcBL(margin-top,3);
+      }
+      border: 0;
+    }
+    input[type="text"] {
+      background-color: white;
+    }
+  }
+  &__text {
+    @include iWrap(0,0,16,0);
+    @include iWrap(4,0,6,0);
+    @include iWrap(5,1,4,1);
+    @include typo-paragraph;
+    @include calcBL(margin-top,1.5  );
+  }
+  form {
+    @include mWrap(0,0,16,0);
+    @include mWrap(4,0,10,0);
+    @include mWrap(5,0,10,0);
+    align-items: center;
+    .form-item-textfield {
+      @include iWrap(0,0,16,0);
+      @include iWrap(4,0,3,0,5);
+      @include iWrap(5,0,4,0,6);
+      @include iWrap(6,2,5,0,10);
+    }
+    input[type="email"] {
+      background-color: #fff;
+    }
+    input[type="submit"] {
+      @include iWrap(0,4,8,4);
+      @include iWrap(3,6,6,6);
+      @include iWrap(4,0,2,0,5);
+      @include iWrap(5,0,2,0,6);
+      @include iWrap(6,0,2,1,10);
+      @include button(5);
+      border: 0;
+      cursor: pointer;
+      @include minBP(4) {
+        position: relative;
+        @include calcEM(bottom,14,14);
+      }
+    }
+  }
+}
+
+.banner {
+  @include oWrap(wide);
+  background-color: $color-yellow00;
+}

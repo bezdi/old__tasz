@@ -1,0 +1,688 @@
+// errorMessage
+// minBP
+// maxBP
+// minmaxBP
+// debugBP
+
+// objectWidth --obsolate
+// layoutBase --obsolate
+// layout --obsolate
+// phantomColBefore --obsolate
+// phantomColAfter --obsolate
+
+// spacing
+// dynSpacing
+
+// calcWrapWidth
+// calcWrapMargin
+// oWrap
+// mWrap
+// iWrap
+
+// gridOverlay
+
+
+@mixin errorMessage($message: '!ERROR')  {
+  position: relative;
+  &::after {
+    content: "#{$message}";
+    color: black;
+    background-color: rgba(#fff,.75);
+    border: 2px dashed darken(red, 15%);
+    max-width: 192px;
+    position: absolute;
+    font-family: Arial;
+    // font-style: italic;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    top: 8px;
+    left: 4px;
+    z-index: 1000;
+  }
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+//BreakPoint Mixins
+/////////////////////////////////////////////////////////////////////////////
+//min-Breakpoint
+@mixin minBP($breakPoint) {
+  @if $breakPoint > 99 {
+    $breakPointString: "(min-width: #{$breakPoint}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 1 {
+    $breakPointString: "(min-width: #{$bp-1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 2 {
+    $breakPointString: "(min-width: #{$bp-2}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 3 {
+    $breakPointString: "(min-width: #{$bp-3}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 4 {
+    $breakPointString: "(min-width: #{$bp-4}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 5 {
+    $breakPointString: "(min-width: #{$bp-5}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @if $breakPoint == 6 {
+    $breakPointString: "(min-width: #{$bp-6}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @if $breakPoint == 7 {
+    $breakPointString: "(min-width: #{$bp-7}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @if $breakPoint == 8 {
+    $breakPointString: "(min-width: #{$bp-8}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+}
+//maxBP
+@mixin maxBP($breakPoint) {
+  @if $breakPoint > 99 {
+    $breakPointString: "(max-width: #{$breakPoint}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 1 {
+    $breakPointString: "(max-width: #{$bp-1 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 2 {
+    $breakPointString: "(max-width: #{$bp-2 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 3 {
+    $breakPointString: "(max-width: #{$bp-3 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 4 {
+    $breakPointString: "(max-width: #{$bp-4 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @else if $breakPoint == 5 {
+    $breakPointString: "(max-width: #{$bp-5 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @if $breakPoint == 6 {
+    $breakPointString: "(max-width: #{$bp-6 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @if $breakPoint == 7 {
+    $breakPointString: "(max-width: #{$bp-7 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+  @if $breakPoint == 8 {
+    $breakPointString: "(max-width: #{$bp-8 - 1}px)";
+    @media #{$breakPointString} {
+        @content;
+    }
+  }
+}
+//minmaxBP
+@mixin minmaxBP($breakPoint1,$breakPoint2) { //use with variables eg. @include bp--middle($bp-3,$bp-5);
+  @media (min-width: #{$breakPoint1}px) and (max-width: #{$breakPoint2}px) {
+	  @content;
+  }
+}
+//debug-bp - dependency: pseudo
+@mixin debugBp {
+  @if $devMode == 1 and $devBp == 1 {
+    &::before {
+      @include pseudo;
+      position: fixed;
+      z-index: 100;
+      content: 'xs';
+      text-transform: uppercase;
+      font-weight: 700;
+      top: 0;
+      left: 0;
+      background-color: rgba(#fff, .75);
+      color: rgba($c-black, .6);
+      padding: 4px;
+      font-size: 13px;
+      @include minBP(1) {
+        content: '1 - #{$bp-1}px';
+      }
+      @include minBP(2) {
+        content: '2 - #{$bp-2}px';
+      }
+      @include minBP(3) {
+        content: '3 - #{$bp-3}px';
+      }
+      @include minBP(4) {
+        content: '4 - #{$bp-4}px';
+      }
+      @include minBP(5) {
+        content: '5 - #{$bp-5}px';
+      }
+      @include minBP(6) {
+        content: '6 - #{$bp-6}px';
+      }
+      @include minBP(7) {
+        content: '7 - #{$bp-7}px';
+      }
+      @include minBP(8) {
+        content: '8 - #{$bp-8}px';
+      }
+    }
+  }
+}
+// - - - - - - - - - - - - BreakPoint Mixins
+
+
+/////////////////////////////////////////////////////////////////////////////
+//OBSOLATE Layout Mixins
+/////////////////////////////////////////////////////////////////////////////
+@mixin frame ($frameWidth: "narrow", $frameMargin: $defaultFrameMargin) {
+  display: block;
+  @include flexbox;
+  @include align-content(flex-start);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  // clearfix hack
+  @include clearfix;
+  // overflow: visible;
+  // DEV
+  min-height: 4px;
+
+  @if $frameWidth == "narrow" {
+    max-width: #{$siteMaxWidth}px;
+    @if $frameMargin == 1 or $frameMargin == "yes" {
+      padding-left: $extraMargin;
+      padding-right: $extraMargin;
+      // box-sizing: content-box;
+    }
+    @if $frameMargin == 2 or $frameMargin == "dyn" or $frameMargin == "dynamic" {
+      @include minBP($extraMarginBp) {
+        padding-left: $extraMargin;
+        padding-right: $extraMargin;
+        // box-sizing: content-box;
+      }
+    }
+    //troubleshoot
+    @if $frameMargin !=0 and $frameMargin != "no" and $frameMargin != 1 and $frameMargin != "yes" and $frameMargin != 2 and $frameMargin != "dyn" and $frameMargin != "dynamic" {
+        position: relative;
+        &::after {
+          content: "frameMargin parameter error";
+          position: absolute;
+          top: 0;
+          left: 0;
+      }
+    }
+  }
+  @else if $frameWidth == "wide" {
+    @if $frameMargin == 0 or $frameMargin == "no" {
+      @include minBP($siteMaxWidth) {
+        padding-left: calc(50% - #{$siteMaxWidth / 2}px);
+        padding-right: calc(50% - #{$siteMaxWidth / 2}px);
+      }
+    }
+    @if $frameMargin == 1 or $frameMargin == "yes" {
+      padding-left: $extraMargin;
+      padding-right: $extraMargin;
+    }
+    @if $frameMargin == 2 or $frameMargin == "dyn" or $frameMargin == "dynamic" {
+      @include minBP($extraMarginBp) {
+        padding-left: $extraMargin;
+        padding-right: $extraMargin;
+      }
+    }
+    @if $frameMargin == 1 or $frameMargin == "yes" or $frameMargin == 2 or $frameMargin == "dyn" or $frameMargin == "dynamic" {
+      @include minBP($siteMaxWidth) {
+        padding-left: calc(50% - #{$siteMaxWidth / 2}px + #{$extraMargin});
+        padding-right: calc(50% - #{$siteMaxWidth / 2}px + #{$extraMargin});
+      }
+    }
+    //troubleshoot
+    @if $frameMargin !=0 and $frameMargin != "no" and $frameMargin != 1 and $frameMargin != "yes" and $frameMargin != 2 and $frameMargin != "dyn" and $frameMargin != "dynamic" {
+        // @include errorMessage;
+    }
+  }
+  //troubleshoot
+  @else {
+    position: relative;
+    &::after {
+      content: "frameWidth parameter error";
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+//objectWidth ( --numberOfColumns  --frame system  --gutter )
+@mixin objectWidth($numberOfCol,$frame: $frameSystem, $gut: $gutter) {
+  // column width
+  $columnWidth: 100 / $frame;
+  margin-left: $gut;//?
+  margin-right: $gut;//?
+  box-sizing: border-box;
+  //object width
+  @if $gut == 0 {
+    // width: calc(#{$columnWidth * $numberOfCol}%);
+    // width: '#{$columnWidth * $numberOfCol}%';
+    width: #{$columnWidth * $numberOfCol * 1%};
+  }
+  @else {
+    width: calc(#{$columnWidth * $numberOfCol}% - #{2*$gut});
+  }
+}
+// layout (dependencies: min-width,objectWidth)
+//( --breakpoint  --number of columns  --frame system  --gutter )
+@mixin layoutBase($breakPoint,$numberOfCol,$gut: $gutter,$frame: $frameSystem) {
+  //ha a breakpoint 0, akkor nem kell mediaQ.
+  @if $breakPoint == 0 {
+    float: left;//fallback
+    @include objectWidth($numberOfCol, $frame, $gut);
+  }
+  //ha a breakpoint nagyobb mint 0, akkor kell mediaQ.
+  @else if $breakPoint > 0 {
+    @include minBP($breakPoint) {
+      float: left;//fallback
+      @include objectWidth($numberOfCol, $frame, $gut);
+    }
+  }//-----------------------------------------
+}
+@mixin layout ($breakPoint,$numberOfCol,$gut:'res',$frame: $frameSystem) {
+  @if $gut == 'res' {
+    @include layoutBase($breakPoint,$numberOfCol,$gutterSmall,$frame);
+    @include minBP($resGutterBP) {
+      @include layoutBase($breakPoint,$numberOfCol,$gutter,$frame);
+    }
+  }
+  @else {
+    @include layoutBase($breakPoint,$numberOfCol,$gut,$frame);
+  }
+}
+@mixin phantomColBefore($breakPoint,$numberOfCol,$gut:'res',$frame: $frameSystem) {
+  $columnWidth: 100 / $frame;
+  @if $breakPoint == 0 {
+    @if $gut == 'res' {
+      margin-left: calc(#{$columnWidth * $numberOfCol}% + #{$gutterSmall});
+      @include minBP($resGutterBP) {
+        margin-left: calc(#{$columnWidth * $numberOfCol}% + #{$gutter});
+      }
+    }
+    @else if $gut == 0 {
+      // margin-left: calc(#{$columnWidth * $numberOfCol}%);
+      // margin-left: '#{$columnWidth * $numberOfCol}%';
+      margin-left: #{$columnWidth * $numberOfCol * 1%};
+    }
+  }
+  @else {
+    @include minBP($breakPoint) {
+      @if $gut == 'res' {
+        margin-left: calc(#{$columnWidth * $numberOfCol}% + #{$gutterSmall});
+        @include minBP($resGutterBP) {
+          margin-left: calc(#{$columnWidth * $numberOfCol}% + #{$gutter});
+        }
+      }
+      @else if $gut == 0 {
+        // margin-left: calc(#{$columnWidth * $numberOfCol}%);
+        // margin-left: '#{$columnWidth * $numberOfCol}%';
+        margin-left: #{$columnWidth * $numberOfCol * 1%};
+      }
+    }
+  }
+}
+@mixin phantomColAfter($breakPoint,$numberOfCol,$gut:'res',$frame: $frameSystem) {
+  $columnWidth: 100 / $frame;
+  @if $breakPoint == 0 {
+    @if $gut == 'res' {
+      margin-right: calc(#{$columnWidth * $numberOfCol}% + #{$gutterSmall});
+      @include minBP($resGutterBP) {
+        margin-right: calc(#{$columnWidth * $numberOfCol}% + #{$gutter});
+      }
+    }
+    @else if $gut == 0 {
+      // margin-right: calc(#{$columnWidth * $numberOfCol}%);
+      // margin-right: '#{$columnWidth * $numberOfCol}%';
+      margin-right: #{$columnWidth * $numberOfCol * 1%};
+    }
+  }
+  @else {
+    @include minBP($breakPoint) {
+      @if $gut == 'res' {
+        margin-right: calc(#{$columnWidth * $numberOfCol}% + #{$gutterSmall});
+        @include minBP($resGutterBP) {
+          margin-right: calc(#{$columnWidth * $numberOfCol}% + #{$gutter});
+        }
+      }
+      @else if $gut == 0 {
+        // margin-right: calc(#{$columnWidth * $numberOfCol}%);
+        // margin-right: '#{$columnWidth * $numberOfCol}%';
+        margin-right: #{$columnWidth * $numberOfCol * 1%};
+      }
+    }
+  }
+}
+//- - - - - - - - - - - - OBSOLATE Layout Mixins
+
+
+///////////////////////////////////////////////////////////////////////////
+//spacing -- needs rework?
+///////////////////////////////////////////////////////////////////////////
+@mixin spacing($amount: $spacing3, $place: "after") {
+  @if $place == "before" or $place == "both" {
+    margin-top: $amount;
+    @include showSpacingBefore($amount);
+  }
+  @if $place == "after" or $place == "both" {
+    margin-bottom: $amount;
+    @include showSpacingAfter($amount);
+  }
+}
+@mixin dynSpacing($amount: 1, $place: "after", $amount-s: 0, $amount-l: 0) {
+  @if $amount == 1 {
+    $amount-l: $spacing1;
+    $amount-s: $spacing1s;
+  }
+  @else if $amount == 2 {
+    $amount-l: $spacing2;
+    $amount-s: $spacing2s;
+  }
+  @else if $amount == 3 {
+    $amount-l: $spacing3;
+    $amount-s: $spacing3s;
+  }
+  @else if $amount == 4 {
+    $amount-l: $spacing4;
+    $amount-s: $spacing4s;
+  }
+  @else if $amount == 5 {
+    $amount-l: $spacing5;
+    $amount-s: $spacing5s;
+  }
+  @if $place == 'after' {
+    margin-bottom: #{$amount-l * .1}rem;
+    @include showSpacingAfter($amount-l);
+    @include maxBP($spacingBp) {
+      margin-bottom: #{$amount-s * .1}rem;
+      @include showSpacingAfter($amount-s);
+    }
+  }
+  @if $place == 'before' {
+    margin-top: #{$amount-l * .1}rem;
+    @include showSpacingBefore($amount-l);
+    @include maxBP($spacingBp) {
+      margin-top: #{$amount-s * .1}rem;
+      @include showSpacingBefore($amount-s);
+    }
+  }
+}
+// - - - - spacing -- needs rework?
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//imoWrap System Functions  __calcWrapWidth  __calcWrapMargin
+//////////////////////////////////////////////////////////////////////////////
+@mixin calcWrapWidth($numberOfCol: $frameSystem, $frame: $frameSystem, $gut: $gutter) {
+  $columnWidth: 100 / $frame;
+  @if $gut == 0 {
+    width: #{$columnWidth * $numberOfCol * 1%};
+  }
+  @else {
+    width: calc(#{$columnWidth * $numberOfCol}% - #{2*$gut});
+  }
+}
+@mixin calcWrapMargin($numberOfCol: $frameSystem, $frame: $frameSystem, $gut: $gutter,$preCol:0, $subCol:0) {
+  $columnWidth: 100 / $frame;
+  @if $gut == 0 {
+    // calc margin-left
+    @if $preCol == 0 {
+      margin-left: 0;
+    }
+    @else {
+      margin-left: #{$columnWidth * $preCol * 1%};
+    }
+    // calc margin-right
+    @if $subCol == 0 {
+      margin-right: 0;
+    }
+    @else {
+      margin-right: #{$columnWidth * $subCol * 1%};
+    }
+  }
+  @else {
+    // calc margin-left
+    @if $preCol == 0 {
+      margin-left: $gut;
+    }
+    @else {
+      margin-left: calc(#{$columnWidth * $preCol}% + #{$gut});
+    }
+    // calc margin-right
+    @if $subCol == 0 {
+      margin-right: $gut;
+    }
+    @else {
+      margin-right: calc(#{$columnWidth * $subCol}% + #{$gut});
+    }
+  }
+}
+// - - - - - - - - imoWrap System Dependencies  __calcWrapWidth  __calcWrapMargin
+
+
+
+////////////////////////////////////////////////////////
+// imoWrap System  __oWrap  __mWrap  __iWrap
+////////////////////////////////////////////////////////
+
+// __oWrap --frameWidth --frameMargin
+// - outer Wrap
+// - has no direct content
+// - it is the top Wrap
+// - able to have bleed (frameWidth: "wide" - reaches the sides of the viewport)
+@mixin oWrap ($frameWidth: "narrow", $frameMargin: $defaultFrameMargin) {
+  display: block;
+  @include flexbox;
+  @include align-content(flex-start);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  // clearfix hack
+  @include clearfix;
+  min-height: 4px;//DEV
+  //narrow - ha keskeny a kulso keret, nem pedig kifutos
+  @if $frameWidth == "narrow" {
+    max-width: #{$siteMaxWidth}px; //ennel nem leszelesebb
+    //kerul-e ra extra margo es mindig('yes') vagy csak adott bp felett('dyn')
+    @if $frameMargin == 1 or $frameMargin == "yes" {
+      padding-left: $extraMargin;
+      padding-right: $extraMargin;
+      // box-sizing: content-box;
+    }
+    @if $frameMargin == 2 or $frameMargin == "dyn" or $frameMargin == "dynamic" {
+      @include minBP($extraMarginBp) {
+        padding-left: $extraMargin;
+        padding-right: $extraMargin;
+        // box-sizing: content-box;
+      }
+    }
+    //troubleshoot
+    @if $frameMargin !=0 and $frameMargin != "no" and $frameMargin != 1 and $frameMargin != "yes" and $frameMargin != 2 and $frameMargin != "dyn" and $frameMargin != "dynamic" {
+        @include errorMessage(oWrap P2 error - yes no dyn);
+    }
+  }
+  //wide - ha kifut a kulso keret
+  @else if $frameWidth == "wide" {
+
+    //extra margo nincs
+    @if $frameMargin == 0 or $frameMargin == "no" {
+      //padding szamitasa ha nincs extra margo
+      @include minBP($siteMaxWidth) {
+        padding-left: calc(50% - #{$siteMaxWidth / 2}px);
+        padding-right: calc(50% - #{$siteMaxWidth / 2}px);
+      }
+    }
+
+    //extra margo van
+    @if $frameMargin == 1 or $frameMargin == "yes" {
+      padding-left: $extraMargin;
+      padding-right: $extraMargin;
+    }
+
+    //dyn - extra margo van adott bp felett
+    @if $frameMargin == 2 or $frameMargin == "dyn" or $frameMargin == "dynamic" {
+      @include minBP($extraMarginBp) {
+        padding-left: $extraMargin;
+        padding-right: $extraMargin;
+      }
+    }
+    //padding szamitasa, ha van vagy dinamikusan van extra margo
+    @if $frameMargin == 1 or $frameMargin == "yes" or $frameMargin == 2 or $frameMargin == "dyn" or $frameMargin == "dynamic" {
+      @include minBP($siteMaxWidth) {
+        padding-left: calc(50% - #{$siteMaxWidth / 2}px + #{$extraMargin});
+        padding-right: calc(50% - #{$siteMaxWidth / 2}px + #{$extraMargin});
+      }
+    }
+    //troubleshoot
+    @if $frameMargin != 0 and $frameMargin != "no" and $frameMargin != 1 and $frameMargin != "yes" and $frameMargin != 2 and $frameMargin != "dyn" and $frameMargin != "dynamic" {
+        @include errorMessage(oWrap P2 error- yes no dyn);
+    }
+  }
+  //troubleshoot
+  @if $frameWidth != "wide" and $frameWidth != "narrow" {
+    @include errorMessage(oWrap P1 error - wide narrow);
+  }
+}
+
+// __mWrap --breakp. --preCol --numOfCol --subCol --frameSystem
+// - middle wrap
+// - should be put between outer wrap and inner wrap
+// - it has no gutter
+// - typically it has no direct content
+@mixin mWrap($breakPoint:0, $preCol: 0, $numberOfCol: $frameSystem, $subCol: 0, $frame: $frameSystem) {
+  display: block;
+  @include flexbox;
+  @include align-content(flex-start);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  // clearfix hack
+  @include clearfix;
+  @if $breakPoint == 0 {
+    @include calcWrapWidth($numberOfCol, $frame, 0);
+    @include calcWrapMargin($numberOfCol, $frame, 0,$preCol,$subCol);
+  }
+  @else {
+    @include minBP($breakPoint) {
+      @include calcWrapWidth($numberOfCol, $frame, 0);
+      @include calcWrapMargin($numberOfCol, $frame, 0,$preCol,$subCol);
+    }
+  }
+}
+
+// __iWrap --breakp. --preCol --numOfCol --subCol --frameSystem --gutter
+// - innermost wrap
+// - has direct content
+// - has gutter
+@mixin iWrap($breakPoint:0,$preCol: 0,$numberOfCol: $frameSystem, $subCol: 0,$frame: $frameSystem, $gut: $gutter) {
+  @if $breakPoint == 0 {
+    @include calcWrapWidth($numberOfCol, $frame, $gut);
+    @include calcWrapMargin($numberOfCol, $frame, $gut, $preCol, $subCol);
+  }
+  @else {
+    @include minBP($breakPoint) {
+      @include calcWrapWidth($numberOfCol, $frame, $gut);
+      @include calcWrapMargin($numberOfCol, $frame, $gut, $preCol, $subCol);
+    }
+  }
+}
+// __offsetWrap --breakp. --direction --numOfCol --frameSystem
+// - offsets wrap
+// - num of col can bee negative number
+// - parent has to be position: relative;
+@mixin offsetWrap($breakPoint:0,$direction:'left', $numberOfCol: $frameSystem, $frame: $frameSystem) {
+  @if $direction != 'left' and $direction != 'right' {
+    @include errorMessage(offsetWrap - bad parameter);
+  }
+  @if $breakPoint == 0 {
+    // #{$direction}: calc(#{100 / $frame * $numberOfCol}%);
+    #{$direction}: #{100% / $frame * $numberOfCol};
+  }
+  @else {
+    @include minBP($breakPoint) {
+      // #{$direction}: calc(#{100 / $frame * $numberOfCol}%);
+      #{$direction}: #{100% / $frame * $numberOfCol};
+    }
+  }
+}
+//- - - - - - - - - Wrap System  __oWrap  __midWrap  __inWrap
+
+
+///////////////////////////////////////////////////////////
+// grid overlay
+///////////////////////////////////////////////////////////
+// this markup is needed in the html:
+// <div class="gridOverlay">
+//   <div></div> x number of columns
+// </div>
+@mixin gridOverlay {
+  @if $devMode == 0 or $devGrid == 0 {
+    display: none;
+  }
+  @else {
+    @include oWrap;
+    @include marginAuto;
+    max-width: #{$siteMaxWidth}px;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    cursor: default;
+    div {
+      @include iWrap(0,0,4,0);
+      @include iWrap(2,0,2,0);
+      @include iWrap(4,0,1,0);
+      height: 100vh;
+      @include DEVforced(gray,white);
+    }
+  }
+}
+//- - - - - - - - - - - - - - grid overlay - - - - - - - - - - -

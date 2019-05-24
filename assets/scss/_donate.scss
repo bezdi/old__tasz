@@ -1,0 +1,435 @@
+//alapstruktura
+.donate {
+  .wrapper {
+    @include frame(wide);
+    background-color: $color-yellow00;
+    position: relative;
+    &::before {
+      content: ' ';
+      position: absolute;
+      left: 24px;
+      bottom: 0;
+      @include sprite(7,192,142,136);
+      @include maxBP(5) {
+        font-size: .7em;
+      }
+    }
+    &::after {
+      content: ' ';
+      position: absolute;
+      right: 24px;
+      bottom: 0;
+      @include sprite(150,191,142,136);
+      @include maxBP(5) {
+        font-size: .7em;
+      }
+    }
+    .donate__header, .donate__main {
+      @include layout(0,16);
+      @include layout(5,12);
+      @include minBP(5) {
+        @include marginAuto;
+      }
+    }
+    .donate__postscript {
+      @include layout(0,16);
+      // @include layout(4,14);
+      @include layout(3,14);
+      @include layout(4,12);
+      @include layout(6,10);
+      @include layout(7,8);
+      @include minBP(3) {
+        @include marginAuto;
+      }
+    }
+    .donate__main {
+      @include frame(narrow,0);
+      justify-content: center;
+      &-form {
+        @include layout(0,12,20px,12);
+        @include layout(4,8,0,12);
+        @include layout(5,6,0,12);
+      }
+      &-text {
+        @include layout(0,12,20px,12);
+        @include layout(4,10,0,12);
+        @include layout(5,8,0,12);
+      }
+    }
+  }
+}
+
+.donate {
+  .donate__header {
+    @include calcBL(margin-bottom,5);
+    h1 {
+      @include typo-01articleHeading;
+    }
+    .lead {
+      @include typo-article;
+      p:first-child {
+        @include typoBaseline(16,2,0,6);
+      }
+    }
+  }
+  .donate__main {
+    background-color: #fff;
+    min-height: 200px;//DEV
+    @include calcBL(margin-bottom,5);
+    position: relative;
+    @include boxshadowCard;
+    @include edgegraphic;
+    .tabsRadio {
+      display: none;
+      @include minBP(4) {
+        width: 100%;
+        background-color: $color-yellow00;
+        @include flexbox;
+        input[type="radio"] {
+          display: none;
+        }
+        label {
+          @include typo-tabs;
+          height: 60px;
+          box-sizing: border-box;
+          display: block;
+          text-align: center;
+          @include flex-grow(1);
+          padding-top: 20px;
+          position: relative;
+          border-radius: $borderradius $borderradius 0 0;
+          cursor: pointer;
+          &:hover {
+            background-color: darken($color-yellow00,10%);
+          }
+        }
+        input[type="radio"]:checked + label {
+          background-color: #fff;
+        }
+      }
+    }
+    .tabs-select {
+      position: relative;
+      display: none;
+      width: 100%;
+      z-index: 1;
+      &::after {
+        pointer-events: none;
+        content: ' ';
+        @include sprite(469,7,16,10);
+        position: absolute;
+        right: 24px;
+        top: 36px;
+      }
+      &:hover {
+        &::after {
+          @include sprite(469,18,16,10);
+        }
+      }
+      @include maxBP(4) {
+        select {
+          cursor: pointer;
+          background-color: #fff;
+          border-radius: $borderradius $borderradius 0 0;
+          width: 100%;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          &::-ms-expand {
+            display: none;
+          }
+          border: 0;
+          border-bottom: 1px solid $color-yellow00;
+          box-sizing: border-box;
+          @include typo-tabs;
+          @include calcBL(padding-top,2);
+          @include calcBL(padding-bottom,2);
+          @include calcBL(padding-left,2);
+        }
+        display: block;
+      }
+    }
+    &-form, &-text {
+      z-index: 1;
+      @include typo-article;
+      @include calcBL(padding-top,5);
+      @include calcBL(padding-bottom,6);
+      &>*:first-child {
+        margin-top: 0;
+      }
+      legend {
+        @include typo-legend;
+      }
+      .button {
+        @include button(5);
+        @include calcBL(margin-bottom,2);
+      }
+    }
+  }//.donate__main
+  .donate__postscript {
+    position: relative;
+    @include calcBL(margin-bottom,8);
+    .attention {
+      @include typo-attention;
+      @include calcBL(margin-bottom,4);
+      &::before {
+        content: ' ';
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        @include marginAuto;
+        @include sprite(429,57,59,40,16);
+      }
+      background-color: #fff;
+      @include calcBL(padding-top,5);
+      @include calcBL(padding-left,1);
+      @include calcBL(padding-right,1);
+      @include calcBL(padding-bottom,1);
+      @include minBP(3) {
+        @include calcBL(padding-top,1);
+        @include calcBL(padding-left,9);
+        &::before {
+          left: 36px;
+          right: inherit;
+          top: 54px;
+        }
+      }
+    }//attention
+    .text {
+      // typo-article
+      @include typo-article;
+    }
+  }
+}
+.wrapper320 {
+  max-width: 320px;
+  @include marginAuto;
+}
+//forms - -- - -  -ez majd mehet a form scss-be
+//fieldset
+fieldset {
+  @include calcBL(margin-bottom,2);
+  padding: 0;
+  border: 0;
+  @include marginAuto;
+}
+//toggle
+.toggle {
+  background-color: $color-yellow00;
+  text-align: center;
+  @include calcBL(margin-bottom,3);
+  .form-type-toggle {
+    display: inline-block;
+    width: calc(50% - 10px);
+    margin-right: 2px;
+    margin-left: 2px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    vertical-align: middle;
+    label {
+      @include typo-toggle;
+      cursor: pointer;
+      width: 100%;
+      display: block;
+      text-align: center;
+      box-sizing: border-box;
+      padding-left: 4px;
+      padding-right: 4px;
+      &:hover {
+        background-color: darken($color-yellow00,10%);
+      }
+    }
+    input[type="radio"] {
+      display: none;
+      &:checked + label {
+        background-color: white;
+      }
+    }
+  }
+}
+.donate__main input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  @include button(2);
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($color-green,10%);
+  }
+}
+//account number
+.accountnum {
+  @include typo-accountnum;
+}
+.choosebank {
+  @include listreset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    line-height: 1;
+    @include calcBL(padding-left,2);
+    @include calcBL(padding-right,2);
+    @include calcBL(margin-bottom,3);
+    @include maxBP(2) {
+      @include calcBL(padding-left,1);
+      @include calcBL(padding-right,1);
+      @include calcBL(margin-bottom,2);
+    }
+    img {
+      height: 43px;
+      @include maxBP(2) {
+        height: 30px;
+      }
+    }
+  }
+}
+.donate .donate__main-text .choosebank,
+.donate .donate__main-text .paymentchoice {
+  padding: 0;
+}
+.paymentchoice {
+  @include listreset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    line-height: 1;
+    @include calcBL(padding-left,1);
+    @include calcBL(padding-right,1);
+    @include calcBL(margin-top,1);
+    @include calcBL(margin-bottom,2);
+    @include maxBP(2) {
+      @include calcBL(padding-left,1);
+      @include calcBL(padding-right,1);
+      @include calcBL(margin-bottom,1);
+    }
+    img {
+      height: 38px;
+      @include maxBP(2) {
+        height: 32px;
+      }
+    }
+  }
+}
+.donate .donate__main-text .choosebank {
+  padding: 0;
+}
+.donate__main-text .onepercent {
+  @include calcBL(margin-bottom,3);
+  @include minBP(4) {
+    h2,p, h4 {
+      max-width: 480px;
+      @include marginAuto;
+    }
+  }
+  h1 {
+    font-size: 71px;
+    font-family: Poppins;
+    text-transform: uppercase;
+    color: $color-yellow01;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 40px;
+    @include minBP(3) {
+      // text-align: center;
+      font-size: 142px;
+    }
+    @include minBP(4) {
+      text-align: center;
+      font-size: 180px;
+    }
+  }
+  h2 {
+    @include typo-01articleHeading;
+    &::after {
+      content: ' ';
+      height: 2px;
+      width: 70px;
+      background-color: $color-yellow01;
+    }
+  }
+  h4 {
+    @include calcBL(margin-top,2,20);
+    @include calcBL(margin-bottom,4,20);
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .button1 {
+    @include button(6);
+    margin-right: auto;
+    text-align: center;
+    align-items: flex-start;
+    width: 100%;
+    @include calcBL(margin-bottom,2,14);
+    @include minBP(3) {
+      width: 48%;
+    }
+  }
+  .button2 {
+    @include button(0);
+    margin-left: auto;
+    text-align: center;
+    width: 100%;
+    @include calcBL(margin-bottom,2,14);
+    border: 1px solid $color-yellow01;
+    @include minBP(3) {
+      width: 48%;
+    }
+  }
+}
+.donate__main .tabs {
+  width: 100%;
+  @include flexbox;
+  @include flex-wrap(wrap);
+  background-color: $color-yellow00;
+  a {
+    display: block;
+    @include flex-grow(1);
+    @include calcBL(height,4);
+    text-decoration: none;
+    @include typo-tabs;
+    text-align: center;
+    vertical-align: middle;
+    @include calcBL(padding-top,1.2);
+    box-sizing: border-box;
+    position: relative;
+  }
+  @include maxBP(4) {
+    a {
+      background-color: #fff;
+      order: 2;
+      width: 100%;
+      border-bottom: 1px solid $color-yellow00;
+    }
+    a.active {
+      order: 1;
+      &::after {
+        pointer-events: none;
+        right: 16px;
+        top: 23px;
+        content: ' ';
+        @include sprite(469,7,16,10,14);
+        position: absolute;
+      }
+      // &::after {
+      //   @include sprite(469,18,16,10);
+      // }
+    }
+  }
+  @include minBP(4) {
+    @include flex-wrap(nowrap);
+    a {
+      &:hover {
+        background-color: darken($color-yellow00,10%);
+      }
+    }
+    a.active {
+      background-color: #fff;
+      border-radius: $borderradius $borderradius 0 0;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+// gradients
+@mixin gradient-player {
+  background: #e8ebed;
+  background: -moz-linear-gradient(top, #e8ebed 0%, #ffffff 100%);
+  background: -webkit-linear-gradient(top, #e8ebed 0%,#ffffff 100%);
+  background: linear-gradient(to bottom, #e8ebed 0%,#ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8ebed', endColorstr='#ffffff',GradientType=0 );
+}
+
+//inset shadow
+@mixin insetShadow {
+  -webkit-box-shadow: 0px 24px 32px -32px rgba(0,0,0,0.66);
+  -moz-box-shadow: 0px 24px 32px -32px rgba(0,0,0,0.66);
+  box-shadow: 0px 24px 32px -32px rgba(0,0,0,0.66);
+}
+@mixin insetShadow2 {
+  -webkit-box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.66);
+  -moz-box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.66);
+  box-shadow: 0px 7px 8px -8px rgba(0,0,0,0.66);
+}
+@mixin imageOver {
+  -webkit-box-shadow: inset 0px 0px 1.6em 0.8em rgba($c-BurntSienna,0.2);
+  -moz-box-shadow: inset 0px 0px 1.6em 0.8em rgba($c-BurntSienna,0.2);
+  box-shadow: inset 0px 0px 1.6em 0.8em rgba($c-BurntSienna,0.2);
+}
+@mixin imageOver2 {
+  -webkit-box-shadow: inset 0px 0px 1.6em 0px rgba($c-BurntSienna,0.1);
+  -moz-box-shadow: inset 0px 0px 1.6em 0px rgba($c-BurntSienna,0.1);
+  box-shadow: inset 0px 0px 1.6em 0px rgba($c-BurntSienna,0.1);
+}
+@mixin boxshadowReset {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin boxshadowSocial {
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.33);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.33);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.33);
+}
+
+@mixin boxshadowCard {
+  -webkit-box-shadow: 0px 12px 19px -12px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 12px 19px -12px rgba(0,0,0,0.3);
+  box-shadow: 0px 12px 19px -12px rgba(0,0,0,0.3);
+}

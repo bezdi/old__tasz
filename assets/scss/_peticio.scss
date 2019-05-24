@@ -1,0 +1,687 @@
+
+@mixin flowOffset($offset) {//45.5
+  width: #{100% + $offset};
+  left: #{- $offset};
+  position: relative;
+}
+@mixin flowOffsetWide($offsetLeft,$offsetRight) {// 90.5%, 45.5%
+  width: #{100% + $offsetLeft + $offsetRight};
+  left: #{- $offsetLeft};
+  right: #{- $offsetRight};
+  position: relative;
+}
+//article offset mixins
+body {
+}
+.article {
+  position: relative;
+  overflow: hidden;//bugfix in tabletview + parallax image
+  @include frame(wide);
+  @include calcBL(padding-top,3);
+  @include minBP(3) {
+    @include calcBL(padding-top,5);
+  }
+  @include minBP(4) {
+    @include calcBL(padding-top,7);
+  }
+  header {
+    @include baselineOverlay;
+    @include layout(0,16);
+    @include minBP(6) {
+      @include layout(0,11);
+      @include phantomColBefore(4,2);
+      @include phantomColAfter(4,3);
+    }
+    @include calcBL(margin-bottom,3);
+    h1 {
+      @include typo-01articleHeading;
+    }
+    .labels {
+      @include listreset;
+      letter-spacing: 16px;
+      li {
+        display: inline-block;
+        @include calcBL(margin-bottom,1);
+        a {
+          @include letterSpacing(30);
+          @include button(1);
+          position: relative;
+          bottom: 1px;
+        }
+      }
+    }
+  }
+  .additional {
+    @include DEV(green,green);
+    @include layout(0,16);
+    @include layout(3,5);
+    @include layout(6,3);
+    @include phantomColBefore(6,2);
+    @include phantomColAfter(6,1);
+    @include baselineOverlay;
+    // @include calcBL(padding-top,.75);
+    @include calcBL(margin-bottom,2);
+    input[type="button"], a.button {
+      @include button(5);
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+      max-width: 240px;
+      text-align: center;
+      @include calcBL(margin-bottom,2);
+      //&+input[type="button"], &+a.button {
+      //  @include button(7);
+      //}
+    }
+
+    input[type="button"].secondary, a.button.secondary {
+      @include button(7);
+      @include calcBL(margin-bottom,2);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      @include calcBL(margin-bottom,.5);
+      max-width: 140px;
+      @include minBP(3) {
+        max-width: 240px;
+      }
+    }
+    .time-location {
+      @include typo-05subhead;
+      @include typoBaseline(12,2,2,8);
+      @include minBP(6) {
+        @include typoBaseline(12,2,10,7);
+      }
+    }
+    .name {
+      @include typoBaseline(18,2,1,8);
+      text-transform: uppercase;
+    }
+    .status {
+      font-family: 'Montserrat', sans-serif;
+      @include typoBaseline(12,2,0,10);
+      font-weight: 300;
+      @include letterSpacing(100);
+      text-transform: uppercase;
+      margin-top: 0;
+    }
+    .contact {
+      input[type="button"] {
+        @include button(8);
+      }
+      line-height: 1;
+      padding-left: 0;
+      list-style-type: none;
+      .icon-1 {
+        @include sprite--contact1;
+        @include calcBL(margin-bottom,2);
+      }
+      .icon-2 {
+        @include sprite--contact2;
+        @include calcBL(margin-bottom,2);
+      }
+      .icon-3 {
+        @include sprite--contact3;
+        @include calcBL(margin-bottom,2);
+      }
+      p, ul li {
+        @include typo-assist-contact;
+      }
+      & > li {
+        border-bottom: 2px solid $color-yellow01;
+        @include calcBL(padding-bottom,2);
+        @include calcBL(margin-bottom,2);
+        &:last-child {
+          border-bottom: 0;
+
+        }
+      }
+      ul {
+        list-style-type: disc;
+        padding-left: 16px;
+        li {
+          margin-bottom: 12px;
+        }
+      }
+
+    }
+  }
+  background-color: $color-yellow00;
+  .content {
+    @include typo-article;
+    @include layout(0,16);
+    @include layout(3,11);
+    @include layout(5,9);
+    @include layout(6,7);
+    @include baselineOverlay;
+    @include calcBL(margin-bottom,5);
+    .lead {
+      font-weight: 700;
+    }
+    & > img {
+      @include flowOffset(45.5%);
+      height: auto;
+    }
+    h2 {
+      @include typo-02heading;
+    }
+    h3 {
+      @include typo-articleH3;
+    }
+    h4 {
+      @include typo-04heading;
+    }
+    input[type="button"] {
+      @include button(5);
+      border: 0;
+      width: 100%;
+    }
+    blockquote {
+      margin: 0;
+      position: relative;
+      box-sizing: border-box;
+      @include typo-blockquote;
+      background-color: #fff;
+      @include calcBL(padding-top,.95);
+      @include calcBL(padding-bottom,1.05);
+      @include calcBL(padding-right,1);
+      @include calcBL(padding-left,1);
+      @include DEV(yellow,yellow);
+      height: auto;
+      position: relative;
+      & em {
+        background-color: $color-yellow01;
+        font-style: normal;
+      }
+      &::after {
+        content: 'A';
+        font-size: 200px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        opacity: .4;
+        color: $color-yellow01;
+        position: absolute;
+        left: -70px;
+        top: 57px;
+        z-index: 0;
+        pointer-events: none;
+
+      }
+      @include minBP(3) {
+        @include flowOffset(30%);
+        @include calcBL(padding-top,2.95);
+        @include calcBL(padding-bottom,3.05);
+        @include calcBL(padding-right,3);
+        @include calcBL(padding-left,7);
+        &::after {
+          left: 20px;
+          top: 105px;
+        }
+      }
+    }
+    figure.image, figure.wide, figure.parallax, figure.video {
+      margin: 0;
+      @include calcBL(margin-top,3);
+      @include calcBL(margin-bottom,2);
+      @include minBP(3) {
+        @include flowOffset(30%);
+      }
+      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+        @include calcBL(margin-bottom,2);
+      }
+      .yt-video-container + figcaption {
+        @include calcBL(margin-top,2);
+      }
+      figcaption {
+        @include typo-05subhead;
+        position: relative;
+        &::before {
+          content: ' ';
+          display: block;
+          height: 2px;
+          width: 64px;
+          background-color: $color-black;
+          position: absolute;
+          top: -6px;
+          left: 0;
+        }
+      }
+    }
+    figure.wide {
+      // https://css-tricks.com/full-width-containers-limited-width-parents/
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      img {
+        width: 100%;
+      }
+      figcaption {
+        margin-left: 2rem;
+      }
+      @include minBP(3) {
+        left: 28%;
+        right: 72%;
+      }
+      @include minBP(5) {
+        left: 35%;
+        right: 65%;
+      }
+      @include minBP(6) {
+        left: 28%;
+        right: 72%;
+      }
+    }
+    figure.parallax {
+      position: static;
+      height: #{240px + 48px}; //640px
+      .imgWrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 240px;
+        overflow: hidden;
+        img {
+          margin-bottom: 0;
+        }
+      }
+      figcaption {
+        position: relative;
+        top: #{240px + 30px};
+      }
+      @include minBP(3) {
+        height: #{600px + 48px};
+        .imgWrapper {
+          height: 600px;
+          img {
+            width: 100%;
+          }
+        }
+        figcaption {
+          // @include flowOffset(20%);
+          top: #{600px + 24px};
+        }
+      }
+      @include minBP(6) {
+        // @include flowOffset(45.5%);
+        figcaption {
+          // @include flowOffset(45.5%);
+          @include flowOffset(62%);
+          top: #{600px + 24px};
+        }
+      }
+    }
+    .yt-video-container {
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      position: relative;
+      @include clearfix;
+      iframe {
+        position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 100%;
+      	height: 100%;
+      }
+    }
+  }
+  .tamogassPromo {
+    @include layout(0,16);
+    @include layout(3,13);
+    @include phantomColBefore(3,3);
+    @include layout(6,9);
+    @include phantomColBefore(6,4);
+    @include calcBL(margin-bottom,5);
+    &__top {
+      background-color: #fff;
+      padding: 1em;
+      position: relative;
+      font-family: 'Merriweather', serif;
+      font-weight: 400;
+      margin-top: 0;
+      @include calcBL(padding-left,2);
+      @include calcBL(padding-right,2);
+      @include calcBL(padding-top,2);
+      @include calcBL(padding-bottom,12);
+      &>* {
+        margin: 0;
+        @include typoBaseline(16,2,0,0);
+      }
+    }
+    &__bottom {
+      background-color: $color-yellow01;
+      @include calcBL(padding-left,2);
+      @include calcBL(padding-right,2);
+      @include calcBL(padding-top,3);
+      @include calcBL(padding-bottom,2);
+
+      &>* {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        @include typoBaseline(16,2,0,0);
+      }
+    }
+    .button {
+      a {
+        @include button(2,16);
+        &:hover {
+          background-color: darken($color-green,10%);
+          text-decoration: none;
+        }
+      }
+      position: absolute;
+      text-align: center;
+      display: block;
+      bottom: -26px;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    @include minBP(4) {
+      &__top {
+        @include calcBL(padding-left,9);
+        @include calcBL(padding-right,9);
+        @include calcBL(padding-bottom,4);
+      }
+    }
+  }
+}
+//article
+.social {
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 5;
+  text-align: center;
+  @include marginAuto;
+  @include maxBP(6) {
+    // padding-left: 12px;
+    // padding-right: 12px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid $color-yellow01;
+    @include calcBL(padding-top,.8);
+    @include calcBL(padding-bottom,1);
+  }
+  @include minBP(5) {
+    left: inherit;
+    bottom: inherit;
+    right: 3vw;
+    top: 30vh;
+    width: 60px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    @include boxshadowSocial;
+  }
+  @include minBP(6) {
+    right: 10vw;
+  }
+  h3 {
+    display:inline-block;
+    @include typo-social;
+    @include maxBP(5) {
+      position: relative;
+      margin-right: 16px;
+      &:after {
+        content: ' ';
+        display: block;
+        width: 1px;
+        height: 32px;
+        background: $color-black;
+        position: absolute;
+        right: -12px;
+        top: -9px;
+      }
+    }
+  }
+  &__facebook {
+    @include sprite--indent(62,6,28,28);
+    position: relative;
+    top: 12px;
+    @include maxBP(5) {
+      margin-right: 18px;
+    }
+    @include maxBP(2) {
+      margin-right: 4px;
+    }
+    @include minBP(5) {
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  &__twitter {
+    @include sprite--indent(94,6,28,28);
+    position: relative;
+    top: 12px;
+    @include maxBP(5) {
+      margin-right: 18px;
+    }
+    @include maxBP(2) {
+      margin-right: 4px;
+    }
+    @include minBP(5) {
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  &__messenger {
+    @include sprite--indent(126,6,28,28);
+    position: relative;
+    top: 12px;
+    @include maxBP(5) {
+      margin-right: 18px;
+    }
+    @include maxBP(2) {
+      margin-right: 4px;
+    }
+    @include minBP(5) {
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  &__copylink {
+    @include minBP(5) {
+      margin-top: 48px;
+    }
+    a {
+      position: relative;
+      @include typo-social;
+      $offset: 18px;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        @include sprite(158,6,28,28,9);
+      }
+      @include maxBP(5) {
+        $offset: 18px;
+        padding-left: #{$offset};
+        &::before {
+          left: -#{$offset};
+          top: -8px;
+        }
+      }
+      @include minBP(5) {
+        padding-top: 32px;
+        &::before {
+          top: 0px;
+          left: -5px;
+        }
+      }
+    }
+  }
+  div {
+    display: inline-block;
+    @include maxBP(5) {
+      &:first-child {
+        margin-right: 2em;
+      }
+    }
+  }
+}
+//social\
+
+.disqus--placeholder {
+  width: 100%;
+  background-color: lightgray;
+  height: 200px;
+  text-align: center;
+  font-size: 60px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: gray;
+  // display: flex;
+}
+// disqus--placeholder
+
+.jelentkezes {
+  @include oWrap(wide);
+  background-color: white;
+  @include calcBL(margin-top,2);
+  @include calcBL(margin-bottom,2);
+  h2 {
+    @include typo-section-heading;
+    @include iWrap(0,0,16,0);
+    @include iWrap(5,2,14,0);
+    display: block;
+  }
+  .image {
+    @include iWrap(0,0,1,0,4);
+    @include iWrap(3,0,4,0);
+    @include iWrap(4,0,2,0);
+    @include iWrap(5,2,2,0);
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 118px;
+    }
+  }
+  .text {
+    @include iWrap(0,0,3,0,4);
+    @include iWrap(3,0,12,0);
+    @include iWrap(4,0,14,0);
+    @include iWrap(5,0,12,0);
+  }
+  .name {
+    @include typoBaseline(18,2,1,8);
+    text-transform: uppercase;
+  }
+  .status {
+    font-family: 'Montserrat', sans-serif;
+    @include typoBaseline(12,2,0,10);
+    font-weight: 300;
+    @include letterSpacing(100);
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+}
+
+.jelentkezes-form {
+  form {
+    width: 100%;
+  }
+  @include oWrap(wide);
+  background-color: $color-yellow00;
+  @include calcBL(padding-top,2);
+  @include calcBL(padding-bottom,2);
+  min-height: 32px;
+  fieldset {
+    @include edgegraphic;
+    position: relative;
+    @include calcBL(padding-top,4);
+    @include calcBL(padding-bottom,6);
+    @include mWrap(0,0,16,0);
+    @include mWrap(3,1,14,1);
+    @include mWrap(4,4,8,4);
+    @include mWrap(6,5,6,5);
+    background-color: #fff;
+    min-height: 32px;
+    // fixme: chrome-ban nem jó a szélessége
+  }
+  .form-item-textfield, .form-item-textarea, .form-item-checkboxes, .submit-wrapper {
+    @include iWrap(0,0,16,0);
+    @include iWrap(2,1,4,1,6);
+  }
+  .submit-wrapper {
+    text-align: center;
+    input[type="submit"] {
+      @include button(5);
+      @include button(5);
+      @include calcBL(padding-top,.45);
+      @include calcBL(padding-bottom,.35);
+      bottom: 0;
+      border: 0;
+      // max-width: 150px;
+      margin-left: auto;
+    }
+  }
+}
+
+//collapsible_section
+.article .collapsible_section {
+  border: 1px solid $color-black;
+  box-sizing: border-box;
+  padding: 16px 16px 4px;
+  position: relative;
+  @include calcBL(margin-bottom,2);
+  &::after {
+    content: '+';
+    display: block;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    padding-top: 8px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    @include typo-emphasized;
+    @include typoBaseline(32,2,2,6,16);
+  }
+  &.open {
+    padding: 16px;
+    p {
+      display: block;
+    }
+    &::after {
+      content: '-';
+    }
+  }
+  h2 {
+    @include button(1);
+    padding: 0;
+    width: calc(100% - 32px);
+    display: block;
+    text-align: left;
+    border: 0;
+  }
+  p {
+    display: none;
+  }
+  h2 + p {
+    margin-top: 16px;
+  }
+  &:hover {
+    cursor: pointer;
+    &::after {
+      background-color: $color-black;
+      color: $color-yellow00;
+    }
+  }
+}
