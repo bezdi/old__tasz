@@ -203,7 +203,7 @@
   }
 }
 @mixin baselineOverlay($baseFS: $baseFontSize) {
-  @if $devMode == 1 and $devOverlay == 1{
+  @if $devMode == 1 and $devOverlay == 1 {
     position: relative;
     &::after {
       content: ' ';

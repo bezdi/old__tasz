@@ -1079,7 +1079,6 @@ main {
 }
 
 .card__text {
-  position: relative;
   padding-bottom: 1em;
   padding-left: 1em;
   padding-right: 1em;
@@ -1088,22 +1087,6 @@ main {
   text-overflow: clip;
   box-sizing: border-box;
   position: relative;
-}
-
-.card__text::after {
-  content: ' ';
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-image: url(../images/GuideLines12px.gif);
-  background-position: 0 0.08333em;
-  background-size: 1em 1em;
-  z-index: 1;
-  opacity: .2;
 }
 
 .card__text p {
@@ -2736,29 +2719,12 @@ body > footer .footerNav1 .lang a:hover {
 }
 
 body > footer .footerNav2, body > footer .footerNav3, body > footer .footerNav4 {
-  position: relative;
   float: left;
   margin-left: 1rem;
   margin-right: 1rem;
   box-sizing: border-box;
   width: calc(100% - 2rem);
   order: 2;
-}
-
-body > footer .footerNav2::after, body > footer .footerNav3::after, body > footer .footerNav4::after {
-  content: ' ';
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-image: url(../images/GuideLines12px.gif);
-  background-position: 0 0.08333em;
-  background-size: 1em 1em;
-  z-index: 1;
-  opacity: .2;
 }
 
 @media (min-width: 960px) {
@@ -3046,29 +3012,12 @@ body > footer .impressum::before {
 }
 
 .article header {
-  position: relative;
   float: left;
   margin-left: 1rem;
   margin-right: 1rem;
   box-sizing: border-box;
   width: calc(100% - 2rem);
   margin-bottom: 3em;
-}
-
-.article header::after {
-  content: ' ';
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-image: url(../images/GuideLines12px.gif);
-  background-position: 0 0.08333em;
-  background-size: 1em 1em;
-  z-index: 1;
-  opacity: .2;
 }
 
 @media (min-width: 960px) {
@@ -3218,7 +3167,6 @@ body > footer .impressum::before {
   margin-right: 1rem;
   box-sizing: border-box;
   width: calc(100% - 2rem);
-  position: relative;
   margin-bottom: 2em;
 }
 
@@ -3294,22 +3242,6 @@ body > footer .impressum::before {
   .article .additional {
     margin-right: calc(6.25% + 1rem);
   }
-}
-
-.article .additional::after {
-  content: ' ';
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-image: url(../images/GuideLines12px.gif);
-  background-position: 0 0.08333em;
-  background-size: 1em 1em;
-  z-index: 1;
-  opacity: .2;
 }
 
 .article .additional input[type="button"], .article .additional a.button {
@@ -3528,7 +3460,6 @@ body > footer .impressum::before {
   margin-right: 1rem;
   box-sizing: border-box;
   width: calc(100% - 2rem);
-  position: relative;
   margin-bottom: 5em;
 }
 
@@ -3628,22 +3559,6 @@ body > footer .impressum::before {
     box-sizing: border-box;
     width: calc(43.75% - 2rem);
   }
-}
-
-.article .content::after {
-  content: ' ';
-  display: block;
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-image: url(../images/GuideLines12px.gif);
-  background-position: 0 0.08333em;
-  background-size: 1em 1em;
-  z-index: 1;
-  opacity: .2;
 }
 
 .article .content .lead {
@@ -4793,8 +4708,8 @@ body > footer .impressum::before {
   color: #fcecb8;
 }
 
-.article.peticio header {
-  outline: 2px solid red;
+.article.peticio {
+  background-color: #fff;
 }
 
 @media (min-width: 1120px) {
@@ -4842,12 +4757,85 @@ body > footer .impressum::before {
 }
 
 .article.peticio .peticioform {
-  outline: 2px solid cyan;
+  min-height: 16px;
   float: left;
   margin-left: 1rem;
   margin-right: 1rem;
   box-sizing: border-box;
   width: calc(100% - 2rem);
+}
+
+@media (max-width: 959px) {
+  .article.peticio .peticioform {
+    order: 2;
+  }
+}
+
+.article.peticio .peticioform .meterBar {
+  height: 24px;
+  background-color: #fff;
+  margin-bottom: 2em;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.article.peticio .peticioform .meterBar__label {
+  letter-spacing: .2px;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  top: 4px;
+}
+
+.article.peticio .peticioform .meterBar .bar {
+  background-color: #f9c114;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+}
+
+.article.peticio .peticioform form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #fcecb8;
+  border-radius: 4px;
+  padding-top: 2em;
+}
+
+.article.peticio .peticioform .form-item-textarea textarea, .article.peticio .peticioform .form-item-textfield input[type=email], .article.peticio .peticioform .form-item-textfield input[type=number], .article.peticio .peticioform .form-item-textfield input[type=text] {
+  background-color: #fff;
+}
+
+.article.peticio .peticioform .form-type-checkbox:before, .article.peticio .peticioform .form-type-radios:before {
+  background-color: #fff;
+}
+
+.article.peticio .peticioform .form-item-checkbox, .article.peticio .peticioform .form-item-checkboxes, .article.peticio .peticioform .form-item-radios, .article.peticio .peticioform .form-item-select, .article.peticio .peticioform .form-item-textarea, .article.peticio .peticioform .form-item-textfield {
+  margin-bottom: 2em;
+}
+
+.article.peticio .peticioform .checkboxes {
+  margin-bottom: 2em;
+}
+
+.article.peticio .peticioform .checkboxes .form-type-checkbox {
+  margin-bottom: 1.5em;
+}
+
+.article.peticio .peticioform .checkboxes .form-type-checkbox:before, .article.peticio .peticioform .checkboxes .form-type-radios:before {
+  top: 0;
+}
+
+.article.peticio .peticioform .checkboxes .form-type-checkbox input[type=checkbox]:checked + label:after, .article.peticio .peticioform .checkboxes .form-type-radios input[type=checkbox]:checked + label:after {
+  top: .1px;
+}
+
+.article.peticio .peticioform .checkboxes label {
+  line-height: 1.5;
 }
 
 @media (min-width: 960px) {
@@ -4932,13 +4920,56 @@ body > footer .impressum::before {
   }
 }
 
+.article.peticio .peticioform input[type="submit"] {
+  line-height: 1.71429em;
+  font-size: 1.16667em;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.55em;
+  padding-bottom: 0.45em;
+  position: relative;
+  bottom: 5px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #f9c114;
+  box-sizing: border-box;
+  background-color: #a9ecda;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.article.peticio .peticioform input[type="submit"]:hover {
+  background-color: #7fe3c8;
+  text-decoration: none;
+}
+
+.article.peticio .peticioform input[type="submit"]:hover {
+  background-color: #7fe3c8;
+}
+
 .article.peticio .content {
-  outline: 2px solid green;
+  position: relative;
+  top: -4px;
   float: left;
   margin-left: 1rem;
   margin-right: 1rem;
   box-sizing: border-box;
   width: calc(100% - 2rem);
+}
+
+@media (max-width: 959px) {
+  .article.peticio .content {
+    order: 1;
+  }
 }
 
 @media (min-width: 960px) {
@@ -5009,6 +5040,15 @@ body > footer .impressum::before {
     box-sizing: border-box;
     width: calc(43.75% - 2rem);
   }
+}
+
+.article.peticio .content h2:first-child {
+  padding-top: 0;
+  margin-bottom: 1em;
+}
+
+.article.peticio .content figure {
+  margin: 0 0 2em;
 }
 
 .row {

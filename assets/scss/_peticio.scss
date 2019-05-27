@@ -1,30 +1,122 @@
 .article.peticio {
 
-  header {
-    outline: 2px solid red;
-    @include minBP(6) {
-      @include layout(0,14);
-      @include phantomColBefore(7,2);
-      @include phantomColAfter(7,2);
-    }
-  }//header
-  
-  .peticioform {
-    // flex-grow: 1;
-    outline: 2px solid cyan;
-    @include layout(0,16); 
-    @include layout(5,8); 
-    @include layout(6,6); 
-    @include layout(7,5); 
-    @include phantomColBefore(7,2);
-  }
-  .content {
-    outline: 2px solid green;
-    @include layout(0,16);
-    @include layout(5,8);
-    @include layout(6,10);
-    @include layout(7,7);
-    // @include layout(6,7);
+    background-color: #fff;
+
+    header {
+        @include minBP(6) {
+            @include layout(0, 14);
+            @include phantomColBefore(7, 2);
+            @include phantomColAfter(7, 2);
+        }
+    }//header
+
+    .peticioform {
+        @include maxBP(5) {
+            order: 2;
+        }
+        
+        .meterBar {
+            height: 24px;
+            background-color: #fff;
+            margin-bottom: 2em;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            // border: 2px solid #fff;
+            &__label {
+                // font-family: Poppins,sans-serif;
+                // font-weight: 900;
+                letter-spacing: .2px;
+                text-align: center;
+                font-size: 16px;
+                position: relative;
+                top: 4px;
+            }
+            .bar {
+                background-color: $color-yellow01;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 40%;
+                // border-radius: 12px;
+            }
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: $gutter;
+            background-color: $color-yellow00;
+            border-radius: 4px;
+            padding-top: 2em;
+        }
+
+        .form-item-textarea textarea, .form-item-textfield input[type=email], .form-item-textfield input[type=number], .form-item-textfield input[type=text] {
+            background-color: #fff;
+        }
+        .form-type-checkbox:before, .form-type-radios:before {
+            background-color: #fff;
+        }
+        .form-item-checkbox, .form-item-checkboxes, .form-item-radios, .form-item-select, .form-item-textarea, .form-item-textfield {
+            margin-bottom: 2em;
+        }
+        .checkboxes {
+            .form-type-checkbox {
+                margin-bottom: 1.5em;
+            }
+            .form-type-checkbox:before, .form-type-radios:before {
+                top: 0;
+            }
+            .form-type-checkbox input[type=checkbox]:checked+label:after, .form-type-radios input[type=checkbox]:checked+label:after {
+                top: .1px;
+            }
+            label {
+                line-height: 1.5;
+            }
+            margin-bottom: 2em;
+        }
+        
+        
+        min-height: 16px;
+        @include layout(0, 16);
+        @include layout(5, 8);
+        @include layout(6, 6);
+        @include layout(7, 5);
+        @include phantomColBefore(7, 2);
+
+        input[type="submit"] {
+          @include button(2);
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          border: 0;
+          width: 100%;
+          cursor: pointer;
+          &:hover {
+              background-color: darken($color-green, 10%);
+          }
+        }//.submit
+
+    }//.peticioform
+
+    .content {
+        position: relative;
+        top: -4px;
+        @include maxBP(5) {
+            order: 1;
+        }
+        @include layout(0, 16);
+        @include layout(5, 8);
+        @include layout(6, 10);
+        @include layout(7, 7);
+        h2:first-child {
+            padding-top: 0;
+            margin-bottom: 1em;
+        }   
+        figure {
+            margin: 0 0 2em;
+        }
+    }//.content
     
-  }
-}
+}//.article.peticio
+
