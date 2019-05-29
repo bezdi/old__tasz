@@ -5051,6 +5051,54 @@ body > footer .impressum::before {
   margin: 0 0 2em;
 }
 
+.article.peticio .legal-body {
+  background-color: #eeeff0;
+  padding: 1rem;
+}
+
+.article.peticio .legal-body h2 {
+  text-align: center;
+  font-family: Merriweather,serif;
+  text-transform: none;
+  font-size: 1.6rem;
+}
+
+.article.peticio .peticio-show, .article.peticio .legal-show {
+  background-color: red;
+  display: block;
+  width: 90px;
+  height: 45px;
+}
+
+.article.peticio .peticio-body.open, .article.peticio .legal-body.open {
+  outline: 2px solid limegreen;
+}
+
+.article.peticio .peticio-body__wrapper, .article.peticio .legal-body__wrapper {
+  transition: all 1s ease-in;
+}
+
+@media (max-width: 959px) {
+  .article.peticio .peticio-body__wrapper {
+    max-height: 250px;
+    overflow: hidden;
+  }
+  .article.peticio .legal-body__wrapper {
+    max-height: 0;
+    overflow: hidden;
+  }
+}
+
+.article.peticio .open .peticio-body__wrapper, .article.peticio .open .legal-body__wrapper {
+  max-height: 99999px;
+}
+
+@media (min-width: 960px) {
+  .article.peticio .legal-show, .article.peticio .peticio-show {
+    display: none;
+  }
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;

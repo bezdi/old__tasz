@@ -117,6 +117,49 @@
             margin: 0 0 2em;
         }
     }//.content
+
+    .legal-body {
+        background-color: $color-grey;
+        padding: $gutter;
+        h2 {
+            text-align: center;
+            font-family: Merriweather,serif;
+            text-transform: none;
+            font-size: 1.6rem;
+        }
+    }
+    .peticio-show, .legal-show {
+        background-color: red;
+        display: block;
+        width: 90px;
+        height: 45px;
+    }
+
+    .peticio-body.open, .legal-body.open {
+        outline: 2px solid limegreen;
+    }
+    .peticio-body__wrapper, .legal-body__wrapper {
+        transition: all 1s ease-in;
+    }
+    @include maxBP(5) {
+        .peticio-body__wrapper {
+            max-height: 250px;
+            overflow: hidden;
+        }
+        .legal-body__wrapper {
+            max-height: 0;
+            overflow: hidden;
+    
+        }
+    }
+    .open .peticio-body__wrapper, .open .legal-body__wrapper {
+        max-height: 99999px;
+    }
+    @include minBP(5) {
+        .legal-show, .peticio-show {
+            display: none;
+        }
+    }
     
 }//.article.peticio
 

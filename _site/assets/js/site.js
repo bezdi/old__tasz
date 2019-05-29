@@ -43,3 +43,5 @@ window.addEventListener("load", function(){
             "href": "https://tasz.hu/adatvedelmi-tajekoztato-a-tasz-hu-hasznalatahoz"
         }
     })});
+
+  

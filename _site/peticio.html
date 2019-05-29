@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.85, user-scalable=1">
   <link rel="stylesheet" href="assets/css/style.min.css">
+  <link rel="stylesheet" href="">
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/script.js"></script>
   <title>TASZ</title>
 </head>
+
 <body>
   <header>
     <nav>
@@ -23,7 +28,7 @@
   <div class="article peticio">
     <header>
       <h1>LEGYEN ÁTLÁTHATÓ AZ EGÉSZSÉGÜGY!</h1>
-      
+
     </header>
     <!-- article header -->
     <!-- <div class="additional">
@@ -36,37 +41,40 @@
     </div> -->
     <div class="peticioform">
       <form action="">
-          <div class="meterBar">
-            <div class="bar"></div>
-            <div class="meterBar__label">
-                <strong>3129</strong>/<span>10000</span> aláíró
-            </div>
+        <div class="meterBar">
+          <div class="bar"></div>
+          <div class="meterBar__label">
+            <strong>3129</strong>/<span>10000</span> aláíró
+          </div>
 
+        </div>
+        <div class="form-item-textfield nonanon nonanon-required required">
+          <label for="last_name">Vezetéknév</label>
+          <input required="" id="last_name" class="form-control" type="text" name="last_name" maxlength="32" value=""
+            style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;">
+        </div>
+        <div class="form-item-textfield nonanon nonanon-required required">
+          <label for="first_name">Utónév</label>
+          <input required="" id="first_name" class="form-control" type="text" name="first_name" maxlength="32" value="">
+        </div>
+        <div class="form-item-textfield nonanon nonanon-required required">
+          <label for="email">E-mail</label>
+          <input required="" id="email" class="form-control" type="email" name="email" maxlength="64" value="">
+        </div>
+        <div id="edit-checkboxes" class="checkboxes">
+          <div class="form-type-checkbox">
+            <input required="" type="checkbox" value="1" id="accept_tos" name="accept_tos" class="form-check-input">
+            <label class="option" for="accept_tos">Elolvastam és elfogadom az adatvédelmi tájékoztatóban foglaltakat, és
+              tudomásul veszem, hogy a TASZ kapcsolattartás céljából kezeli a petícióban megadott adataimat.</label>
           </div>
-          <div class="form-item-textfield nonanon nonanon-required required">
-              <label for="last_name">Vezetéknév</label>
-              <input required="" id="last_name" class="form-control" type="text" name="last_name" maxlength="32" value="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;">
+          <div class="form-type-checkbox">
+            <input type="checkbox" value="1" id="subscribe_newsletter" name="subscribe_newsletter"
+              class="form-check-input">
+            <label class="option" for="subscribe_newsletter">Feliratkozom a TASZ hírlevélre</label>
           </div>
-          <div class="form-item-textfield nonanon nonanon-required required">
-              <label for="first_name">Utónév</label>
-              <input required="" id="first_name" class="form-control" type="text" name="first_name" maxlength="32" value="">
-          </div>
-          <div class="form-item-textfield nonanon nonanon-required required">
-              <label for="email">E-mail</label>
-              <input required="" id="email" class="form-control" type="email" name="email" maxlength="64" value="">
-          </div>
-          <div id="edit-checkboxes" class="checkboxes">
-              <div class="form-type-checkbox">
-                  <input required="" type="checkbox" value="1" id="accept_tos" name="accept_tos" class="form-check-input">
-                  <label class="option" for="accept_tos">Elolvastam és elfogadom az adatvédelmi tájékoztatóban foglaltakat, és tudomásul veszem, hogy a TASZ kapcsolattartás céljából kezeli a petícióban megadott adataimat.</label>
-              </div>
-              <div class="form-type-checkbox">
-                  <input type="checkbox" value="1" id="subscribe_newsletter" name="subscribe_newsletter" class="form-check-input">
-                  <label class="option" for="subscribe_newsletter">Feliratkozom a TASZ hírlevélre</label>
-              </div>
-              <!-- <div class="description">Etiam quis elit vel est suscipit tristique.</div> -->
-          </div>
-          <input type="submit" name="submit" value="Aláírom!">
+          <!-- <div class="description">Etiam quis elit vel est suscipit tristique.</div> -->
+        </div>
+        <input type="submit" name="submit" value="Aláírom!">
       </form>
 
     </div>
@@ -74,28 +82,106 @@
     <div class="content">
       <h2>Petíció dr. Kásler Miklós egészségügyért felelős miniszternek</h2>
       <figure>
-        <img
-        src="https://unsplash.it/812/480"
-        alt="An awesome picture">
+        <img src="https://unsplash.it/812/480" alt="An awesome picture">
         <!-- <figcaption>fig kapson</figcaption> -->
       </figure>
-      <p class="lead">Tisztelt Miniszter úr!
-        </p>
-      <p class="lead">Ma, az antirasszista világnapon civil szervezetekkel, jogvédőkkel, aktivistákkal világítunk rá a miskolci szegénytelepeken élőket érintő súlyos jogsértésekre, a gettósodás és a nyomor fokozódására. Arra hívjuk fel a figyelmet, hogy az önkormányzat feladata lenne az emberhez méltó lakhatási és életfeltételek megteremtése Miskolc szegényei számára.</p>
-      <p>De hogy pontosan mekkora is a baj, az nem világos. A betegek körében rémhírek és túlélési tanácsok terjengenek, a médiában horrortörténetek jelennek meg, míg a hivatalos állítások szerint minden rendben megy. Hiányzik az őszinte kommunikáció, a tájékoztatás és hiányoznak a megbízható adatok. Nem tudja a beteg, mikor és mire vár, nem tudja, hogy mi történik vele, és hogy ami megtörtént, az rendben van-e. Nem tudja, hogy amikor arra hivatkoznak a politikusok, hogy tesznek az egészségügy javításáért, akkor valóban tesznek-e. Arról sem tudunk, hogy ha lesz is fejlődés, azt mihez mérhetjük – ugyanis nincsenek adataink az egészségügy jelenlegi helyzetéről.
-        </p>
-      <p>Annak ellenére, hogy végre a kormány is elismerte, hogy az egészségügy egyik legégetőbb problémája a kórházi fertőzések ügye, mind a mai napig nem érhetők el az erről szóló, részletes és mindenki számára érthető adatok. Az évente kötelező jelentések közzétételével rendszeresen heteket csúsznak. A közzétett adatsorokat alig páran érthetik, és egyébként is kérdéses, hogy mennyire megbízhatók. Nem tudhatjuk, hogy évről évre javul vagy romlik a helyzet, a kormányzati szervek zavaros sikerkommunikációját szakmai szervezetek rendre cáfolják. Nem ismerhetők az adatok kórházanként, megyénként, ellátási áganként, pedig ez lenne az alapja a hiteles tájékoztatásnak.
-        </p>
-      <p>A titkolózás rendszere a kórházak, egészségügyi szolgáltatók számára is mélységesen ártalmas és megalázó.
-        </p>
-      <p>A problémák letagadása és elkendőzése nemcsak ártalmas, hanem jogellenes is. Az adófizetők forintjaiból fenntartott egészségügy adatai, így a kórházi fertőzésekre vonatkozó adatok is közérdekű adatok, amiket nyilvánosságra kell hozni.
-        </p>
-      <p>Ráadásul hiába ígér a kormány javulást a kórházi fertőzések ügyében, ha nem tudhatjuk, honnan indultunk és nem tudjuk összevetni a jövőbeni adatokat a jelenlegiekkel, a javulást sem tudjuk észlelni.
-        </p>
-      <p>Üdvözöljük, hogy a kormány már felismerte a problémát és állítása szerint tenni is szándékozik a helyzet javítása érdekében. Azonban a javulás első lépcsőfoka a tisztánlátás. Az eredmények csak akkor ellenőrizhetők, ha ismerjük a kiindulópontot és a folyamat nyomon követhető a közvélemény számára.
-        </p>
-      <p>A kórházi fertőzések hazai helyzete az egészségügy számos válságtünetének eredménye. A kórházak rossz felszereltségétől az orvosok és szakdolgozók hiányáig élesen rámutat arra, hogy a kormány elhanyagolja az egészségügyet, ami a polgárok alapvető jogait sérti. Ezért petíciónkban azt kérjük, hogy első lépésként a kórházi fertőzésekre vonatkozó adatokat  összehasonlítható, közérthető és hiteles módon, haladéktalanul hozzák nyilvánosságra! Kérjük továbbá, hogy az adatsorokat legfeljebb negyedévente frissítsék!</p>
-      
+      <div class="peticio-body">
+        <!--open-->
+        <div id="peticio-header" class="peticio-body__wrapper">
+          <p class="lead">Tisztelt Miniszter úr!
+          </p>
+          <p class="lead">Ma, az antirasszista világnapon civil szervezetekkel, jogvédőkkel, aktivistákkal világítunk rá
+            a
+            miskolci szegénytelepeken élőket érintő súlyos jogsértésekre, a gettósodás és a nyomor fokozódására. Arra
+            hívjuk fel a
+            figyelmet, hogy az önkormányzat feladata lenne az emberhez méltó lakhatási és életfeltételek megteremtése
+            Miskolc
+            szegényei számára.</p>
+          <p>De hogy pontosan mekkora is a baj, az nem világos. A betegek körében rémhírek és túlélési tanácsok
+            terjengenek, a
+            médiában horrortörténetek jelennek meg, míg a hivatalos állítások szerint minden rendben megy. Hiányzik az
+            őszinte
+            kommunikáció, a tájékoztatás és hiányoznak a megbízható adatok. Nem tudja a beteg, mikor és mire vár, nem
+            tudja, hogy
+            mi történik vele, és hogy ami megtörtént, az rendben van-e. Nem tudja, hogy amikor arra hivatkoznak a
+            politikusok,
+            hogy tesznek az egészségügy javításáért, akkor valóban tesznek-e. Arról sem tudunk, hogy ha lesz is
+            fejlődés,
+            azt
+            mihez mérhetjük – ugyanis nincsenek adataink az egészségügy jelenlegi helyzetéről.
+          </p>
+          <p>Annak ellenére, hogy végre a kormány is elismerte, hogy az egészségügy egyik legégetőbb problémája a
+            kórházi
+            fertőzések ügye, mind a mai napig nem érhetők el az erről szóló, részletes és mindenki számára érthető
+            adatok.
+            Az
+            évente kötelező jelentések közzétételével rendszeresen heteket csúsznak. A közzétett adatsorokat alig páran
+            érthetik,
+            és egyébként is kérdéses, hogy mennyire megbízhatók. Nem tudhatjuk, hogy évről évre javul vagy romlik a
+            helyzet, a
+            kormányzati szervek zavaros sikerkommunikációját szakmai szervezetek rendre cáfolják. Nem ismerhetők az
+            adatok
+            kórházanként, megyénként, ellátási áganként, pedig ez lenne az alapja a hiteles tájékoztatásnak.
+          </p>
+          <p>A titkolózás rendszere a kórházak, egészségügyi szolgáltatók számára is mélységesen ártalmas és megalázó.
+          </p>
+          <p>A problémák letagadása és elkendőzése nemcsak ártalmas, hanem jogellenes is. Az adófizetők forintjaiból
+            fenntartott
+            egészségügy adatai, így a kórházi fertőzésekre vonatkozó adatok is közérdekű adatok, amiket nyilvánosságra
+            kell hozni.
+          </p>
+          <p>Ráadásul hiába ígér a kormány javulást a kórházi fertőzések ügyében, ha nem tudhatjuk, honnan indultunk és
+            nem tudjuk
+            összevetni a jövőbeni adatokat a jelenlegiekkel, a javulást sem tudjuk észlelni.
+          </p>
+          <p>Üdvözöljük, hogy a kormány már felismerte a problémát és állítása szerint tenni is szándékozik a helyzet
+            javítása
+            érdekében. Azonban a javulás első lépcsőfoka a tisztánlátás. Az eredmények csak akkor ellenőrizhetők, ha
+            ismerjük a
+            kiindulópontot és a folyamat nyomon követhető a közvélemény számára.
+          </p>
+          <p>A kórházi fertőzések hazai helyzete az egészségügy számos válságtünetének eredménye. A kórházak rossz
+            felszereltségétől az orvosok és szakdolgozók hiányáig élesen rámutat arra, hogy a kormány elhanyagolja az
+            egészségügyet, ami a polgárok alapvető jogait sérti. Ezért petíciónkban azt kérjük, hogy első lépésként a
+            kórházi
+            fertőzésekre vonatkozó adatokat összehasonlítható, közérthető és hiteles módon, haladéktalanul hozzák
+            nyilvánosságra!
+            Kérjük továbbá, hogy az adatsorokat legfeljebb negyedévente frissítsék!</p>
+
+        </div><!--peticio-body__wrapper-->
+        <!-- <div class="peticio-show"></div> -->
+        <div><a class="peticio-show" href="#peticio-header"></a></div>
+      </div><!--peticio-body-->
+
+      <div class="legal-body">
+        <!--open-->
+        <!-- <div><a class="legal-show" href="#legal-header"></a></div> -->
+        <div><div class="legal-show"></div></div>
+        <div class="legal-body__wrapper">
+          <h2 id="legal-header">Adatvédelmi tájékoztató</h2>
+          <p>Jelen petíció aláírásával Ön kifejezetten hozzájárul, hogy megadott adatait (vezetéknév, keresztnév,
+            emailcím, a petíció aláírásának ténye) a Társaság a Szabadságjogokért (TASZ) a honlapján feltüntetett
+            Általános Adatvédelmi Tájékoztatóban foglaltak szerint kezelje. Az adatkezelés célja a petíció társadalmi
+            hatásának növelése, és az Általános Adatvédelmi Tájékoztatóban feltüntetett módon a Weboldal látogatói
+            adatok
+            elemzése, illetve – amennyiben Ön hírlevélre is feliratkozik – a hírlevél feliratkozás pontjainál
+            meghatározott célok. A petíció aláírásakor Ön által megadott adatok közül a nevét és a petíció aláírásának
+            tényét a petíció címzettjének, az egészségügyért felelős miniszternek továbbítjuk, és a petíció oldalán
+            nyilvánossá tesszük. Ehhez a petíció aláírójának a kifejezett hozzájárulását megadottnak tekintjük.
+            Emailcímét
+            nem továbbítjuk és nem hozzuk nyilvánosságra. Ön bármikor jogosult arra, hogy tájékoztatást kérjen adatai
+            kezeléséről, helyesbíttesse vagy töröltesse azokat, tiltakozzon adatai kezelése ellen, illetve az
+            adatkezeléshez adott hozzájárulását emailben, a tasz@tasz.hu emailcímre küldött, ilyen tartalmú levelével
+            visszavonja. A hozzájárulás visszavonása nem érinti a hozzájáruláson alapuló, a visszavonás előtti
+            adatkezelés
+            jogszerűségét. Adatait a hozzájárulás visszavonásáig vagy a töröltetéséig kezeljük. Amennyiben úgy ítéli
+            meg,
+            hogy az adatkezelő TASZ a jogait megsértette, a Nemzeti Adatvédelmi és Információszabadság Hatósághoz
+            fordulhat.</p>
+        </div>
+        <!-- <div><a class="legal-show"></a></div> -->
+      </div>
+      <!--legal-->
     </div>
     <!-- article content -->
 
@@ -107,7 +193,7 @@
         <a href="#" class="social__messenger">Megosztás Messengeren</a>
       </div>
       <div class="social__copylink">
-        <a href="#" >Link másolása</a>
+        <a href="#">Link másolása</a>
       </div>
     </div>
   </div>
@@ -115,40 +201,41 @@
 
 
   <footer>
-      <nav class="footerNav1">
-        <ul>
-          <li class="logo"><a href="#">Társaság a Szabadságjogokért</a></li>
-          <li class="support"><a href="#">Támogass</a></li>
-          <li class="lang"><a href="#" lang="en">In English</a></li>
-        </ul>
-      </nav>
-      <nav class="footerNav2">
-        <h3>A szervezetről</h3>
-        <ul>
-          <li><a href="#">A <span class="tasz">Tasz</span> fő tevékenységei</a></li>
-          <li><a href="#">Szervezeti felépítés</a></li>
-          <li><a href="#">A <span class="tasz">Tasz</span> elnöksége</a></li>
-          <li><a href="#">A <span class="tasz">Tasz</span> tanácsadói</a></li>
-          <li><a href="#">Felügyelő bizottság</a></li>
-          <li><a href="#">A <span class="tasz">Tasz</span> története</a></li>
-          <li><a href="#">Munkatársak</a></li>
-        </ul>
-      </nav>
-      <nav class="footerNav3">
-        <h3>Hasznos információk</h3>
-        <ul>
-          <li><a href="#">Beszámolók, kimutatások, szabályzatok</a></li>
-          <li><a href="#">Alapszabály</a></li>
-          <li><a href="#">A <span class="tasz">Tasz</span> gazdálkodása</a></li>
-          <li><a href="#">Éves jelentések, Annual Reports</a></li>
-          <li><a href="#">Kiemelt támogatóink és pártolóink</a></li>
-          <li><a href="#">Nemzetközi kapcsolatok</a></li>
-          <li><a href="#">A <span class="tasz">Tasz</span> és a pártok</a></li>
-        </ul>
-      </nav>
-      <div class="impressum">
-        © 2017 TASZ ⎮ Minden jog fenntartva. Adatvédelem és Felhasználási feltételek ⎮  Készítette: Farm Studio Kft.
-      </div>
+    <nav class="footerNav1">
+      <ul>
+        <li class="logo"><a href="#">Társaság a Szabadságjogokért</a></li>
+        <li class="support"><a href="#">Támogass</a></li>
+        <li class="lang"><a href="#" lang="en">In English</a></li>
+      </ul>
+    </nav>
+    <nav class="footerNav2">
+      <h3>A szervezetről</h3>
+      <ul>
+        <li><a href="#">A <span class="tasz">Tasz</span> fő tevékenységei</a></li>
+        <li><a href="#">Szervezeti felépítés</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> elnöksége</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> tanácsadói</a></li>
+        <li><a href="#">Felügyelő bizottság</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> története</a></li>
+        <li><a href="#">Munkatársak</a></li>
+      </ul>
+    </nav>
+    <nav class="footerNav3">
+      <h3>Hasznos információk</h3>
+      <ul>
+        <li><a href="#">Beszámolók, kimutatások, szabályzatok</a></li>
+        <li><a href="#">Alapszabály</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> gazdálkodása</a></li>
+        <li><a href="#">Éves jelentések, Annual Reports</a></li>
+        <li><a href="#">Kiemelt támogatóink és pártolóink</a></li>
+        <li><a href="#">Nemzetközi kapcsolatok</a></li>
+        <li><a href="#">A <span class="tasz">Tasz</span> és a pártok</a></li>
+      </ul>
+    </nav>
+    <div class="impressum">
+      © 2017 TASZ ⎮ Minden jog fenntartva. Adatvédelem és Felhasználási feltételek ⎮ Készítette: Farm Studio Kft.
+    </div>
   </footer>
 </body>
+
 </html>
