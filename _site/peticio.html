@@ -85,9 +85,9 @@
         <img src="https://unsplash.it/812/480" alt="An awesome picture">
         <!-- <figcaption>fig kapson</figcaption> -->
       </figure>
-      <div class="peticio-body">
+      <div class="peticio-text hidable"  id="peticio-header" data-minheight="320">
         <!--open-->
-        <div id="peticio-header" class="peticio-body__wrapper">
+        <div  class="hidable-wrapper">
           <p class="lead">Tisztelt Miniszter úr!
           </p>
           <p class="lead">Ma, az antirasszista világnapon civil szervezetekkel, jogvédőkkel, aktivistákkal világítunk rá
@@ -150,15 +150,16 @@
 
         </div><!--peticio-body__wrapper-->
         <!-- <div class="peticio-show"></div> -->
-        <div><a class="peticio-show" href="#peticio-header"></a></div>
+        <a href="#peticio-header" class="hidable-toggle"></a>
       </div><!--peticio-body-->
 
-      <div class="legal-body">
+      <div id="legal-header" class="legal-text hidable">
         <!--open-->
         <!-- <div><a class="legal-show" href="#legal-header"></a></div> -->
-        <div><div class="legal-show"></div></div>
-        <div class="legal-body__wrapper">
-          <h2 id="legal-header">Adatvédelmi tájékoztató</h2>
+        <!-- <div class="hidable-toggle"> <div></div> </div> -->
+        <a class="hidable-toggle" href="#legal-header"></a>
+        <div class="hidable-wrapper">
+          <h2 >Adatvédelmi tájékoztató</h2>
           <p>Jelen petíció aláírásával Ön kifejezetten hozzájárul, hogy megadott adatait (vezetéknév, keresztnév,
             emailcím, a petíció aláírásának ténye) a Társaság a Szabadságjogokért (TASZ) a honlapján feltüntetett
             Általános Adatvédelmi Tájékoztatóban foglaltak szerint kezelje. Az adatkezelés célja a petíció társadalmi

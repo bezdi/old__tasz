@@ -1,24 +1,59 @@
-let removeOpenBp = 960;
+let hidablesBp = 960;// 0 means no breakpoint
 
-function removeOpenClass() {
-    if ($(document).width() >= removeOpenBp) {
-        $('.peticio-body').removeClass("open");
-        $('.legal-body').removeClass("open");
-        // $('body').removeClass("blacko--on");
+function setHidablesHeight() {
+    $('.hidable').each(function(){
+
+        let $wrapper = $(this).children('.hidable-wrapper');
+
+        if ( $(this).hasClass('open') ) {
+            $wrapper.css('maxHeight',$wrapper[0].scrollHeight);
+
+        } else if ($(this).data('minheight') > 0) {
+            $wrapper.css('maxHeight',$(this).data('minheight')+'px');
+
+        } else {
+            $wrapper.css('maxHeight','0');
+        }
+
+    });
+}
+
+function initHidables() {
+    if ($(document).width() >= hidablesBp && hidablesBp > 0) {
+
+        $('.hidable').each(function(){ 
+            // $(this).removeClass("open");
+            $(this).children('.hidable-wrapper').css('maxHeight','inherit');
+        });
+
+    } else {
+        setHidablesHeight();
     }
 }
 
 $(function () {
-    // removeOpenClass();
-    console.log('works');
+
+    initHidables();
+
     $(window).resize(function () {
-        removeOpenClass();
+        initHidables();
     });
-    $('.peticio-show').click(function(){
-        $('.peticio-body').toggleClass('open');
-    });
-    $('.legal-show').click(function(){
-        $('.legal-body').toggleClass('open');
+
+    //hidable toggle
+    $('.hidable').each(function(){
+
+        $(this).children('.hidable-toggle').on('click',function() {
+
+            $(this).parent().toggleClass('open');
+
+            setHidablesHeight();
+
+            $('html, body').animate({
+                scrollTop: $(this).parent().offset().top
+            }, 350);
+
+        });
+        
     });
 
 });
