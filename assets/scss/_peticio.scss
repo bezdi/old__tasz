@@ -56,9 +56,7 @@
             border-radius: 4px;
             padding-top: 2em;
             display: block;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
+            
         }
 
         .form-item-textarea textarea, .form-item-textfield input[type=email], .form-item-textfield input[type=number], .form-item-textfield input[type=text] {
@@ -269,6 +267,11 @@
             .hidable-toggle {
                 display: none;
             }
+        }
+        .peticioform form {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
         }
         
     }

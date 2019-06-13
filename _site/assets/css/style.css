@@ -4746,9 +4746,6 @@ body > footer .impressum::before {
   border-radius: 4px;
   padding-top: 2em;
   display: block;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
 }
 
 .article.peticio .peticioform .form-item-textarea textarea, .article.peticio .peticioform .form-item-textfield input[type=email], .article.peticio .peticioform .form-item-textfield input[type=number], .article.peticio .peticioform .form-item-textfield input[type=text] {
@@ -5115,6 +5112,11 @@ body > footer .impressum::before {
   }
   .article.peticio .peticio-text.hidable .hidable-toggle {
     display: none;
+  }
+  .article.peticio .peticioform form {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
 }
 
