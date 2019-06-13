@@ -4646,6 +4646,7 @@ body > footer .impressum::before {
 
 .article.peticio {
   background-color: #fff;
+  overflow: inherit;
 }
 
 @media (min-width: 1120px) {
@@ -4693,6 +4694,10 @@ body > footer .impressum::before {
 }
 
 .article.peticio .peticioform {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
   min-height: 16px;
   float: left;
   margin-left: 1rem;
@@ -4740,6 +4745,10 @@ body > footer .impressum::before {
   background-color: #fcecb8;
   border-radius: 4px;
   padding-top: 2em;
+  display: block;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .article.peticio .peticioform .form-item-textarea textarea, .article.peticio .peticioform .form-item-textfield input[type=email], .article.peticio .peticioform .form-item-textfield input[type=number], .article.peticio .peticioform .form-item-textfield input[type=text] {
