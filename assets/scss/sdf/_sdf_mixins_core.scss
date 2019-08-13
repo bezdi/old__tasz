@@ -317,4 +317,83 @@
 }//col
 
 
-//
+
+
+/// Remove the unit of a value
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function stripUnit($value) {
+    @if type-of($value)=='number' and not unitless($value) {
+        @return $value / ($value * 0 + 1);
+    }
+    @return $value;
+}
+@function parseBreakPoint($bp) {
+    @if type-of($bp) == 'string' {
+        // @debug "parser says it's a string"; 
+        @if $bp == 'xs' {
+            $bp: 0;
+        } @else if $bp == 'sm' {
+            $bp: stripUnit($bp-sm);
+        } @else if $bp == 'md' {
+            $bp: stripUnit($bp-md);
+        } @else if $bp == 'lg' {
+            $bp: stripUnit($bp-lg);
+        } @else if $bp == 'xl' {
+            $bp: stripUnit($bp-xl);
+        } @else {
+            @error '> > > parseBreakPoint - invalid input: (#{$bp}) < < <';
+        }
+    }
+    @return stripUnit($bp); 
+}
+
+//media query (mq) mixin
+//dependencies: stripUnit(), parseBreakPoint()
+@mixin mq($from:0,$to:0) {
+
+    //parse $to if string 
+    @if $to == 'xs' {
+        $to: 'sm';
+    } @else if $to == 'sm' {
+        $to: 'md';
+    } @else if $to == 'md' {
+        $to: 'lg';
+    }  @else if $to == 'lg' {
+        $to: 'xl';
+    }  @else if $to == 'xl' {
+        $to: '0';
+    } 
+
+    //parse inputs
+    $from: parseBreakPoint($from);
+    $to: parseBreakPoint($to);
+    
+    //determin method
+    @if $from > 0 AND $to == 0 {
+        // @debug '/// min. width';
+        @media (min-width: #{$from}px) {
+            @content;
+        }
+    } @else if $from == 0 AND $to > 0 {
+        // @debug '/// max. width';
+        @media (max-width: #{$to - .25}px) {
+            @content;
+        }
+    } @else if $from > 0 AND $to > 0 AND $from < $to {
+        // @debug '/// range';
+        @media (min-width: #{$from}px) and (max-width: #{$to - .25}px) {
+            @content;
+        }
+        // @debug 'to: #{$to - .25}';
+    } @else if $from == 0 AND $to == 0 {
+        @warn '! ! ! mq mixin is pointless, both input is 0 ! ! !';
+        @content;
+
+    ///error handling
+    } @else if $from >= $to {
+        @error '> > > mq - first input (#{$from}) must be smaller than second input (#{$to}) < < <';
+    } @else {
+        @error '> > > mq - unexpected error :( from: #{$from}, to: #{$to} < < < ';
+    }
+}//media query (mq) mixin

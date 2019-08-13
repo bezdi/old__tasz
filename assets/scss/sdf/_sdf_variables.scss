@@ -25,6 +25,12 @@ $bp-7: $bp-1 + $bp-step * 7 !default;
 $bp-8: $bp-1 + $bp-step * 9 !default;
 $bp-9: $bp-1 + $bp-step * 12 !default;
 
+//breakpoints (min-width) for mq mixin
+$bp-sm: 576px !default;
+$bp-md: 768px !default;
+$bp-lg: 992px !default;
+$bp-xl: 1200px !default;
+
 
 
 /////////////////////////////////////
@@ -38,3 +44,5 @@ $rootFontSizePx: 16!default;//px, no unit
 $improvedFontSmoothing: true;
 //https://gist.github.com/hsleonis/55712b0eafc9b25f1944 by hsleonis
 $fontFamily: "'Tinos', serif" !default;
+
+

@@ -1,0 +1,141 @@
+$siteMaxWidth: 1024px !default;
+$gutter: 16px !default;
+
+.container {
+    @include mq($siteMaxWidth,0) {
+        padding-right: calc(50% - #{$siteMaxWidth} / 2);
+        padding-left: calc(50% - #{$siteMaxWidth} / 2);
+        .row {
+            margin-right: -$gutter;
+            margin-left: -$gutter;
+        }
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    padding-right: $gutter;
+    padding-left: $gutter;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.article.tasz25 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.tasz25section {
+    
+}
+
+.tasz25 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    h1 {
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        margin-top: 0;
+        position: relative;
+        @include typoBaseline(26,3,5,9,16);
+        &::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            bottom: -28px;
+            left: 0;
+            height: 5px;
+            width: 140px;
+            background-color: $c-black;
+        }
+    }
+    h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 0;
+        @include typoBaseline(26,2,5,9);
+        position: relative;
+        &::after {
+            content: ' ';
+            background: $color-yellow01;
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 148px;
+            height: 4px;
+        }
+    }
+    h3 {
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+    }
+    @include mq(md,0) {
+        font-size: 18px;
+        h1 {
+            @include typoBaseline(42,4,6,11,18);
+        }
+    }
+    .how div.col, .wehelp div.col, .what div.col {
+        text-transform: uppercase;
+        line-height: 1.4;
+    }
+}//tasz25 typo
+
+.tasz25 section {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    @include mq($siteMaxWidth,0) {
+        padding-top: 4em;
+        padding-bottom: 4em;
+        padding-right: calc(50% - #{$siteMaxWidth}px / 2);
+        padding-left: calc(50% - #{$siteMaxWidth}px / 2);
+    }
+}
+.tasz25 header.col {
+    margin-bottom: 4em;
+}
+
+.how, .what {
+    background-color: $color-yellow00;
+    div.col {
+        text-align: center;
+    }
+    svg {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+}
+.wehelp {
+}
+.how, .what, .wehelp {
+    div.col {
+        margin-bottom: 3em;
+    }
+}
+
+
+@include mq(sm,0) {
+    .how div.col, .what div.col {
+        width: 50%;
+    }
+}
+
+@include mq(lg,0) {
+    .how div.col, .what div.col {
+        width: 33.33333333%;
+    }
+    .wehelp div.col {
+        max-width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .dotgrid.col {
+        max-width: 66.6666666%;
+    }
+}
+

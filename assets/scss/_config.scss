@@ -86,3 +86,9 @@ $spacing3s: $spacing2!default;
 $spacing4s: $spacing3!default;
 $spacing5s: $spacing4!default;
 $spacingBp: 4!default;
+
+//breakpoints (min-width) for mq mixin
+$bp-sm: 576px !default;
+$bp-md: 768px !default;
+$bp-lg: 992px !default;
+$bp-xl: 1200px !default;

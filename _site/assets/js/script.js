@@ -39,9 +39,8 @@ $(function () {
         initHidables();
     });
 
-    //hidable toggle
     $('.hidable').each(function(){
-
+        
         $(this).children('.hidable-toggle').on('click',function() {
 
             $(this).parent().toggleClass('open');
@@ -51,9 +50,22 @@ $(function () {
             $('html, body').animate({
                 scrollTop: $(this).parent().offset().top
             }, 350);
-
+            
         });
         
     });
+    //hidable toggle
+
+    $('.dot').each(function(){
+        $(this).on('click',function(){
+            if ( $(this).hasClass('active') ) {
+                $(this).removeClass('active');
+            } else {
+                $('.dot.active').removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+    });
+    //dotgrid
 
 });

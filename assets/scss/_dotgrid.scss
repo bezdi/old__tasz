@@ -1,0 +1,68 @@
+$dotBorderWidth: 3px !default;
+$dotBorderColor: rgba(256,0,0,.5) !default;
+$subDotBorderWidth: 3px !default;
+$subDotBorderColor: rgba(0,256,0,.5) !default;
+
+.dotgrid, .subdots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    // grid-auto-columns: minmax(128px,1fr);
+    // grid-auto-columns: 128px;
+    grid-auto-flow: dense;
+    transition: all .2s ease-in;
+    grid-column-gap: $gutter;
+    grid-row-gap: $gutter;
+}
+.dotgrid * {
+    box-sizing: border-box;
+}
+
+.subdots {
+    display: none;
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+.dot.active + .subdots {
+    display: block;
+    display: grid;
+    // justify-content: center;
+    // flex-wrap: wrap;
+    border: $subDotBorderWidth solid $subDotBorderColor;
+}
+
+.dot, .subdot {
+    border-radius: 100%;
+    border: $dotBorderWidth solid $dotBorderColor;
+    width: 128px;
+    height: 128px;
+    cursor: pointer;
+    position: relative;
+}
+.dot__wrapper, .subdot__wrapper {
+    cursor: initial;
+}
+.subdot {
+    border: $subDotBorderWidth solid $subDotBorderColor;
+    // margin-left: $gutter;
+    // margin-right: $gutter;
+    
+}
+
+
+.dot.active {
+    &::after {
+        content: ' ';
+        display: block;
+        background-color: $dotBorderColor;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: $dotBorderWidth;
+        height: 16px;
+        bottom: -19px;
+    }
+}
+
+
