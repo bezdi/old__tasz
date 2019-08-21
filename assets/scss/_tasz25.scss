@@ -118,6 +118,159 @@ $gutter: 16px !default;
     }
 }
 
+.bigdot {
+    font-size: 16px;
+    position: fixed;
+    border-radius: 100%;
+    width: 20em;
+    height: 20em;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin: auto;
+    background-color: $color-green;
+    display: none;
+    z-index: 11;
+    .image {
+        width: 9.5em;
+        height: 9.5em;
+        margin: 0 auto -.5em;
+        border-radius: 100%;
+        overflow: hidden;
+        position: relative;
+        top: -1em;
+        border: 4px solid $color-green;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        &::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-shadow: inset 0px 0px 0px 8px rgba(255,255,255,1);
+            border-radius: 100%;
+            
+        }
+    }
+    .name, .text {
+        width: 15em;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.875em;
+    }
+    .text {
+        max-height: 10.5ch;
+        overflow: hidden;
+        font-style: italic;
+    }
+    .name {
+        text-transform: uppercase;
+        margin-bottom: 1.5em;
+        position: relative;
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -.75em;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 32px;
+            height: 3px;
+            background-color: #fff;
+        }
+    }
+    .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: 4px solid $color-green;
+        background-color: #fff;
+        width: 44px;
+        height: 44px;
+        border-radius: 100%;
+        cursor: pointer;
+        svg {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 6px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+}
+.subdots {
+    border-radius: 32px;
+    // justify-items: center;
+}
+.subdots.active .bigdot {
+    display: block;
+}
+.dot, .subdot {
+    margin: $gutter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+}
+.dot__name {
+    display: none;
+}
+.dot.active .dot__name {
+    display: block;
+}
+.dot__name, .subdot__name {
+    text-align: center;
+    max-width: 95%;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.dot {
+    background-color: $color-yellow01;
+    border: 0;
+    position: relative;
+    &.active {
+        background-color: $color-green;
+    }
+}
+.dot__number {
+    position: absolute;
+    font-size: 4em;
+    color: rgba(#fff, $alpha: 0.4);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    height: 1em;
+    text-align: center;
+    line-height: 1;
+}
+.subdot {
+    border: 0;
+    background-color: rgba($color-green, $alpha: 0.5);
+    &.active {
+        background-color: $color-green;
+
+    }
+}
+
 
 @include mq(sm,0) {
     .how div.col, .what div.col {
@@ -137,5 +290,43 @@ $gutter: 16px !default;
     .dotgrid.col {
         max-width: 66.6666666%;
     }
+    .bigdot {
+        position: absolute;
+        right: -21em;
+        margin: 0;
+        left: inherit;
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .subdots.active::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -32px;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 32px;
+        height: 3px;
+        background-color: $color-green;
+    }
 }
-
+.siteoverlay {
+    display: none;
+}
+@include mq(0,md) {
+    .subdot-open .siteoverlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($color-black, $alpha: 0.8);
+        z-index: 10;
+        // pointer-events: none;
+        display: block; 
+    }
+}

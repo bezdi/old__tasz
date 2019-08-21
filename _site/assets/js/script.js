@@ -59,13 +59,37 @@ $(function () {
     $('.dot').each(function(){
         $(this).on('click',function(){
             if ( $(this).hasClass('active') ) {
-                $(this).removeClass('active');
+                $('.subdot, .subdots, .dot').removeClass('active');
+                $('body').removeClass('subdot-open');
             } else {
-                $('.dot.active').removeClass('active');
+                $('.subdot, .subdots, .dot').removeClass('active');
                 $(this).addClass('active');
+                $('body').removeClass('subdot-open');
             }
         });
     });
-    //dotgrid
+    //dotgrid dot
+    $('.subdot').each(function(){
+        $(this).on('click',function(){
+            if ( $(this).hasClass('active') ) {
+                $(this).removeClass('active').parent().removeClass('active');
+                $('body').removeClass('subdot-open');
+            } else {
+                $('.subdot.active').removeClass('active');
+                $(this).addClass('active').parent().addClass('active');
+                $('body').addClass('subdot-open');
+            }
+        });
+    });
+    //dotgrid dot
+
+    $('.bigdot .close').each(function(){
+        $(this).on('click',function(){
+            $('.subdot, .subdots').removeClass('active');
+            $('body').removeClass('subdot-open');
+        });
+    });
+    
+
 
 });

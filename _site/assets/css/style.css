@@ -5122,7 +5122,7 @@ body > footer .impressum::before {
 
 .dotgrid, .subdots {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
   grid-auto-flow: dense;
   transition: all .2s ease-in;
   grid-column-gap: 1rem;
@@ -5137,17 +5137,18 @@ body > footer .impressum::before {
   display: none;
   grid-column-start: 1;
   grid-column-end: -1;
+  position: relative;
 }
 
 .dot.active + .subdots {
   display: block;
   display: grid;
-  border: 3px solid rgba(0, 255, 0, 0.5);
+  border: 3px solid #a9ecda;
 }
 
 .dot, .subdot {
   border-radius: 100%;
-  border: 3px solid rgba(255, 0, 0, 0.5);
+  border: 3px solid #a9ecda;
   width: 128px;
   height: 128px;
   cursor: pointer;
@@ -5159,21 +5160,21 @@ body > footer .impressum::before {
 }
 
 .subdot {
-  border: 3px solid rgba(0, 255, 0, 0.5);
+  border: 3px solid #a9ecda;
 }
 
 .dot.active::after {
   content: ' ';
   display: block;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: #a9ecda;
   position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   width: 3px;
-  height: 16px;
-  bottom: -19px;
+  height: 22px;
+  bottom: -22px;
 }
 
 @media (min-width: 1386px) {
@@ -5311,6 +5312,173 @@ body > footer .impressum::before {
   margin-bottom: 3em;
 }
 
+.bigdot {
+  font-size: 16px;
+  position: fixed;
+  border-radius: 100%;
+  width: 20em;
+  height: 20em;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #a9ecda;
+  display: none;
+  z-index: 11;
+}
+
+.bigdot .image {
+  width: 9.5em;
+  height: 9.5em;
+  margin: 0 auto -.5em;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+  top: -1em;
+  border: 4px solid #a9ecda;
+}
+
+.bigdot .image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bigdot .image::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0px 0px 0px 8px white;
+  border-radius: 100%;
+}
+
+.bigdot .name, .bigdot .text {
+  width: 15em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+.bigdot .text {
+  max-height: 10.5ch;
+  overflow: hidden;
+  font-style: italic;
+}
+
+.bigdot .name {
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+  position: relative;
+}
+
+.bigdot .name::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -.75em;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 32px;
+  height: 3px;
+  background-color: #fff;
+}
+
+.bigdot .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 4px solid #a9ecda;
+  background-color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.bigdot .close svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  width: 24px;
+  height: 24px;
+}
+
+.subdots {
+  border-radius: 32px;
+}
+
+.subdots.active .bigdot {
+  display: block;
+}
+
+.dot, .subdot {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+
+.dot__name {
+  display: none;
+}
+
+.dot.active .dot__name {
+  display: block;
+}
+
+.dot__name, .subdot__name {
+  text-align: center;
+  max-width: 95%;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.dot {
+  background-color: #f9c114;
+  border: 0;
+  position: relative;
+}
+
+.dot.active {
+  background-color: #a9ecda;
+}
+
+.dot__number {
+  position: absolute;
+  font-size: 4em;
+  color: rgba(255, 255, 255, 0.4);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: block;
+  height: 1em;
+  text-align: center;
+  line-height: 1;
+}
+
+.subdot {
+  border: 0;
+  background-color: rgba(169, 236, 218, 0.5);
+}
+
+.subdot.active {
+  background-color: #a9ecda;
+}
+
 @media (min-width: 576px) {
   .how div.col, .what div.col {
     width: 50%;
@@ -5328,6 +5496,46 @@ body > footer .impressum::before {
   }
   .dotgrid.col {
     max-width: 66.6666666%;
+  }
+  .bigdot {
+    position: absolute;
+    right: -21em;
+    margin: 0;
+    left: inherit;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .subdots.active::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -32px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 32px;
+    height: 3px;
+    background-color: #a9ecda;
+  }
+}
+
+.siteoverlay {
+  display: none;
+}
+
+@media (max-width: 991.75px) {
+  .subdot-open .siteoverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(42, 43, 42, 0.8);
+    z-index: 10;
+    display: block;
   }
 }
 
