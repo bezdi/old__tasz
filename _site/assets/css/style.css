@@ -5193,6 +5193,10 @@ body > footer .impressum::before {
   flex-wrap: wrap;
 }
 
+.row--dots {
+  align-items: flex-start;
+}
+
 .col {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -5309,6 +5313,10 @@ body > footer .impressum::before {
 }
 
 .how div.col, .what div.col, .wehelp div.col {
+  margin-bottom: 3em;
+}
+
+.col.dotgrid {
   margin-bottom: 3em;
 }
 
@@ -5479,6 +5487,42 @@ body > footer .impressum::before {
   background-color: #a9ecda;
 }
 
+.col.dotaside {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  background-color: #fcecb8;
+  transition: opacity ease-in .25s;
+}
+
+.col.dotaside .dotaside-wrapper {
+  padding: 1em;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.col.dotaside h2 {
+  font-size: 1.44444em;
+  padding: 1em 4em 1em 2em;
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  left: -19px;
+}
+
+.col.dotaside h2::after {
+  left: 19px;
+  bottom: -38px;
+  width: 80px;
+}
+
+.subdot-open .col.dotaside {
+  opacity: 0;
+}
+
 @media (min-width: 576px) {
   .how div.col, .what div.col {
     width: 50%;
@@ -5496,6 +5540,9 @@ body > footer .impressum::before {
   }
   .dotgrid.col {
     max-width: 66.6666666%;
+  }
+  .dotaside.col {
+    max-width: 33.3333333%;
   }
   .bigdot {
     position: absolute;

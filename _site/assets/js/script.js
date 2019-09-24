@@ -81,7 +81,7 @@ $(function () {
             }
         });
     });
-    //dotgrid dot
+    //subdot
 
     $('.bigdot .close').each(function(){
         $(this).on('click',function(){

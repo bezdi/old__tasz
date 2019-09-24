@@ -16,7 +16,9 @@ $gutter: 16px !default;
     display: flex;
     flex-wrap: wrap;
 }
-
+.row--dots {
+    align-items: flex-start;
+}
 .col {
     padding-right: $gutter;
     padding-left: $gutter;
@@ -116,6 +118,9 @@ $gutter: 16px !default;
     div.col {
         margin-bottom: 3em;
     }
+}
+.col.dotgrid {
+    margin-bottom: 3em;
 }
 
 .bigdot {
@@ -270,7 +275,37 @@ $gutter: 16px !default;
 
     }
 }
-
+.col.dotaside {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    background-color: $color-yellow00;
+    transition: opacity ease-in .25s;
+    .dotaside-wrapper {
+        padding: 1em;
+        font-size: 18px;
+        text-transform: uppercase;
+        line-height: 1.5;
+        overflow: hidden;
+    }
+    h2 {
+        font-size: 1.44444em;
+        padding: 1em 4em 1em 2em;
+        background-color: #fff;
+        display: inline-block;
+        position: relative;
+        left: -19px;
+        &::after {
+            left: 19px;
+            bottom: -38px;
+            width: 80px;
+        }
+    }
+}
+.subdot-open .col.dotaside {
+    opacity: 0;
+}
 
 @include mq(sm,0) {
     .how div.col, .what div.col {
@@ -289,6 +324,10 @@ $gutter: 16px !default;
     }
     .dotgrid.col {
         max-width: 66.6666666%;
+        
+    }
+    .dotaside.col {
+        max-width: 33.3333333%;
     }
     .bigdot {
         position: absolute;
@@ -317,6 +356,7 @@ $gutter: 16px !default;
 .siteoverlay {
     display: none;
 }
+
 @include mq(0,md) {
     .subdot-open .siteoverlay {
         position: fixed;
@@ -326,7 +366,7 @@ $gutter: 16px !default;
         left: 0;
         background-color: rgba($color-black, $alpha: 0.8);
         z-index: 10;
-        // pointer-events: none;
         display: block; 
+
     }
 }
