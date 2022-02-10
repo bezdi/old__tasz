@@ -27,7 +27,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svg-sprite": "^1.5.0",
     "jquery": "^3.4.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "tailwindcss": "^0.7.4",
     "webpack": "^4.29.6"
   },
