@@ -34,7 +34,7 @@
   "dependencies": {
     "jquery-mousewheel": "^3.1.13",
     "normalize.css": "^8.0.1",
-    "npm": "^6.10.3",
+    "npm": "^6.14.18",
     "owl.carousel": "^2.3.4"
   }
 }
